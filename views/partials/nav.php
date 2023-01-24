@@ -37,3 +37,4 @@
         </div>
     </div>
 </nav>
+<script src="views/js/main.js"></script>

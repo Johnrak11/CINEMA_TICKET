@@ -13,14 +13,21 @@ $username = "";
 $address = "";
 $date = "";
 // --------------------if correct conditions----------------------
-$usernameValid = false;
-$emailValid = false;
-$passwordValid = false;
-$dateValid = false;
-$addressValid = false;
+$usernameValid = true;
+    $emailValid = true;
+    $passwordValid = true;
+    $dateValid = true;
+    $addressValid = true;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // --------------------if correct conditions----------------------
+    $usernameValid = false;
+    $emailValid = false;
+    $passwordValid = false;
+    $dateValid = false;
+    $addressValid = false;
     // --------------------email-------------------
+    
     if (isset($_POST['email'])) {
         if (empty($_POST['email'])) {
             $emailError = 'email must be input';
@@ -73,14 +80,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $dateError = "date incorrect";
         }
     }
+    if ($emailValid && $passwordValid && $usernameValid && $dateValid && $addressValid) {
+        $username = htmlspecialchars($_POST['username']);
+        $email = htmlspecialchars($_POST['email']);
+        $address = htmlspecialchars($_POST['address']);
+        $date = htmlspecialchars($_POST['date']);
+        $password = htmlspecialchars($_POST['password']);
+    }
 }
-if ($emailValid && $passwordValid && $usernameValid && $dateValid && $addressValid) {
-    $username = htmlspecialchars($_POST['username']);
-    $email = htmlspecialchars($_POST['email']);
-    $address = htmlspecialchars($_POST['address']);
-    $date = htmlspecialchars($_POST['date']);
-    $password = htmlspecialchars($_POST['password']);
-}
-echo $emailValid . $passwordValid . $usernameValid . $dateValid . $addressValid;
-
-?>
