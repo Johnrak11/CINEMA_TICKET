@@ -5,4 +5,6 @@ require_once('views/partials/footer.php');
 
 
 
+// require_once('views/formes/register_form.view.php');
+
 ?>
