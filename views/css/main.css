@@ -1,3 +1,15 @@
+body{
+    display: flex;
+    padding: 0;
+    height: auto;
+    margin: 0;
+    font-family: avenir;
+    flex-direction: column;
+}
+#banner-container {
+    position: relative;
+    top: 65px;
+}
 
 .nav-link {
     transition: 0.3s ease-out;
@@ -96,4 +108,9 @@
     .nav-menu.active {
         left: 0;
     }
+}
+footer{
+    background-color: #262626;
+    margin-top: 50px;
+    padding: 30px;
 }

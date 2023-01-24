@@ -1,5 +1,5 @@
 
-<div class="w-[100%]">
+<div class="w-[100%] " id="banner-container">
     <div class="relative h-[60vh] w-[100%]" style="overflow-x: hidden; overflow-y: hidden;">
         <div class="slide relative w-full">
             <img class="w-full h-[65vh] object-cover"
