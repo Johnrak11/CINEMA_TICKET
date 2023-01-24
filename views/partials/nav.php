@@ -14,8 +14,8 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
-        <div class="items-center justify-between md:flex  md:order-1" >
-            <div class=" items-center  justify-between" >
+        <div class="items-center justify-between md:flex  md:order-1">
+            <div class=" items-center  justify-between">
                 <ul class="nav-menu flex md:flex-row md:space-x-8 md:text-xl md:font-medium ">
                     <li class="nav-item login">
                         <a href="#" class="nav-link py-1 dark:text-white hover:text-red-700">Login</a>

@@ -1,5 +1,3 @@
-<?php require_once "../partials/head.php" ?>
-<?php require_once "../partials/nav.php" ?>
 
 <div class="w-[100%]">
     <div class="relative h-[60vh] w-[100%]" style="overflow-x: hidden; overflow-y: hidden;">

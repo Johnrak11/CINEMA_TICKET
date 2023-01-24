@@ -26,7 +26,6 @@ domAdress.addEventListener('keyup', function (e) {
 
 
 function validateBorder(borderError, textError) {
-    console.log('hello')
     borderError.style.border = "1px solid white";
     textError.textContent = ""
 }
