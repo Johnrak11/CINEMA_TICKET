@@ -9,7 +9,7 @@ session_start();
         </a>
         <div class="flex items-center md:order-2">
             <?php
-            if (isset($_SESSION['email']) and isset($_SESSION['password'])) {
+            if (isset($_SESSION['username']) and isset($_SESSION['id'])) {
             ?>
                 <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
