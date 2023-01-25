@@ -2,10 +2,10 @@
     <div class="container flex flex-wrap items-center justify-between mx-auto">
         <a href="#" class="flex items-center">
             <!-- <img src="#" class="h-6 mr-3 sm:h-9"> -->
-            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">CINEMA</span>
+            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"> CINEMA </span>
         </a>
         <div class=" flex md:order-2 ">
-            <a class="register text-white hover:text-red-700  font-medium  text-xl px-5 py-2.5 text-center mr-3 md:mr-0">
+            <a href="login" class="register text-white hover:text-red-700  font-medium  text-xl px-5 py-2.5 text-center mr-3 md:mr-0" id="nav-register">
                 LOGIN
             </a>
         </div>
@@ -17,8 +17,8 @@
         <div class="items-center justify-between md:flex  md:order-1">
             <div class=" items-center  justify-between">
                 <ul class="nav-menu flex md:flex-row md:space-x-8 md:text-xl md:font-medium ">
-                    <li class="nav-item login">
-                        <a href="#" class="nav-link py-1 dark:text-white hover:text-red-700">Login</a>
+                    <li class="nav-item login" >
+                        <a href="login" class="nav-link py-1 dark:text-white hover:text-red-700" id="nav-register">Login</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link py-1 dark:text-white hover:text-red-700">Home</a>

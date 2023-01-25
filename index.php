@@ -1,3 +1,5 @@
 <?php
-require_once('views/home/index.view.php');
+require_once("database/database.php");
+require_once('router.php');
+
 ?>
