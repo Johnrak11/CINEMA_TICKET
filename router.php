@@ -6,7 +6,8 @@ $router = [
     "/" => "controllers/home/index.controller.php",    
     "/about" => "controllers/about.php",    
     "/contact" => "controllers/contact.php",    
-    "/login" => "controllers/forms/register.controller.php",    
+    "/register" => "controllers/forms/register.controller.php",    
+    "/login" => "controllers/forms/login.controller.php",    
 ];
 
 function not_found($code = 404) 

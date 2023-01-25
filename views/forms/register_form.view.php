@@ -25,7 +25,7 @@ require_once('views/partials/head.php');
                <input name="address" id="address" class=" appearance-none border <?php echo $addressValid ?  'border-white' : 'border-red-600' ?> rounded w-full py-2 px-3 mt-2 bg-slate-800" type="text" placeholder="Address">
                <small class=" text-red-500 " id="addressError"> <?= $addressError ?> </small>
                <button class="bg-red-600 mt-2  p-3 w-full rounded-1xl" style="border-radius:5px;" type="submit"> CREATE ACCOUNT</button>
-               <span class="flex justify-center p-1 mt--10 text-sm">Already have an account <a href="register" class="text-purple-600">? login</a></span>
+               <span class="flex justify-center p-1 mt--10 text-sm">Already have an account <a href="login" class="text-purple-600">? login</a></span>
           </form>
      </div>
 </div>
