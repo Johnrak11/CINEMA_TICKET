@@ -9,7 +9,7 @@ require_once('views/partials/head.php');
                     <h3 class="text-xl font-bold "> WELLCOME BACK</h3>
                </div>
                <form action="" class="m-5">
-                    <input class=" appearance-none border rounded w-full py-2 px-3 mt-5 bg-slate-800 " id="username" type="text" name="username" placeholder="Username">
+                    <input class=" appearance-none border rounded w-full py-2 px-3 mt-5 bg-slate-800 " id="email" type="text" name="email" placeholder="Email address">
                     <p></p>
                     <input class=" appearance-none border rounded w-full py-2 px-3 mt-5 bg-slate-800 mb-3" id="password" type="password" name="password" placeholder="Your password">
                     <p></p>
