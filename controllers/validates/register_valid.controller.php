@@ -1,4 +1,5 @@
 <?php
+session_start();
 $emailError = "";
 $passwordError = "";
 $usernameError = "";
@@ -84,17 +85,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $address = htmlspecialchars($_POST['address']);
         $date = htmlspecialchars($_POST['date']);
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-        $user = getUsers();
+        $users = getUsers();
         $emailExist = true;
-        foreach ($user as $user) {
+        foreach ($users as $user) {
             if (strcmp(trim($user['email'], " "), trim($_POST['email'], " ")) === 0) {
                 $emailError = "email already exists";
                 $emailExist = false;
             }
         }
         if ($emailExist) {
-            createUser($username, $email, $password, $date, $address);
-            header('location: /');
+            $newUser = createUser($username, $email, $password, $date, $address);
+            $isCustomer = getUser($newUser);
+            // Login time is stored in a session variable 
+            if ($isCustomer['role'] === 'customer') {
+                createCustomer($newUser);
+                $_SESSION["email"] = $email;  
+                $_SESSION["id"] = $newUser;  
+                // $_SESSION["login_time_stamp"] = time();
+                header('location: /');
+            }
+            
         }
     };
 };
