@@ -35,8 +35,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     if ($emailValid && $passwordValid) {
         $email = htmlspecialchars($_POST['email']);
-        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $password = $_POST['password'];
         // code here
-        
+        $users = getUsers();
+        $emailExist = false;
+        $passwordExist = false;
+        foreach ($users as $user) {
+            if (strcmp(trim($user['email'], " "), trim($_POST['email'], " ")) === 0 ) {
+                $emailExist = true;
+            }
+            else{
+                $emailError = 'Incorrect email address';
+            }
+            if (password_verify($password,$user['password']) && $emailExist) {
+                $passwordExist = true;
+            }else{
+                $passwordError = 'Incorrect password';
+            }
+        }
+        if ($emailExist && $passwordExist) {
+            header('Location: /' );
+        }
     }
 };
