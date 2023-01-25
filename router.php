@@ -8,6 +8,8 @@ $router = [
     "/contact" => "controllers/contact.php",    
     "/register" => "controllers/forms/register.controller.php",    
     "/login" => "controllers/forms/login.controller.php",    
+    "/logout" => "controllers/forms/logout.controller.php",    
+
 ];
 
 function not_found($code = 404) 

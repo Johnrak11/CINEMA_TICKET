@@ -1,5 +1,8 @@
 <?php
 session_start();
+$_SESSION['email'] = 'text';
+$_SESSION['id'] = 'id';
+
 ?>
 <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
@@ -9,7 +12,7 @@ session_start();
         </a>
         <div class="flex items-center md:order-2">
             <?php
-            if (isset($_SESSION['email']) and isset($_SESSION['password'])) {
+            if (isset($_SESSION['email']) and isset($_SESSION['id'])) {
             ?>
                 <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
