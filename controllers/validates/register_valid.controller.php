@@ -83,18 +83,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = htmlspecialchars($_POST['email']);
         $address = htmlspecialchars($_POST['address']);
         $date = htmlspecialchars($_POST['date']);
-        echo $date;
-        $password = htmlspecialchars($_POST['password']);
+        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $user = getUsers();
         $emailExist = true;
         foreach ($user as $user) {
-            if (strcmp(trim($user['email'], " "), trim($_POST['email'], " ") ) === 0) {
+            if (strcmp(trim($user['email'], " "), trim($_POST['email'], " ")) === 0) {
                 $emailError = "email already exists";
                 $emailExist = false;
             }
         }
         if ($emailExist) {
-            createUser($username,$email,$password,$date, $address);
+            createUser($username, $email, $password, $date, $address);
             header('location: /');
         }
     };
