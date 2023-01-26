@@ -7,6 +7,7 @@ $router = [
     "/about" => "controllers/about.php",    
     "/contact" => "controllers/contact.php",    
     "/register" => "controllers/forms/register.controller.php",    
+    "/show" => "controllers/pages/show.controller.php",    
     "/login" => "controllers/forms/login.controller.php",    
     "/logout" => "controllers/forms/logout.controller.php",    
 ];
