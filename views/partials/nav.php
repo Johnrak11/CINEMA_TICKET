@@ -1,16 +1,16 @@
 <?php
 ?>
 <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
-    <div class="container flex flex-wrap items-center justify-between mx-auto">
-        <a href="https://flowbite.com/" class="flex items-center">
+    <div class="container flex flex-wrap items-center justify-between">
+        <a href="https://flowbite.com/" class="flex items-center ml-10">
             <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">CINEMA</span>
         </a>
-        <div class="flex items-center md:order-2">
+        <div class="flex items-center md:order-2 mr-10">
             <?php
             if (isset($_COOKIE['email']) and isset($_COOKIE['id'])) {
             ?>
-                <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 p-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
                     <img id="profile-user" class="w-8 h-8 rounded-full" src='views/images/user_account.png' alt="user photo">
                 </button>
@@ -18,7 +18,7 @@
             <?php
             } else {
             ?>
-                <a href="/login"><button type="button" class="text-white bg-red-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-red-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Login</button></a>
+                <a href="/login"><button type="button" class=" text-white bg-red-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-red-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Login</button></a>
                 <a href="" class="hidden" id="profile-user"></a>
             <?php
             }
