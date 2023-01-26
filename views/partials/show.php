@@ -12,7 +12,7 @@
       <div class="card"><img src="<?= "views/images/" . $listShows[$i]['image'] ?>" />
         <div class="info">
           <h1><?= $listShows[$i]['name'] ?></h1>
-          <button>More detail</button>
+          <button><a href="/detail?id=<?= $listShows[$i]['id'] ?>">More detail</a></button>
           <button>Get ticket</button>
         </div>
       </div>
