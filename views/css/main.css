@@ -1,7 +1,7 @@
 body {
     display: flex;
     padding: 0;
-    height: auto;
+    height: 100vh;
     margin: 0;
     font-family: avenir;
     flex-direction: column;
@@ -61,6 +61,8 @@ dialog {
     overflow: hidden;
     display: flex;
 } */
+
+    
 
 @media(max-width:900px) {
     .hamburger {
