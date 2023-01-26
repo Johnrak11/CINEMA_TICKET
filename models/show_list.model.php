@@ -4,5 +4,8 @@ function show_list() : array
     global $connection;
     $statement = $connection->prepare("select * from shows");
     $statement->execute();
-    return $statement->fetchAll();
+    $show_lists = $statement->fetchAll();
+    return $show_lists;
 }
+
+

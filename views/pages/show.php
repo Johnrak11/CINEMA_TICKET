@@ -56,34 +56,8 @@ button{
         <a href="" class="hover:bg-red-600 px-5 py-2 rounded-full">SHOWS COMING</a>
         <a href="" class="hover:bg-red-600 px-5 py-2 rounded-full">CONCERT</a>
     </div>
-    <div class="flex gap-12 flex-wrap mt-5 ml-[7%] mr-[7%]">
-        <div class="container-card cursor-pointer p-2">
-            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/arctic-dogs-1564417919.jpg?crop=0.9876543209876543xw:1xh;center,top&resize=480:*" alt="Avatar" class="image rounded-lg" style="width:100%">
-            <div class="middle">
-                <!-- <h1 class="text-3xl text-white">HELLO THE BEST TEAM</h1> -->
-                <button class="text">Get ticket</button>
-            </div>
-        </div>
-        <div class="container-card cursor-pointer p-2">
-            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/arctic-dogs-1564417919.jpg?crop=0.9876543209876543xw:1xh;center,top&resize=480:*" alt="Avatar" class="image rounded-lg" style="width:100%">
-            <div class="middle">
-                <!-- <h1 class="text-3xl text-white">HELLO THE BEST TEAM</h1> -->
-                <button class="text">Get ticket</button>
-            </div>
-        </div>
-        <div class="container-card cursor-pointer p-2">
-            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/arctic-dogs-1564417919.jpg?crop=0.9876543209876543xw:1xh;center,top&resize=480:*" alt="Avatar" class="image rounded-lg" style="width:100%">
-            <div class="middle">
-                <!-- <h1 class="text-3xl text-white">HELLO THE BEST TEAM</h1> -->
-                <button class="text">Get ticket</button>
-            </div>
-        </div>
-        <div class="container-card cursor-pointer p-2">
-            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/arctic-dogs-1564417919.jpg?crop=0.9876543209876543xw:1xh;center,top&resize=480:*" alt="Avatar" class="image rounded-lg" style="width:100%">
-            <div class="middle">
-                <!-- <h1 class="text-3xl text-white">HELLO THE BEST TEAM</h1> -->
-                <button class="text">Get ticket</button>
-            </div>
-        </div>
-    </div>
+    
 </div>
+  
+
+}
