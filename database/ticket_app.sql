@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2023 at 08:58 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Jan 26, 2023 at 12:23 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,6 +32,13 @@ CREATE TABLE `customers` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `user_id`) VALUES
+(2, 9);
+
 -- --------------------------------------------------------
 
 --
@@ -42,18 +49,51 @@ CREATE TABLE `shows` (
   `id` int(11) NOT NULL,
   `name` varchar(40) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `time` datetime NOT NULL,
   `image` varchar(50) NOT NULL,
-  `venue_id` int(11) NOT NULL
+  `venue_id` int(11) NOT NULL,
+  `author` varchar(20) NOT NULL,
+  `trailer` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `shows`
 --
 
-INSERT INTO `shows` (`id`, `name`, `description`, `time`, `image`, `venue_id`) VALUES
-(1, 'avatar-2', 'laor nas', '2023-01-23 05:23:32', 'phn099', 1),
-(2, 'top gun', 'ot laormerl', '2023-01-23 05:23:32', 'pnc019', 1);
+INSERT INTO `shows` (`id`, `name`, `description`, `image`, `venue_id`, `author`, `trailer`) VALUES
+(1, 'avatar-2', 'laor nas', 'phn099.png', 1, '', ''),
+(2, 'top gun', 'ot laormerl', 'phn099.png', 1, '', ''),
+(3, 'Avatar-2 advenger and game', 'fwrvwrbr', 'phn099.png', 2, '', ''),
+(4, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
+(5, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
+(6, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
+(7, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
+(8, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
+(9, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
+(10, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
+(11, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
+(12, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
+(13, 'vorak', 'hekkun', 'phn099.png', 1, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `show_times`
+--
+
+CREATE TABLE `show_times` (
+  `id` int(11) NOT NULL,
+  `time` varchar(10) NOT NULL,
+  `date` date NOT NULL,
+  `show_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `show_times`
+--
+
+INSERT INTO `show_times` (`id`, `time`, `date`, `show_id`) VALUES
+(3, '20:45', '2023-01-01', 2),
+(4, '10:30', '2023-01-01', 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +129,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `date_of_birth`, `role`, `address`) VALUES
-(8, 'Sovanda', 'vandasophal36@gmail.com', '$2y$10$7Oy31zTEEtSOY8Vk1Nsn7.Nban5DuqqlM/1T7DkTqszvPOHJ8yjB6', '2023-01-01', 'customer', 'Prey veng');
+(8, 'Sovanda', 'vandasophal36@gmail.com', '$2y$10$7Oy31zTEEtSOY8Vk1Nsn7.Nban5DuqqlM/1T7DkTqszvPOHJ8yjB6', '2023-01-01', 'customer', 'Prey veng'),
+(9, 'Demo', 'demo@gmail.com', '$2y$10$aQmMtMCOJWjYBldebpPaKuskB45ZWKtuB/2b2Lm/u04kbFYFXirHi', '2023-01-01', 'customer', 'vbksfjvwiuvkgjw');
 
 -- --------------------------------------------------------
 
@@ -130,6 +171,13 @@ ALTER TABLE `shows`
   ADD KEY `venue_id` (`venue_id`);
 
 --
+-- Indexes for table `show_times`
+--
+ALTER TABLE `show_times`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `show_id` (`show_id`);
+
+--
 -- Indexes for table `tickets`
 --
 ALTER TABLE `tickets`
@@ -157,13 +205,19 @@ ALTER TABLE `venues`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `shows`
 --
 ALTER TABLE `shows`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `show_times`
+--
+ALTER TABLE `show_times`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tickets`
@@ -175,7 +229,7 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `venues`
@@ -198,6 +252,12 @@ ALTER TABLE `customers`
 --
 ALTER TABLE `shows`
   ADD CONSTRAINT `shows_ibfk_1` FOREIGN KEY (`venue_id`) REFERENCES `venues` (`id`);
+
+--
+-- Constraints for table `show_times`
+--
+ALTER TABLE `show_times`
+  ADD CONSTRAINT `show_times_ibfk_1` FOREIGN KEY (`show_id`) REFERENCES `shows` (`id`);
 
 --
 -- Constraints for table `tickets`

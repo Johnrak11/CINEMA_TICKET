@@ -7,8 +7,8 @@
                 <p class="text-3xl">TIME TO START WATCHING</p>
                 <h1 class="text-5xl">AVERTAR</h1>
                 <div class="mt-10">
-                    <a href="#" class="bg-red-800 py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Get ticket</a>
-                    <a href="#" class="bg-red-800 py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">View trailer</a>
+                    <a href="#" class="bg-red-800 py-3 px-3 hover:scale-75 hover:animate-bounce text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" style="border-radius: 20px;">Get ticket</a>
+                    <a href="#" class="bg-red-800 py-3 px-3 hover:scale-75 hover:animate-bounce text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" style="border-radius: 20px;">View trailer</a>
                 </div>
             </div>
         </div>
@@ -20,8 +20,8 @@
                 <p class="text-3xl">TIME TO START WATCHING</p>
                 <h1 class="text-5xl">MOANA</h1>
                 <div class="mt-10">
-                    <a href="#" class="bg-red-800 py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Get ticket</a>
-                    <a href="#" class="bg-red-800 py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">View trailer</a>
+                    <a href="#" class="bg-red-800 py-3 px-3 hover:scale-75 hover:animate-bounce text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" style="border-radius: 20px;">Get ticket</a>
+                    <a href="#" class="bg-red-800 py-3 px-3 hover:scale-75 hover:animate-bounce text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" style="border-radius: 20px;">View trailer</a>
                 </div>
             </div>
         </div>
@@ -33,8 +33,8 @@
                 <p class="text-3xl">TIME TO START WATCHING</p>
                 <h1 class="text-5xl">The Last of Us - Season 1</h1>
                 <div class="mt-10">
-                    <a href="#" class="bg-red-800 py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Get ticket</a>
-                    <a href="#" class="bg-red-800 py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">View trailer</a>
+                    <a href="#" class="bg-red-800 py-3 px-3 hover:scale-75 hover:animate-bounce text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 " style="border-radius: 20px;">Get ticket</a>
+                    <a href="#" class="bg-red-800 py-3 px-3 hover:scale-75 hover:animate-bounce text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 " style="border-radius: 20px;">View trailer</a>
                 </div>
             </div>
         </div>
@@ -45,8 +45,8 @@
                 <p class="text-3xl">TIME TO START WATCHING</p>
                 <h1 class="text-5xl uppercase">Unforgettable Love</h1>
                 <div class="mt-10">
-                    <a href="#" class="bg-red-800 py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">Get ticket</a>
-                    <a href="#" class="bg-red-800 py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">View trailer</a>
+                    <a href="#" class="bg-red-800 py-3 px-3 hover:scale-75 hover:animate-bounce text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" style="border-radius: 20px;">Get ticket</a>
+                    <a href="#" class="bg-red-800 py-3 px-3 hover:scale-75 hover:animate-bounce text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" style="border-radius: 20px;"  >View trailer</a>
                 </div>
             </div>
         </div>

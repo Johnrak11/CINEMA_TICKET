@@ -1,5 +1,5 @@
-<footer class="mr-[4%]  ml-[4%] ">
-    <div class="justify-between">
+<footer class="bg-black">
+    <div class="justify-between mr-[4%]  ml-[4%]">
         <div class="flex justify-between">
             <div>
                 <h2 class="mb-6 text-sm font-Avenir  text-gray-100 uppercase dark:text-white ">Resources</h2>
@@ -48,7 +48,7 @@
         </div>
     </div>
     <hr class="my-6 border-gray-300 sm:mx-auto dark:border-gray-700 lg:my-8" />
-    <div class="sm:flex sm:items-center sm:justify-between">
+    <div class="sm:flex sm:items-center sm:justify-between mr-[4%]  ml-[4%]">
         <span class="text-sm text-gray-100 sm:text-center dark:text-gray-100">CINEMA SHOW</span>
         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
             <a href="#" class="text-gray-200 hover:text-gray-900 dark:hover:text-white">
