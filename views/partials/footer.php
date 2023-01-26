@@ -1,4 +1,4 @@
-<footer>
+<footer class="mr-[4%]  ml-[4%] ">
     <div class="justify-between">
         <div class="flex justify-between">
             <div>
