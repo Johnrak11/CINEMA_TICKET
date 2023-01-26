@@ -45,10 +45,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $emailExist = true;
             }
             else{
-                $emailError = 'Incorrect email address';
+                $emailError = 'Email does not exist';
             }
             if (password_verify($password,$user['password']) && $emailExist) {
                 $passwordExist = true;
+                setcookie('email',$user['email'] ,time() + 86400*5);
+                setcookie('id',$user['id'] ,time() + 86400*5);
             }else{
                 $passwordError = 'Incorrect password';
             }

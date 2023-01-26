@@ -1,5 +1,4 @@
 <?php
-session_start();
 $emailError = "";
 $passwordError = "";
 $usernameError = "";
@@ -99,8 +98,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Login time is stored in a session variable 
             if ($isCustomer['role'] === 'customer') {
                 createCustomer($newUser);
-                $_SESSION["email"] = $email;  
-                $_SESSION["id"] = $newUser;  
+                setcookie('email',$email ,time() + 86400*5);
+                setcookie('id',$newUser ,time() + 86400*5); 
                 // $_SESSION["login_time_stamp"] = time();
                 header('location: /');
             }

@@ -10,12 +10,22 @@ body {
 
 #banner-container {
     position: relative;
-    top: 65px;
+    top: 1px;
 }
-#dropdown-menu{
-    position:absolute;
+
+#dropdown-menu {
+    position: absolute;
     right: 25px;
     top: 35px;
+}
+
+#background-hide {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 30;
 }
 
 /* ----------------------------------dialog----------------- */
@@ -43,6 +53,7 @@ dialog {
     overflow: hidden;
     display: flex;
 } */
+
 @media(max-width:900px) {
     .hamburger {
         display: block;

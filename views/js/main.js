@@ -13,7 +13,7 @@ let domDropdown = document.querySelector('#hidden')
 let domProfile = document.querySelector('#profile-user')
 domProfile.addEventListener("click", (e) => {
     domDropdown.style.display = "block";
-    console.log(e.target)
+    
 
 });
 domDropdown.addEventListener("click", (e) => {
