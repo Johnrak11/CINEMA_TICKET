@@ -38,7 +38,7 @@ body {
 .card {
     width: 21.6%;
     height: 360px;
-    border-radius: 15px;
+    border-radius: 20px;
     padding: 1.5rem;
     background: white;
     position: relative;
@@ -112,8 +112,10 @@ body {
 }
 
 .card .info button {
-    padding: 0.6rem;
+    padding: 0.5rem;
     outline: none;
+    align-self: center;
+    width: 90%;
     border: none;
     border-radius: 20px;
     background: white;
