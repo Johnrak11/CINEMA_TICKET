@@ -87,7 +87,8 @@
         <i class="material-icons " style = "font-size: 30px; color:white; " id= "clare-search">clear</i>
    </div>
    <h1 class = "text-xl ml-[10%] font-bold text-white">Search Result</h1>
-  <ul class = "result-search text-white" id="show_list">
+  <ul class = "result-search text-white">
+    <li><a href="#">hello</a></li>
   </ul>
 
 </div>
