@@ -1,6 +1,6 @@
 <?php
 ?>
-<nav  id='navbar' class=" bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+<nav  id='navbar' class=" bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-black">
     <div class="container flex flex-wrap items-center justify-between">
         <a href="https://flowbite.com/" class="flex items-center ml-10">
             <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
@@ -18,7 +18,7 @@
             <?php
             } else {
             ?>
-                <a href="/login"><button type="button" class=" text-white bg-red-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-red-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Login</button></a>
+                <a href="/login"><button type="button" class="hover:scale-75 hover:animate-bounce  text-white bg-red-800 hover:bg-white focus:ring-4 focus:outline-none focus:ring-red-800 font-medium rounded-3xl text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-red-800 dark:hover:bg-white hover:text-black dark:focus:ring-gray-800">Login</button></a>
                 <a href="" class="hidden" id="profile-user"></a>
             <?php
             }
@@ -51,18 +51,18 @@
             </button>
         </div>
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
-            <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-black md:dark:bg-black dark:border-black">
                 <li>
-                    <a href="/" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg <?php echo urlIs('/') ? "md:text-blue-400" : "text-white" ?>">Home</a>
+                    <a href="/" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:animate-bounce text-white rounded hover:text-red-600 text-lg <?php echo urlIs('/') ? "md:text-red-600 text-2xl " : "text-white" ?>">Home</a>
                 </li>
                 <li>
-                    <a href="/show" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg <?php echo urlIs('/show') ? "md:text-blue-400" : "text-white" ?>">Show</a>
+                    <a href="/show" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:animate-bounce text-white rounded hover:text-red-600 text-lg <?php echo urlIs('/show') ? "md:text-red-600 text-2xl " : "text-white" ?>">Show</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg <?php echo urlIs('') ? "md:text-blue-400" : "text-white" ?>">About</a>
+                    <a href="#" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:animate-bounce text-white rounded hover:text-red-600 text-lg <?php echo urlIs('') ? "md:text-red-600 text-2xl " : "text-white" ?>">About</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-lg <?php echo urlIs('') ? "md:text-blue-400" : "text-white" ?>" >Contact</a>
+                    <a href="#" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:animate-bounce text-white rounded hover:text-red-600 text-lg <?php echo urlIs('') ? "md:text-red-600 text-2xl " : "text-white" ?>" >Contact</a>
                 </li>
             </ul>
         </div>
