@@ -4,10 +4,10 @@ require_once('views/partials/head.php');
 <style>
      
 </style>
-<div class= "h-full flex justify-center items-center" style="background-image: url('views/images/register_background.jpg'); background-size: cover; background-position: center;">
+<div class= "h-full flex justify-center items-center" style="background-image: url('views/images/components_image/register_background.jpg'); background-size: cover; background-position: center;">
      <div class=" flex flex-col bg-gray-900 border-t-4 border-red-600 w-2/6 h-fit rounded-2xl rounded-tl-2 text-white shadow-2xl shadow-red-500 bg-opacity-50">
           <div class="flex flex-col justify-center items-center mt-3 ">
-               <img src="views/images/user_account.png" alt="" class="rounded-full w-20 h-20 mb-3	">
+               <img src="views/images/components_image/user_account.png" alt="" class="rounded-full w-20 h-20 mb-3	">
                <h3 class="text-xl"> CREATE YOUR ACOUNT</h3>
           </div>
           <form action="" id="forms" class="mr-6 ml-6" method="post">

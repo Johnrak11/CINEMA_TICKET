@@ -52,16 +52,16 @@
         <span class="text-sm text-gray-100 sm:text-center dark:text-gray-100">CINEMA SHOW</span>
         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
             <a href="#" class="text-gray-200 hover:text-gray-900 dark:hover:text-white">
-                <img class="w-7 h-7" src="views/images/fb.png" alt="">
+                <img class="w-7 h-7" src="views/images/components_image/fb.png" alt="">
             </a>
             <a href="#" class="text-gray-200 hover:text-gray-900 dark:hover:text-white">
-                <img class="w-7 h-7" src="views/images/in.png" alt="">
+                <img class="w-7 h-7" src="views/images/components_image/in.png" alt="">
             </a>
             <a href="#" class="text-gray-200 hover:text-gray-900 dark:hover:text-white">
-                <img class="w-7 h-7" src="views/images/twi.png" alt="">
+                <img class="w-7 h-7" src="views/images/components_image/twi.png" alt="">
             </a>
             <a href="#" class="text-gray-200 hover:text-gray-900 dark:hover:text-white">
-                <img class="w-7 h-7" src="views/images/yo.png" alt="">
+                <img class="w-7 h-7" src="views/images/components_image/yo.png" alt="">
             </a>
         </div>
     </div>
