@@ -49,7 +49,8 @@
     </div>
     <hr class="my-6 border-gray-300 sm:mx-auto dark:border-gray-700 lg:my-8" />
     <div class="sm:flex sm:items-center sm:justify-between mr-[4%]  ml-[4%]">
-        <span class="text-sm text-gray-100 sm:text-center dark:text-gray-100">CINEMA SHOW</span>
+        <img src="views/images/components_image/tickhub.png" class="w-24 mr-3 rounded-full" alt="">
+        <!-- <span class="text-sm text-gray-100 sm:text-center dark:text-gray-100">CINEMA SHOW</span> -->
         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
             <a href="#" class="text-gray-200 hover:text-gray-900 dark:hover:text-white">
                 <img class="w-7 h-7" src="views/images/components_image/fb.png" alt="">
