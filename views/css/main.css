@@ -110,7 +110,7 @@ body {
     text-align: center;
 }
 
-.card .info button {
+.card .info button ,.card .info #more-detail-btn {
     padding: 0.5rem;
     outline: none;
     border: none;
@@ -122,9 +122,10 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: 0.4s ease;
+    text-align: center;
 }
 
-.card .info button:hover {
+.card .info button:hover ,.card .info #more-detail-btn:hover {
     background: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
 }
