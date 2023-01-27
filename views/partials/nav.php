@@ -83,17 +83,11 @@
    <div class = "header-search flex  justify-center items-center">
         <img src="views/images/components_image/tickhub.png" class="w-20 mr-5 rounded-full " />
         <i class="material-icons " style = "font-size: 30px; color:white;">search</i>
-        <input type="text" class = "w-[60%] p-2 rounded-2xl ml-2 mr-2 bg-inherit border-2 text-white" placeholder = "Search showing...">
+        <input type="text" id="search" class = "w-[60%] p-2 rounded-2xl ml-2 mr-2 bg-inherit border-2 text-white" placeholder = "Search showing...">
         <i class="material-icons " style = "font-size: 30px; color:white; " id= "clare-search">clear</i>
    </div>
    <h1 class = "text-xl ml-[10%] font-bold text-white">Search Result</h1>
-  <ul class = "result-search text-white">
-    <li>hello</li>
-    <li>hello</li>
-    <li>hello</li>
-    <li>hello</li>
-    <li>hello</li>
-    <li>hello</li>
+  <ul class = "result-search text-white" id="show_list">
   </ul>
 
 </div>

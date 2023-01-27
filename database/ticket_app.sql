@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2023 at 12:23 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Generation Time: Jan 27, 2023 at 04:49 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +37,8 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `user_id`) VALUES
-(2, 9);
+(2, 9),
+(3, 10);
 
 -- --------------------------------------------------------
 
@@ -60,13 +61,13 @@ CREATE TABLE `shows` (
 --
 
 INSERT INTO `shows` (`id`, `name`, `description`, `image`, `venue_id`, `author`, `trailer`) VALUES
-(1, 'avatar-2', 'laor nas', 'phn099.png', 1, '', ''),
-(2, 'top gun', 'ot laormerl', 'phn099.png', 1, '', ''),
-(3, 'Avatar-2 advenger and game', 'fwrvwrbr', 'phn099.png', 2, '', ''),
-(4, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
+(1, ' Avatar: The Way of Water (2022)', 'Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na\'vi race to protect their home.', 'show13.jpg', 1, 'vanda', 'https://www.youtube.com/embed/d9MyW72ELq0'),
+(2, 'Top Gun: Maverick', 'After thirty years, Maverick is still pushing the envelope as a top naval aviator, but must confront ghosts of his past when he leads TOP GUN\'s elite graduates on a mission that demands the ultimate sacrifice from those chosen to fly it.', 'show31.jpg', 1, 'Vorak', 'https://www.youtube.com/embed/giXco2jaZ_4'),
+(3, 'Black Panther: Wakanda Forever', 'Queen Ramonda (Angela Bassett), Shuri (Letitia Wright), M\'Baku (Winston Duke), Okoye (Danai Gurira) and the Dora Milaje (including Florence Kasumba), fight to protect their nation from intervening world powers in the wake of King T\'Challa\'s death. As the ', 'show32.jpg', 2, '', 'https://www.youtube.com/embed/_Z3QKkl1WyM'),
+(4, 'Plane', 'A pilot finds himself caught in a war zone after he\'s forced to land his commercial aircraft during a terrible storm.', 'phn099.png', 1, '', 'https://www.youtube.com/embed/M25zXBIUVr0'),
 (5, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
 (6, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
-(7, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
+(7, 'vorak', '', 'phn099.png', 1, '', ''),
 (8, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
 (9, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
 (10, 'vorak', 'hekkun', 'phn099.png', 1, '', ''),
@@ -130,7 +131,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `date_of_birth`, `role`, `address`) VALUES
 (8, 'Sovanda', 'vandasophal36@gmail.com', '$2y$10$7Oy31zTEEtSOY8Vk1Nsn7.Nban5DuqqlM/1T7DkTqszvPOHJ8yjB6', '2023-01-01', 'customer', 'Prey veng'),
-(9, 'Demo', 'demo@gmail.com', '$2y$10$aQmMtMCOJWjYBldebpPaKuskB45ZWKtuB/2b2Lm/u04kbFYFXirHi', '2023-01-01', 'customer', 'vbksfjvwiuvkgjw');
+(9, 'Demo', 'demo@gmail.com', '$2y$10$aQmMtMCOJWjYBldebpPaKuskB45ZWKtuB/2b2Lm/u04kbFYFXirHi', '2023-01-01', 'customer', 'vbksfjvwiuvkgjw'),
+(10, 'Vanda', 'vanda@gmail.com', '$2y$10$MDp3Q4rQrBBgXL1ZP/hR9.4eVZMV9JiQwaoydwqGrqzXKL2a2XIi2', '2023-01-03', 'customer', 'Prey veng');
 
 -- --------------------------------------------------------
 
@@ -205,7 +207,7 @@ ALTER TABLE `venues`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `shows`
@@ -229,7 +231,7 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `venues`
