@@ -1,9 +1,9 @@
 <?php
 ?>
-<nav  id='navbar' class=" bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-black">
-    <div class="container flex flex-wrap items-center justify-between">
+<nav  id='navbar' class=" bg-white border-gray-200 px-2 py-2 rounded dark:bg-black">
+    <div class="flex flex-wrap items-center justify-between">
         <a href="/" class="flex items-center ml-10 rounded-full">
-            <img src="views/images/components_image/tickhub.png" class="w-20 mr-3 rounded-full" />
+            <img src="views/images/components_image/tickhub.png" class="h-14 mr-3 rounded-full" />
             <!-- <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">CINEMA</span> -->
         </a>
         <div class="flex items-center md:order-2 mr-10">
@@ -51,18 +51,18 @@
             </button>
         </div>
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
-            <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-black md:dark:bg-black dark:border-black">
+            <ul class="flex flex-col mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-black md:dark:bg-black dark:border-black">
                 <li>
-                    <a href="/" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:animate-bounce text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('/') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">Home</a>
+                    <a href="/" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:transition-all text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('/') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">Home</a>
                 </li>
                 <li>
-                    <a href="/show" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:animate-bounce text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('/show') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">Show</a>
+                    <a href="/show" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:transition-all text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('/show') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">Show</a>
                 </li>
                 <li>
-                    <a href="#" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:animate-bounce text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">About</a>
+                    <a href="#" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:transition-all text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">About</a>
                 </li>
                 <li>
-                    <a href="#" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:animate-bounce text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>" >Contact</a>
+                    <a href="#" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:transition-all text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>" >Contact</a>
                 </li>
             </ul>
         </div>
