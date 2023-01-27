@@ -13,7 +13,7 @@ require_once('views/partials/nav.php');
         </div>
         <div class="flex justify-center flex-col items-end mr-[10%] " style="flex:1;">
             <img id="right-card-container" src="<?= (file_exists("views/images/shows_image/" . $showDetail['image'])?"views/images/shows_image/" . $showDetail['image'] : "None" ) ?>" alt="" class="w-[70%] rounded-xl"><br>
-            <button class=" bg-red-600 py-3 px-3 text-white font-bold uppercase text-xs hover:bg-red-900 hover:text-white-800 w-[45%] mr-[13%] rounded-xl">Book Now</button>
+            <button class=" bg-[#ff0000] py-3 px-3 text-white font-bold uppercase text-xs hover:bg-white hover:text-black w-[45%] mr-[13%] rounded-xl">Book Now</button>
         </div>
     </div>
     <h1 class="flex-1 text-3xl ml-[10%] text-white">Trailler</h1>
@@ -25,7 +25,7 @@ require_once('views/partials/nav.php');
         <?php
         }else{
         ?>
-            <h1 class="text-red-600 text-2xl">No trailler</h1>
+            <h1 class="text-[#ff0000] text-2xl">No trailler</h1>
         <?php   
         }
         ?>
