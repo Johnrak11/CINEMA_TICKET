@@ -8,7 +8,7 @@
         </a>
        
         
-        <div class="flex justify-between items-center md:order-2   mr-10 w-[10%]">
+        <div class="flex justify-between items-center md:order-2 mr-10 w-[10%]">
             <div class = "text-white p-2 flex justify-center">
                     <i class="material-icons " style = "font-size: 30px;" id = "btn-search">search</i>
             </div>
@@ -23,7 +23,7 @@
             <?php
             } else {
             ?>
-                <a href="/login"><button type="button" class="hover:scale-75 hover:animate-bounce  text-white bg-[#ff0000] hover:bg-white focus:ring-4 focus:outline-none focus:ring-[#ff0000] font-medium rounded-3xl text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-[#ff0000] dark:hover:bg-white hover:text-black dark:focus:ring-gray-800">Login</button></a>
+                <a href="/login"><button type="button" class=" text-white bg-[#ff0000] hover:bg-white focus:ring-4 focus:outline-none focus:ring-[#ff0000] font-medium rounded-3xl text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-[#ff0000] dark:hover:bg-white hover:text-black dark:focus:ring-gray-800">Login</button></a>
                 <a href="" class="hidden" id="profile-user"></a>
             <?php
             }
@@ -62,16 +62,16 @@
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
             <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-black md:dark:bg-black dark:border-black">
                 <li>
-                    <a href="/" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:animate-bounce text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('/') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">Home</a>
+                    <a href="/" class="block bg-black py-2 pl-3 pr-4 text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('/') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">Home</a>
                 </li>
                 <li>
-                    <a href="/show" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:animate-bounce text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('/show') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">Show</a>
+                    <a href="/show" class="block bg-black py-2 pl-3 pr-4 text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('/show') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">Show</a>
                 </li>
                 <li>
-                    <a href="#" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:animate-bounce text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">About</a>
+                    <a href="#" class="block bg-black py-2 pl-3 pr-4 text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">About</a>
                 </li>
                 <li>
-                    <a href="#" class="block bg-black py-2 pl-3 pr-4 hover:scale-100 hover:animate-bounce text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>" >Contact</a>
+                    <a href="#" class="block bg-black py-2 pl-3 pr-4 text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>" >Contact</a>
                 </li>
             </ul>
         </div>
@@ -81,15 +81,16 @@
 </nav>
 <div class = "hidden p-7 " id = "search-container" >
    <div class = "header-search flex  justify-center items-center">
-        <img src="views/images/components_image/tickhub.png" class="w-20 mr-5 rounded-full " />
+        <img src="views/images/components_image/tickhub.png" class="w-20 mr-[6%] rounded-full " />
         <i class="material-icons " style = "font-size: 30px; color:white;">search</i>
         <input type="text" id="search" class = "w-[60%] p-2 rounded-2xl ml-2 mr-2 bg-inherit border-2 text-white" placeholder = "Search showing...">
         <i class="material-icons " style = "font-size: 30px; color:white; " id= "clare-search">clear</i>
    </div>
    <h1 class = "text-xl ml-[10%] font-bold text-white">Search Result</h1>
-  <ul class = "result-search text-white">
-    <li><a href="#">hello</a></li>
+  <ul class = "result-search text-white ml-36" id="show-list">
+    <!-- -------------Show Result Search--------------------  -->
   </ul>
 
 </div>
 <script src="views/js/main.js"></script>
+<script src="views/js/search.js"></script>
