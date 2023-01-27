@@ -142,7 +142,26 @@ iframe {
     transition: .5s;
     cursor: pointer;
 }
-
+#search-container{
+    z-index: 50;
+    position: fixed;
+    top:0;
+    right: 0;
+    left: 0;
+    background: black;
+    opacity: 90%;
+}
+.result-search{
+    margin-top: 3%;
+}
+.result-search li{
+    margin-bottom: 5px;
+    font-size: 20px;
+    margin-left: 10%;
+}
+i:hover, img:hover{
+    cursor: pointer;
+}
 footer {
     background-color: #262626;
     margin-top: 50px;

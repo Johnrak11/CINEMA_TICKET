@@ -6,7 +6,12 @@
             <img src="views/images/components_image/tickhub.png" class="w-20 mr-3 rounded-full" />
             <!-- <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">CINEMA</span> -->
         </a>
-        <div class="flex items-center md:order-2 mr-10">
+       
+        
+        <div class="flex justify-between items-center md:order-2   mr-10 w-[10%]">
+            <div class = "text-white p-2 flex justify-center">
+                    <i class="material-icons " style = "font-size: 30px;" id = "btn-search">search</i>
+            </div>
             <?php
             if (isset($_COOKIE['email']) and isset($_COOKIE['id'])) {
             ?>
@@ -23,6 +28,7 @@
             <?php
             }
             ?>
+           
             <!-- Dropdown menu -->
             <div id="hidden" class="hidden">
                 <div id="background-hide"></div>
@@ -42,6 +48,8 @@
                         </li>
                     </ul>
                 </div>
+                
+
             </div>
             <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
@@ -50,6 +58,7 @@
                 </svg>
             </button>
         </div>
+       
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
             <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-black md:dark:bg-black dark:border-black">
                 <li>
@@ -66,6 +75,26 @@
                 </li>
             </ul>
         </div>
+       
+       
     </div>
 </nav>
+<div class = "hidden p-7 " id = "search-container" >
+   <div class = "header-search flex  justify-center items-center">
+        <img src="views/images/components_image/tickhub.png" class="w-20 mr-5 rounded-full " />
+        <i class="material-icons " style = "font-size: 30px; color:white;">search</i>
+        <input type="text" class = "w-[60%] p-2 rounded-2xl ml-2 mr-2 bg-inherit border-2 text-white" placeholder = "Search showing...">
+        <i class="material-icons " style = "font-size: 30px; color:white; " id= "clare-search">clear</i>
+   </div>
+   <h1 class = "text-xl ml-[10%] font-bold text-white">Search Result</h1>
+  <ul class = "result-search text-white">
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+  </ul>
+
+</div>
 <script src="views/js/main.js"></script>
