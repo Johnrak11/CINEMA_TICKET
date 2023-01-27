@@ -6,7 +6,6 @@ function getUsers() : array
     $statement->execute();
     return $statement->fetchAll();
 }
-
 function createUser(string $username, string $email, string $password, string $date, string $address) : int
 {
     global $connection;
