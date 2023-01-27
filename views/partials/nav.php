@@ -88,12 +88,7 @@
    </div>
    <h1 class = "text-xl ml-[10%] font-bold text-white">Search Result</h1>
   <ul class = "result-search text-white">
-    <li>hello</li>
-    <li>hello</li>
-    <li>hello</li>
-    <li>hello</li>
-    <li>hello</li>
-    <li>hello</li>
+    <li><a href="#">hello</a></li>
   </ul>
 
 </div>
