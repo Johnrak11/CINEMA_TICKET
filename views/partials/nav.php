@@ -12,7 +12,7 @@
             ?>
                 <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 p-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
-                    <img id="profile-user" class="w-9 h-9 rounded-full" src='views/images/user_account.png' alt="user photo">
+                    <img id="profile-user" class="w-9 h-9 rounded-full" src='views/images/components_image/user_account.png' alt="user photo">
                 </button>
 
             <?php
