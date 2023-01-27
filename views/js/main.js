@@ -10,4 +10,3 @@ domDropdown.addEventListener("click", (e) => {
         domDropdown.style.display = "none";
     }
 });
-
