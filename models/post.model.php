@@ -24,7 +24,7 @@ function getPost(int $id) : array
 function getPosts() : array
 {
     global $connection;
-    $statement = $connection->prepare("select * from posts");
+    $statement = $connection->prepare("SELECT * FROM posts");
     $statement->execute();
     return $statement->fetchAll();
 }
@@ -32,7 +32,7 @@ function getPosts() : array
 function updatePost(string $title, string $description, int $id) : bool
 {
     global $connection;
-    $statement = $connection->prepare("update posts set title = :title, description = :description where id = :id");
+    $statement = $connection->prepare("UPDATE posts SET title = :title, description = :description WHERE id = :id");
     $statement->execute([
         ':title' => $title,
         ':description' => $description,
