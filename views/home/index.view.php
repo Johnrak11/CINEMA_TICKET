@@ -8,7 +8,7 @@ require_once('views/partials/banner.php');
 </div>
 <?php
 require_once('models/show_list.model.php');
-require_once('views/partials/show.php');    
+require_once('views/partials/show_home.php');    
 require_once('views/partials/footer.php');
 
 ?>
