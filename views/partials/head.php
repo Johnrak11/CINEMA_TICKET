@@ -10,6 +10,7 @@
   <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
   <link href="https://fonts.cdnfonts.com/css/avenir" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
   
 </head>
 <body>

@@ -15,7 +15,10 @@ require_once('views/partials/head.php');
                <small class="text-[#ff0000] mt--2" id="usernameError"> <?= $usernameError ?> </small>
                <input name="email" id='email' class="bg-opacity-0 appearance-none border <?php echo  $emailValid ?  'border-white' : 'border-red-600' ?> rounded w-full py-2 px-3 mt-2 bg-slate-800" style="border-radius:20px;" type="email" placeholder="Email address">
                <small class="text-[#ff0000]" id="emailError"> <?= $emailError ?> </small>
-               <input type="password" name="password" id="password" class="bg-opacity-0 appearance-none border <?php echo $passwordValid ?  'border-white' : 'border-red-600' ?> rounded w-full py-2 px-3 mt-2 bg-slate-800" style="border-radius:20px;" placeholder="Your password">
+               <div class="password-container flex relative">
+                    <input type="password" name="password" id="password" class="bg-opacity-0 appearance-none border <?php echo $passwordValid ?  'border-white' : 'border-red-600' ?> rounded w-full py-2 px-3 mt-2 bg-slate-800" style="border-radius:20px;" placeholder="Your password">
+                    <i class="bi bi-eye-slash" id="togglePassword" style="position:absolute;right:15px;top:33%;"></i>
+               </div>
                <small class="text-[#ff0000]" id="passwordError"> <?= $passwordError ?> </small>
                <input name="date" id="date" class="bg-opacity-0 appearance-none border <?php echo $dateValid ?  'border-white' : 'border-red-600' ?> rounded w-full py-2 px-3 mt-2 bg-slate-800" style="border-radius:20px;" type="date" placeholder="Date of bairt">
                <small class="text-[#ff0000]" id="dateError"> <?= $dateError ?> </small>
