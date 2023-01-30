@@ -1,4 +1,4 @@
-<div class="flex gap-12 flex-wrap mt-5 ml-[7%] mr-[7%]" id="card-show-container">
+<div class="flex gap-12 flex-wrap mt-[3%] ml-[7%] mr-[7%]" id="card-show-container">
     <?php
     $listShows = showList();
 
