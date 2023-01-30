@@ -3,7 +3,7 @@ require_once ("views/partials/head.php");
 require_once ("views/partials/nav.php");
 
 ?>
-<div class="flex mt-[6%] space-x-8 bg-gray-900 justify-center p-10 ml-80 mr-80 text-white bg-opacity-50 border-t-4 border-[#ff0000] rounded-2xl">
+<div class="flex mt-[6%] space-x-8 bg-gray-900 justify-center p-10 ml-80 mr-80 text-white bg-opacity-50 border-t-4 border-[#ff0000] rounded-2xl w-[60%]">
     <div>
         <br><br><br>
         <h1 class="uppercase text-2xl">Business development</h1><br>
