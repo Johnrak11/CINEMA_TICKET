@@ -71,7 +71,7 @@
                     <a href="#" class="block bg-black py-2 pl-3 pr-4 text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">About</a>
                 </li>
                 <li>
-                    <a href="#" class="block bg-black py-2 pl-3 pr-4 text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>" >Contact</a>
+                    <a href="/contact" class="block bg-black py-2 pl-3 pr-4 text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('/contact') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>" >Contact</a>
                 </li>
             </ul>
         </div>
