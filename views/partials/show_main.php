@@ -12,8 +12,8 @@
             <div class="card"><img src="<?= "views/images/shows_image/" . $listShows[$i]['image'] ?>" />
                 <div class="info">
                     <h1><?= $listShows[$i]['name'] ?></h1>
-                    <a id="more-detail-btn" href="<?= (isset($_COOKIE['email']) and isset($_COOKIE['id'])) ? "/detail?id=" . $listShows[$i]['id'] : "/login" ?>">More detail</a>
-                    <button>Get ticket</button>
+                    <a id="more-detail-btn" href="<?= "/detail?id=" . $listShows[$i]['id']  ?>">More detail</a>
+                    <a id="more-detail-btn" href="<?= (isset($_COOKIE['email']) and isset($_COOKIE['id'])) ? "#": "/login" ?>">Get ticket</a>
                 </div>
             </div>
     <?php

@@ -14,7 +14,7 @@ $router = [
 
 function not_found($code = 404) 
 {
-    require_once("views/$code.php");
+    require_once("views/errors/$code.php");
 }
 
 function router($uri, $router) 

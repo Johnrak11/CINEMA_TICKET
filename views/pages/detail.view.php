@@ -13,7 +13,7 @@ require_once('views/partials/nav.php');
         </div>
         <div class="flex justify-center flex-col items-end mr-[10%] " style="flex:1;">
             <img id="right-card-container" src="<?= (file_exists("views/images/shows_image/" . $showDetail['image'])?"views/images/shows_image/" . $showDetail['image'] : "None" ) ?>" alt="" class="w-[70%] rounded-xl"><br>
-            <button class=" bg-[#ff0000] py-3 px-3 text-white font-bold uppercase text-xs hover:bg-white hover:text-black w-[45%] mr-[13%] rounded-xl">Book Now</button>
+            <a href="<?= (isset($_COOKIE['email']) and isset($_COOKIE['id'])) ? "#": "/login" ?>" class=" bg-[#ff0000] py-3 px-3 text-white text-center hover:bg-white hover:text-black w-[45%] mr-[13%] rounded-xl"><button class="font-bold uppercase text-xs">Book Now</button></a>
         </div>
     </div>
     <h1 class="flex-1 text-3xl ml-[10%] text-white">Trailler</h1>
