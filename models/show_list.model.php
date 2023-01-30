@@ -15,5 +15,6 @@ function showMore($row) : array
     $show_lists = $statement->fetchAll();
     return $show_lists;
 }
+?>
 
 

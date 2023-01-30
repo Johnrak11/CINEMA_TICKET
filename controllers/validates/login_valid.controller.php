@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (empty($_POST['password'])) {
             $passwordError = 'password must be input';
         } elseif (validatePassword($_POST['password'])) {
-            $passwordError = "password must be at least 8 characters in length and must contain at least one number";
+            $passwordError = "Password must be at least 8 digits and must contain at least one number and sign";
         } else {
             $passwordValid = true;
         }
@@ -36,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($emailValid && $passwordValid) {
         $email = htmlspecialchars($_POST['email']);
         $password = $_POST['password'];
-        // code here
         $users = getUsers();
         $emailExist = false;
         $passwordExist = false;

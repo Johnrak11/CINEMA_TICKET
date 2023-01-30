@@ -9,3 +9,4 @@ function createCustomer(int $userId) : bool
     ]);
     return $statement->rowCount() > 0;
 }
+?>

@@ -8,3 +8,4 @@ function getContantName($name): array
     ]);
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
+?>

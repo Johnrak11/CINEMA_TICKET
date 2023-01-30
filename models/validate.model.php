@@ -18,10 +18,9 @@ function validateEmail(string $email): bool
 function validatePassword(string $password): bool
 {
     $number = preg_match('@[0-9]@', $password);
-    $uppercase = preg_match('@[A-Z]@', $password);
     $lowercase = preg_match('@[a-z]@', $password);
     $specialChars = preg_match('@[^\w]@', $password);
-    return strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars;
+    return strlen($password) <= 8 || !$number || !$lowercase || !$specialChars;
 }
 function validateDate(string $date, $format = 'Y-m-d'): bool
 {
