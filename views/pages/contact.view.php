@@ -3,7 +3,7 @@ require_once ("views/partials/head.php");
 require_once ("views/partials/nav.php");
 
 ?>
-<div class="flex mt-[5%] space-x-8 bg-gray-900 justify-center p-10 ml-80 mr-80 text-white bg-opacity-50 border-t-4 border-[#ff0000] rounded-2xl">
+<div class="flex mt-[6%] space-x-8 bg-gray-900 justify-center p-10 ml-80 mr-80 text-white bg-opacity-50 border-t-4 border-[#ff0000] rounded-2xl">
     <div>
         <br><br><br>
         <h1 class="uppercase text-2xl">Business development</h1><br>
@@ -18,7 +18,7 @@ require_once ("views/partials/nav.php");
     <div class="border-r-2 border-white"></div>
     <div class="flex-col">
         <h1 class="flex justify-center text-2xl">CONTACT US</h1><br>
-        <div>
+        <div class="flex gap-4">
             <input type="text" placeholder="First Name" class="p-2 rounded-full bg-zinc-800" style="border:1px solid white">
             <input type="text" placeholder="Last Name" class="p-2 rounded-full bg-zinc-800" style="border:1px solid white">
         </div><br>
