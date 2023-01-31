@@ -5,10 +5,13 @@ require_once('views/partials/nav.php');
 <div class="mt-[8%] flex flex-col">
     <div class="flex justify-between flex-2 text-white">
         <div class="text-3xl ml-[10%] " style="flex:2;">
-            <h1 class="text-2xl mt-3">TITLE <i class="fa fa-film ml-2" style="font-size:24px"></i> <span class="ml-[11%]"><?= (!empty($showDetail && !empty($showDetail['name'])) ? htmlspecialchars($showDetail['name']) : 'None' ) ?></span></h1>
-            <h1 class="text-2xl mt-3">VENUE<i class='fas fa-map-marker-alt ml-2' style='font-size:24px'></i> <span class="ml-[10%]"> <?= (!empty($venue) && !empty($venue['name']) ? htmlspecialchars($venue['name']) : 'None' ) ?></span></h1>
-            <h1 class="text-2xl mt-3">AUTHOR <i class='fas fa-book ml-2' style='font-size:24px'></i> <span class="ml-10"> <?= (!empty($showDetail && !empty($showDetail['author'])) ? htmlspecialchars($showDetail['author'] ): 'None' ) ?></span></h1>
-            <h1 class="text-2xl mt-3">DESCRIPTION </h1>
+            <h1 class="text-2xl mt-3"> <span class="text-2xl font-bold"><?= (!empty($showDetail && !empty($showDetail['name'])) ? htmlspecialchars($showDetail['name']) : 'None' ) ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class="far fa-clock ml-2" style="font-size:18px"></i> <span class="ml-[3%]"><?= (!empty($showDetail && !empty($showDetail['duration'])) ? htmlspecialchars($showDetail['duration']) : 'None' ) ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class='fas fa-map-marker-alt ml-2' style='font-size:18px'></i> <span class="ml-[3%]"> <?= (!empty($venue) && !empty($venue['name']) ? htmlspecialchars($venue['name']) : 'None' ) ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class='far fa-calendar-check ml-2' style='font-size:18px'></i> <span class="ml-[3%]"> <?= (!empty($date) && !empty($date['date']) ? htmlspecialchars($date['date']) : 'Expire' ) ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class='fas fa-book ml-2' style='font-size:18px'></i> <span class="ml-[3%]"> <?= (!empty($showDetail && !empty($showDetail['author'])) ? htmlspecialchars($showDetail['author'] ): 'None' ) ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class='fa fa-film ml-2' style='font-size:18px'></i> <span class="ml-[3%]"> <?= (!empty($category && !empty($category['name'])) ? htmlspecialchars($category['name'] ): 'None' ) ?></span></h1>
+            <h1 class="text-2xl mt-3 font-bold">Description </h1>
             <p class="text-xl mt-2"><?= (!empty($showDetail && !empty($showDetail['description'])) ? htmlspecialchars($showDetail['description'] ): 'None' ) ?> </p>
         </div>
         <div class="flex justify-center flex-col items-end mr-[10%] " style="flex:1;">
@@ -16,7 +19,7 @@ require_once('views/partials/nav.php');
             <a href="<?= (isset($_COOKIE['email']) and isset($_COOKIE['id'])) ? "#": "/login" ?>" class=" bg-[#ff0000] py-3 px-3 text-white text-center hover:bg-white hover:text-black w-[45%] mr-[13%] rounded-xl"><button class="font-bold uppercase text-xs">Book Now</button></a>
         </div>
     </div>
-    <h1 class="flex-1 text-3xl ml-[10%] text-white">Trailler</h1>
+    <h1 class="flex-1 text-3xl ml-[10%] mt-[5%] text-white">Trailler</h1>
     <div class="trailler-container flex-3  py-5 flex justify-center align-center flex-1">
         <?php
         if (!empty($showDetail) && !empty($showDetail['trailer'])){

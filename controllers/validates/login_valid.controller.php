@@ -48,8 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
             if (password_verify($password,$user['password']) && $emailExist) {
                 $passwordExist = true;
-                setcookie('email',$user['email'] ,time() + 86400*5);
-                setcookie('id',$user['id'] ,time() + 86400*5);
+                setcookie('email',$user['email'] ,time() + 86400*30);
+                setcookie('id',$user['id'] ,time() + 86400*30);
             }else{
                 $passwordError = 'Incorrect password';
             }

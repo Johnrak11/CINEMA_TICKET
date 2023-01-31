@@ -16,5 +16,24 @@ function getVenue( int $id): array
         ":id" => $id,
     ]);
     return $statement ->fetch();
+};
+function getCategory( int $id): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT c.name FROM categories c INNER JOIN shows s ON s.category_id = c.id WHERE s.id = :id ;"); 
+    $statement -> execute([
+        ":id" => $id,
+    ]);
+    return $statement ->fetch();
+};
+function getTime( int $id, string $dateNow): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT  t.time, MAX(t.date) as 'date' FROM show_times t INNER JOIN shows s ON t.show_id = s.id WHERE s.id = :id AND t.date >= :dateNow ;"); 
+    $statement -> execute([
+        ":id" => $id,
+        ":dateNow" => $dateNow,
+    ]);
+    return $statement ->fetch();
 }  
 ?>

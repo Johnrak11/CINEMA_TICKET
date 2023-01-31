@@ -99,8 +99,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Login time is stored in a session variable 
             if ($isCustomer['role'] === 'customer') {
                 createCustomer($newUser);
-                setcookie('email',$email ,time() + 86400*5);
-                setcookie('id',$newUser ,time() + 86400*5); 
+                setcookie('email',$email ,time() + 86400*30);
+                setcookie('id',$newUser ,time() + 86400*30); 
                 header('location: /');
             }
             
