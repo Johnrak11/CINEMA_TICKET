@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="views/css/main.css">
-  <title>Home <?= parse_url($_SERVER['REQUEST_URI'])['path'] ?></title>
+  <title>Tickhub <?= substr(parse_url($_SERVER['REQUEST_URI'])['path'],1)  ?></title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" type="image/x-icon" href="views/images/components_image/tickhub.png">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
