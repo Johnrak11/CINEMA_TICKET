@@ -1,7 +1,7 @@
 <?php
 function validateAddress(string $message): bool
 {
-    return (strlen(trim($message, "")) <= 100);
+    return (strlen(trim($message, "")) <= 100 && (strlen(trim($message, "")) >=3) );
 }
 
 function validateUsername(string $username): bool
@@ -20,7 +20,7 @@ function validatePassword(string $password): bool
     $number = preg_match('@[0-9]@', $password);
     $lowercase = preg_match('@[a-z]@', $password);
     $specialChars = preg_match('@[^\w]@', $password);
-    return strlen($password) <= 8 || !$number || !$lowercase || !$specialChars;
+    return strlen($password) >= 5 || !$number || !$lowercase || !$specialChars;
 }
 function validateDate(string $date, $format = 'Y-m-d'): bool
 {
