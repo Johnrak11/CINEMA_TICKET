@@ -25,6 +25,7 @@ function validatePassword(string $password): bool
 function validateDate(string $date, $format = 'Y-m-d'): bool
 {
     $d = DateTime::createFromFormat($format, $date);
+    echo $d;
     return $d && $d->format($format) === $date;
 }
 ?>

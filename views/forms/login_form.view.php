@@ -17,7 +17,7 @@ require_once('views/partials/head.php');
                     </div>
                     <small class="text-[#ff0000]" id="passwordError"> <?= $passwordError ?> </small><br>
                     <a href="" class="text-blue-600 hover:text-[#ff0000]">Forgot password</a>
-                    <button class="bg-[#ff0000] hover:bg-white hover:text-black mt-4 p-2 w-full rounded-1xl mb-3 font-bold" style="border-radius:20px;" type="submit"> LOGIN</button>
+                    <button class="bg-[#ff0000] hover:bg-white hover:text-black mt-4 p-2 w-full rounded-1xl mb-3" style="border-radius:20px;" type="submit"> LOGIN</button>
                     <p class="flex justify-center">Don't have an account?<a href="register" class="text-blue-600 hover:text-[#ff0000] ml-3">Register</a></p>
                </form>
           </div>

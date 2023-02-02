@@ -70,20 +70,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
     // ----------------------------date-------------------------
-    if (isset($_POST['date'])) {
-        if (empty($_POST['date'])) {
+    if (isset($_POST['days']) && isset($_POST['months']) && isset($_POST['years'])) {
+        $dateSelect = $_POST['years'] . $_POST['months'] . $_POST['days'];
+        if (empty($_POST['days']) && $_POST['months'] && $_POST['years']) {
             $dateError = "Date must be input";
-        } elseif (validateDate($_POST['date']) && $_POST['date'] <= date("Y-m-d")) {
+        } elseif (validateDate($dateSelect) && $dateSelect <= date("Y-m-d")) {
             $dateValid = true;
-        } else {
-            $dateError = "Date incorrect";
+            $date = $dateSelect;
         }
     }
-    if ($emailValid && $passwordValid && $usernameValid && $dateValid && $addressValid) {
+    if ($emailValid && $passwordValid && $usernameValid && $addressValid) {
+
         $username = htmlspecialchars($_POST['username']);
         $email = htmlspecialchars($_POST['email']);
         $address = htmlspecialchars($_POST['address']);
-        $date = htmlspecialchars($_POST['date']);
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $users = getUsers();
         $emailExist = true;
