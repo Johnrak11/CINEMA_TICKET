@@ -71,13 +71,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     // ----------------------------date-------------------------
     if (isset($_POST['days']) && isset($_POST['months']) && isset($_POST['years'])) {
-        $dateSelect = $_POST['years'] . $_POST['months'] . $_POST['days'];
-        if (empty($_POST['days']) && $_POST['months'] && $_POST['years']) {
-            $dateError = "Date must be input";
-        } elseif (validateDate($dateSelect) && $dateSelect <= date("Y-m-d")) {
+        $dateSelect = $_POST['years'].'-'. $_POST['months'].'-'. $_POST['days'];
+        if (validateDate($dateSelect) && $dateSelect <= date("Y-m-d")) {
             $dateValid = true;
             $date = $dateSelect;
         }
+    }
+    else{
+        $dateError = "Date must be input";
     }
     if ($emailValid && $passwordValid && $usernameValid && $addressValid) {
 
@@ -94,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
         if ($emailExist) {
-            createUser($username, $email, $password, $date, $address);
+            $newUser = createUser($username, $email, $password, $date, $address);
             // Login time is stored in a session variable 
             setcookie('email',$email ,time() + 86400*30);
             setcookie('id',$newUser ,time() + 86400*30); 

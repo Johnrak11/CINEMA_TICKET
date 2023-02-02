@@ -18,10 +18,12 @@ let domPassword = document.getElementById('password')
 domPassword.addEventListener('keyup', function(e) {
     validateBorder(domPassword, domPasswordError);
 });
-let domdateError = document.getElementById('dateError');
-let domDate = document.getElementById('date')
-domDate.addEventListener('keyup', function(e) {
-    validateBorder(domDate, domdateError);
+let domdateError = document.getElementById('date-error');
+let domDate = document.querySelectorAll('#date')
+domDate.forEach(function(item){
+    item.addEventListener('click', () => {
+        domdateError.textContent = ""
+    });
 });
 let domAddressError = document.getElementById('addressError');
 let domAdress = document.getElementById('address')
