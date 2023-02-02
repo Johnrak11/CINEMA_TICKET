@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (empty($_POST['password'])) {
             $passwordError = 'password must be input';
         } elseif (validatePassword($_POST['password'])) {
-            $passwordError = "Password must be at least 8 digits and must contain at least one number and sign";
+            $passwordError = "Password must be at least 6 digits and must contain at least one number and sign";
         } else {
             $passwordValid = true;
         }

@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } elseif (validateAddress($_POST['address'])) {
             $addressValid = true;
         } else {
-            $addressError = 'Address must be less than 100 caracters long';
+            $addressError = 'Address must be more than 3 letter and less than 100 caracters long ';
         }
     }
     // ----------------------------passsword-------------------------
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (empty($_POST['password'])) {
             $passwordError = 'Password must be input';
         } elseif (validatePassword($_POST['password'])) {
-            $passwordError = "Password must be at least 8 digits and must contain at least one number and sign";
+            $passwordError = "Password must be at least 6 digits and must contain at least one number and sign";
         } else {
             $passwordValid = true;
         }
@@ -94,16 +94,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
         if ($emailExist) {
-            $newUser = createUser($username, $email, $password, $date, $address);
-            $isCustomer = getUser($newUser);
+            createUser($username, $email, $password, $date, $address);
             // Login time is stored in a session variable 
-            if ($isCustomer['role'] === 'customer') {
-                createCustomer($newUser);
-                setcookie('email',$email ,time() + 86400*30);
-                setcookie('id',$newUser ,time() + 86400*30); 
-                header('location: /');
-            }
+            setcookie('email',$email ,time() + 86400*30);
+            setcookie('id',$newUser ,time() + 86400*30); 
+            header('location: /');
             
-        }
+        };
     };
 };
