@@ -30,7 +30,7 @@ $(document).ready(function () {
         let searchText = $(this).val();
         if (searchText != "") {
             $.ajax({
-                url: 'controllers/pages/search.controller.php',
+                url: 'controllers/pages/components/search.controller.php',
                 method: 'get',
                 data: { query: searchText },
                 success: function (response) {

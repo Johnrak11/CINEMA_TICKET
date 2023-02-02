@@ -1,6 +1,6 @@
 <?php 
-require_once('../../database/database.php');
-require_once('../../models/search.model.php');
+require_once('../../../database/database.php');
+require_once('../../../models/search.model.php');
 if ($_SERVER['REQUEST_METHOD'] === 'GET'){
     if(isset($_GET['query'])){
         $contentName = getContantName($_GET['query']);

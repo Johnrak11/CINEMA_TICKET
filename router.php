@@ -2,19 +2,19 @@
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $router = [
-    "/" => "controllers/home/index.controller.php",    
+    "/" => "controllers/pages/home/index.controller.php",    
     "/about" => "controllers/pages/about.php",    
-    "/contact" => "controllers/pages/contact.controller.php",    
-    "/register" => "controllers/forms/register.controller.php",    
-    "/show" => "controllers/pages/show.controller.php",    
-    "/detail" => "controllers/pages/detail.controller.php",    
-    "/login" => "controllers/forms/login.controller.php",    
-    "/logout" => "controllers/forms/logout.controller.php",    
+    "/contact" => "controllers/pages/contact/contact.controller.php",    
+    "/register" => "controllers/pages/forms/register.controller.php",    
+    "/show" => "controllers/pages/show/show.controller.php",    
+    "/detail" => "controllers/pages/detail/detail.controller.php",    
+    "/login" => "controllers/pages/forms/login.controller.php",    
+    "/logout" => "controllers/pages/forms/logout.controller.php",    
 ];
 
 function not_found($code = 404) 
 {
-    require_once("views/errors/$code.php");
+    require_once("views/pages/errors/$code.php");
 }
 
 function router($uri, $router) 
