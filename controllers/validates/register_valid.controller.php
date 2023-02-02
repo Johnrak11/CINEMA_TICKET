@@ -94,16 +94,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
         if ($emailExist) {
-            $newUser = createUser($username, $email, $password, $date, $address);
-            $isCustomer = getUser($newUser);
+            createUser($username, $email, $password, $date, $address);
             // Login time is stored in a session variable 
-            if ($isCustomer['role'] === 'customer') {
-                createCustomer($newUser);
-                setcookie('email',$email ,time() + 86400*30);
-                setcookie('id',$newUser ,time() + 86400*30); 
-                header('location: /');
-            }
+            setcookie('email',$email ,time() + 86400*30);
+            setcookie('id',$newUser ,time() + 86400*30); 
+            header('location: /');
             
-        }
+        };
     };
 };

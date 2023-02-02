@@ -17,9 +17,7 @@ function createUser(string $username, string $email, string $password, string $d
         ':date' => $date,
         ':address' => $address
     ]);
-    $allUser = getUsers();
-    $lastNumber = count($allUser)-1;
-    return $allUser[$lastNumber]['id'];
+    return $statement->rowCount() > 0;
 }
 
 function getUser(int $id) : array

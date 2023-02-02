@@ -6,7 +6,7 @@
     $number = count($listShows);
   }
   for ($i = 0; $i < $number; $i++) :
-    if (file_exists("views/images/shows_image/" . $listShows[$i]['image'])) {
+    if (file_exists("views/images/shows_image/" . $listShows[$i]['image']) and $listShows[$i]['is_confirm'] == 1) {
   ?>
       <div class="card"><img src="<?= "views/images/shows_image/" . $listShows[$i]['image'] ?>" />
         <div class="info">

@@ -20,11 +20,10 @@ function validatePassword(string $password): bool
     $number = preg_match('@[0-9]@', $password);
     $lowercase = preg_match('@[a-z]@', $password);
     $specialChars = preg_match('@[^\w]@', $password);
-    return strlen($password) >= 5 || !$number || !$lowercase || !$specialChars;
+    return strlen($password) < 5 || !$number || !$lowercase || !$specialChars;
 }
 function validateDate(string $date, $format = 'Y-m-d'): bool
 {
     $d = DateTime::createFromFormat($format, $date);
     return $d && $d->format($format) === $date;
 }
-?>
