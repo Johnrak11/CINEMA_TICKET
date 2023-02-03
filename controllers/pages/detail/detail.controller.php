@@ -9,5 +9,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         $date = getTime($id,date("Y-m-d"));
     }
 }
-require_once('views/pages/detail.view.php')
+require_once('views/pages/detail/detail.view.php')
 ?>

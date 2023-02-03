@@ -7,7 +7,7 @@ $(document).ready(function () {
             window.history.pushState({path:newurl},'',newurl);
         }
         $.ajax({
-            url: 'controllers/pages/show_more.controller.php',
+            url: 'controllers/pages/components/show_more.controller.php',
             method: 'get',
             data: { row: numebRows },
             success: function (response) {
