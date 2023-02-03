@@ -7,7 +7,7 @@ require_once('views/partials/head.php');
         <div class="text-3xl ml-[10%] " style="flex:2;">
             <h1 class="text-2xl mt-3"> <span class="text-2xl font-bold"><?= (!empty($showDetail && !empty($showDetail['name'])) ? htmlspecialchars($showDetail['name']) : 'None' ) ?></span></h1>
             <h1 class="text-2xl mt-3"><i class="far fa-clock ml-2" style="font-size:18px"></i> <span class="ml-[3%]"><?= (!empty($showDetail && !empty($showDetail['duration'])) ? htmlspecialchars($showDetail['duration']) : 'None' ) ?></span></h1>
-            <h1 class="text-2xl mt-3"><i class='far fa-calendar-check ml-2' style='font-size:18px'></i> <span class="ml-[3%]  <?= (!empty($date) && !empty($date['date'])) ? "" : "line-through text-red-600" ?>"> <?= htmlspecialchars($date['date']) ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class='far fa-calendar-check ml-2' style='font-size:18px'></i> <span class="ml-[3%]  <?= (empty($strikthrough)) ? "" : "line-through text-red-600" ?>"> <?= htmlspecialchars($date['date']) ?></span></h1>
             <h1 class="text-2xl mt-3"><i class='fas fa-book ml-2' style='font-size:18px'></i> <span class="ml-[3%]"> <?= (!empty($showDetail && !empty($showDetail['author'])) ? htmlspecialchars($showDetail['author'] ): 'None' ) ?></span></h1>
             <h1 class="text-2xl mt-3"><i class='fa fa-film ml-2' style='font-size:18px'></i> <span class="ml-[3%]"> <?= (!empty($showDetail && !empty($showDetail['category'])) ? htmlspecialchars($showDetail['category'] ): 'None' ) ?></span></h1>
             <h1 class="text-2xl mt-3 font-bold">Description </h1>
