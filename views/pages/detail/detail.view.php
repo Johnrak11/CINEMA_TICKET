@@ -1,6 +1,6 @@
 <?php
 require_once('views/partials/head.php');
-// require_once('views/partials/nav.php');
+require_once('views/partials/nav.php');
 ?>
 <div class="mt-[8%] flex flex-col">
     <div class="flex justify-between flex-2 text-white">

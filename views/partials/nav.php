@@ -40,7 +40,7 @@
                         </li>
                         <?php
                         $role = getRole($_COOKIE['id']);
-                        if ($role['role'] == 'seller') {
+                        if ($role['role'] === 'seller') {
                         ?>
                             <li>
                                 <a href="/seller" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-with dark:text-gray-200 dark:hover:text-black">Seller</a>

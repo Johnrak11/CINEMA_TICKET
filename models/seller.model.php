@@ -10,5 +10,3 @@ function getProduct($id): array
     ]);
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
-
-?>
