@@ -9,14 +9,9 @@ $router = [
     "/detail" => "controllers/pages/detail/detail.controller.php",
     "/login" => "controllers/pages/forms/login.controller.php",
     "/logout" => "controllers/pages/forms/logout.controller.php",
+    "/seller" => "controllers/pages/seller/seller.controller.php"
 ];
 
-if (isset($_COOKIE['id'])) {
-    $role = getRole($_COOKIE['id']);
-    if ($role['role'] === 'seller') {
-        $router['/seller'] = "controllers/pages/seller/seller.controller.php";
-    }
-}
 function not_found($code = 404)
 {
     require_once("views/pages/errors/$code.php");

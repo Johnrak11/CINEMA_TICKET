@@ -1,5 +1,5 @@
 <?php
-function getRole(int $id) : array
+function getRole(int $id)
 {
     global $connection;
     $statement = $connection->prepare("SELECT role FROM users WHERE id = :id");
