@@ -4,50 +4,51 @@ require_once('views/partials/head.php');
 
 <div class="app-container">
   <!-- ======Backloge====== -->
-<div class="backlog hidden" id="backlog">
-  <div class="dom-dialog bg-gray-800  h-[90vh] rounded-xl"  style="margin-top:2%">
-        <div class=" mr-[%2] flex justify-between mt-[-1%] bg-red-600 text-white p-2 rounded-xl">
-            <p class="">Picture</p>
-            <p class="mr-[60%]">Title</p>
-            <p class="mr-[-4%]">Public</p>
-            <p class="mr-[3%]">Action</p>
-        </div>
-        <div  class="scroll" id="dropdown">
-            <?php 
-            $previewProducts = getProduct($_COOKIE['id'],0);
-            foreach ( $previewProducts as $preview):
-              if (file_exists("views/images/shows_image/" . $preview['image'])){
-            ?>
-                <div>
-                    <div class=" flex justify-between bg-gray-900 mt-[1%] p-2 text-white rounded-xl" style="border-left:4px solid red">
-                      <img class="w-[5%]" src="views/images/shows_image/<?php echo $preview['image'] ?>" alt="">
-                      <p class="flex items-center justify-center mr-[50%]"><?php echo $preview['name']?></p>
-                      <a class="mr-[-9%] px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] py-1 flex items-center justify-center hover:bg-white hover:text-black cursor-pointer">Public</a>
-                      
-                      <div class="dropdown mt-5">
-                        <div class="select">
-                          <button id="btn" class="mr-[5%] py-1 px-10 bg-slate-600 hover:bg-gray-400 w-24 rounded-xl"><i class="material-icons flex items-center justify-center selected">more_horiz</i></button>
-                        </div>
-                        <ul class="menu container" id="list">
-                          <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Add</a></li>
-                          <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Edit</a></li>
-                          <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Delete</a></li>
-                        </ul>
-                      </div>
-                    </div>
+  <div class="backlog hidden" id="backlog">
+    <div class="dom-dialog bg-gray-800  h-[90vh] rounded-xl" style="margin-top:2%">
+      <div class=" mr-[%2] flex justify-between mt-[-1%] bg-red-600 text-white p-2 rounded-xl">
+        <p class="">Picture</p>
+        <p class="mr-[60%]">Title</p>
+        <p class="mr-[-4%]">Public</p>
+        <p class="mr-[3%]">Action</p>
+      </div>
+      <div class="scroll" id="dropdown">
+        <?php
+        $previewProducts = getProduct($_COOKIE['id'], 0);
+        foreach ($previewProducts as $preview) :
+          if (file_exists("views/images/shows_image/" . $preview['image'])) {
+        ?>
+            <div>
+              <div class=" flex justify-between bg-gray-900 mt-[1%] p-2 text-white rounded-xl" style="border-left:4px solid red">
+                <img class="w-[5%]" src="views/images/shows_image/<?php echo $preview['image'] ?>">
+                <p class="flex items-center justify-center mr-[50%]"><?php echo $preview['name'] ?></p>
+                <a class="mr-[-9%] px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] py-1 flex items-center justify-center hover:bg-white hover:text-black cursor-pointer">Public</a>
+
+                <div class="dropdown mt-5">
+                  <div class="select">
+                    <button id="btn" class="mr-[5%] py-1 px-10 bg-slate-600 hover:bg-gray-400 w-24 rounded-xl"><i class="material-icons flex items-center justify-center selected">more_horiz</i></button>
                   </div>
-              <?php 
-              }
-            endforeach;
-            ?>
-        </div>
-        <div class="mt-[-1%] flex justify-end mr-[1%]">
-            <a class="px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] mr-[1%] py-1 text-white hover:bg-white hover:text-black cursor-pointer" onclick="onClickCancel()">Cancel</a>
-            <a class="px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] py-1 text-white hover:bg-white hover:text-black cursor-pointer">Create</a>
-        </div>
-    <!-- </dialog> -->
+                  <ul class="menu container" id="list">
+                    <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Add</a></li>
+                    <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Edit</a></li>
+                    <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="/detail?id=<?= $preview['id'] ?>">Detail</a></li>
+                    <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Delete</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        <?php
+          }
+        endforeach;
+        ?>
+      </div>
+      <div class="mt-[-1%] flex justify-end mr-[1%]">
+        <a class="px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] mr-[1%] py-1 text-white hover:bg-white hover:text-black cursor-pointer" onclick="onClickCancel()">Cancel</a>
+        <a class="px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] py-1 text-white hover:bg-white hover:text-black cursor-pointer">Create</a>
+      </div>
+      <!-- </dialog> -->
+    </div>
   </div>
-</div>
   <!-- ==================================sidebar================== -->
   <div class="sidebar">
     <div class="sidebar-header">
