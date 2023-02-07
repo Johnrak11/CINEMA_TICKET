@@ -3,6 +3,48 @@ require_once('views/partials/head.php');
 ?>
 
 <div class="app-container">
+  <!-- ======Backloge====== -->
+<div class="backlog hidden" id="backlog">
+  <div class="dom-dialog bg-gray-800  h-[90vh] rounded-xl"  style="margin-top:2%">
+        <div class=" mr-[%2] flex justify-between mt-[-1%] bg-red-600 text-white p-2 rounded-xl">
+            <p class="">Picture</p>
+            <p class="mr-[60%]">Title</p>
+            <p class="mr-[-4%]">Public</p>
+            <p class="mr-[3%]">Action</p>
+        </div>
+        <div  class="scroll" id="dropdown">
+            <?php 
+            for ( $i = 0; $i <10 ; $i++ ) :
+            ?>
+                <div>
+                    <div class=" flex justify-between bg-gray-900 mt-[1%] p-2 text-white rounded-xl" style="border-left:4px solid red">
+                      <img class="w-[5%]" src="https://kbimages1-a.akamaihd.net/48543b74-fd9f-405a-a5c0-5f7d1e89a566/1200/1200/False/coco-movie-storybook.jpg" alt="">
+                      <p class="flex items-center justify-center mr-[50%]">I Love you PHP</p>
+                      <a class="mr-[-9%] px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] py-1 flex items-center justify-center hover:bg-white hover:text-black cursor-pointer">Public</a>
+                      
+                      <div class="dropdown mt-5">
+                        <div class="select">
+                          <button id="btn" class="mr-[5%] py-1 px-10 bg-slate-600 hover:bg-gray-400 w-24 rounded-xl"><i class="material-icons flex items-center justify-center selected">more_horiz</i></button>
+                        </div>
+                        <ul class="menu container" id="list">
+                          <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Add</a></li>
+                          <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Edit</a></li>
+                          <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Delete</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+              <?php 
+            endfor;
+            ?>
+        </div>
+        <div class="mt-[-1%] flex justify-end mr-[1%]">
+            <a class="px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] mr-[1%] py-1 text-white hover:bg-white hover:text-black cursor-pointer" onclick="onClickCancel()">Cancel</a>
+            <a class="px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] py-1 text-white hover:bg-white hover:text-black cursor-pointer">Create</a>
+        </div>
+    <!-- </dialog> -->
+  </div>
+</div>
   <!-- ==================================sidebar================== -->
   <div class="sidebar">
     <div class="sidebar-header">
@@ -73,7 +115,7 @@ require_once('views/partials/head.php');
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
-      <button class="app-content-headerButton">Backloge</button>
+      <button class="app-content-headerButton" onclick="onClickBackLog()">Backloge</button>
     </div>
     <div class="app-content-actions">
       <input class="search-bar" placeholder="Search..." type="text">
@@ -179,4 +221,5 @@ require_once('views/partials/head.php');
     </div>
   </div>
 </div>
+
 <script src="views/js/seller.js"></script>
