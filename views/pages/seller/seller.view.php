@@ -14,12 +14,14 @@ require_once('views/partials/head.php');
         </div>
         <div  class="scroll" id="dropdown">
             <?php 
-            for ( $i = 0; $i <10 ; $i++ ) :
+            $previewProducts = getProduct($_COOKIE['id'],0);
+            foreach ( $previewProducts as $preview):
+              if (file_exists("views/images/shows_image/" . $preview['image'])){
             ?>
                 <div>
                     <div class=" flex justify-between bg-gray-900 mt-[1%] p-2 text-white rounded-xl" style="border-left:4px solid red">
-                      <img class="w-[5%]" src="https://kbimages1-a.akamaihd.net/48543b74-fd9f-405a-a5c0-5f7d1e89a566/1200/1200/False/coco-movie-storybook.jpg" alt="">
-                      <p class="flex items-center justify-center mr-[50%]">I Love you PHP</p>
+                      <img class="w-[5%]" src="views/images/shows_image/<?php echo $preview['image'] ?>" alt="">
+                      <p class="flex items-center justify-center mr-[50%]"><?php echo $preview['name']?></p>
                       <a class="mr-[-9%] px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] py-1 flex items-center justify-center hover:bg-white hover:text-black cursor-pointer">Public</a>
                       
                       <div class="dropdown mt-5">
@@ -35,7 +37,8 @@ require_once('views/partials/head.php');
                     </div>
                   </div>
               <?php 
-            endfor;
+              }
+            endforeach;
             ?>
         </div>
         <div class="mt-[-1%] flex justify-end mr-[1%]">
