@@ -44,7 +44,7 @@ require_once('views/partials/head.php');
       </div>
       <div class="mt-[-1%] flex justify-end mr-[1%]">
         <a class="px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] mr-[1%] py-1 text-white hover:bg-white hover:text-black cursor-pointer" onclick="onClickCancel()">Cancel</a>
-        <a class="px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] py-1 text-white hover:bg-white hover:text-black cursor-pointer">Create</a>
+        <a href="/createShow" class="px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] py-1 text-white hover:bg-white hover:text-black cursor-pointer">Create</a>
       </div>
       <!-- </dialog> -->
     </div>

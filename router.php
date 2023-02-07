@@ -9,7 +9,8 @@ $router = [
     "/detail" => "controllers/pages/detail/detail.controller.php",
     "/login" => "controllers/pages/forms/login.controller.php",
     "/logout" => "controllers/pages/forms/logout.controller.php",
-    "/seller" => "controllers/pages/seller/seller.controller.php"
+    "/seller" => "controllers/pages/seller/seller.controller.php",
+    "/createShow" => "controllers/pages/seller/create_show.controller.php"
 ];
 
 function not_found($code = 404)
