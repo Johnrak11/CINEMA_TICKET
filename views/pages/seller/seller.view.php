@@ -111,7 +111,7 @@ require_once('views/partials/head.php');
     </ul>
     <div class="account-info">
       <div class="account-info-picture">
-        <img src="<?= (file_exists('views/images/users/' . $seller['image'] ) ? 'views/images/users/' . $seller['image'] : "views/images/components_image/user_account.png") ?>" alt="Account">
+        <img src="<?= (file_exists('views/images/users/' . $seller['image']) and !empty($seller['image'])) ? 'views/images/users/' . $seller['image'] : "views/images/components_image/user_account.png" ?>" alt="Account">
       </div>
       <div class="account-info-name"><?= $seller['name'] ?></div>
       <button class="account-info-more">
