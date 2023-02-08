@@ -27,45 +27,96 @@ domBacklog.addEventListener('click', function (e) {
     }
 });
 let domDialog = document.querySelector('.backlog');
-function hide(element)
-{
+function hide(element) {
     element.style.display = "none";
 }
-function show(element) 
-{
+function show(element) {
     element.style.display = "block";
 }
-function onClickBackLog(e)
-{
+function onClickBackLog(e) {
     show(domDialog);
 }
-function onClickCancel(e)
-{
+function onClickCancel(e) {
     hide(domDialog);
 }
+const selects = document.querySelectorAll('.select');
+const bgRemove = document.querySelector('.select-bg-remove')
+selects.forEach(select => {
+    select.addEventListener('click', (e) => {
+        bgRemove.style.display = 'block';
+        let menu = e.currentTarget.nextElementSibling;
+        menu.style.display = 'block';
+        bgRemove.addEventListener('click', (e) => {
+            if (e.currentTarget.className = 'select-bg-remove') {
+                bgRemove.style.display = 'none';
+                menu.style.display = 'none';
+            }
+        });
+    });
+});
 
-// // dropdowns//
-const dropdowns = document.querySelectorAll('.dropdown');
-dropdowns.forEach(dropdown => {
-    const select = dropdown.querySelector('.select');
-    const menu = dropdown.querySelector('.menu');
-    const options = dropdown.querySelector('.menu li');
-    const selected = dropdown.querySelector('.selected');
+function sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+}
 
-    select.addEventListener('click', () => {
-        select.classList.toggle('select-clicked')
-        menu.classList.toggle('menu-open');
-        
-        // options.forEach(option => {
-        //     option.addEventListener('click', () => {
-        //         selected.innerText = option.innerText;
-        //         select.classList.remove('select-clicked');
-        //         menu.classList.remove('menu-open');
-        //         options.forEach(option => {
-        //             option.classList.remove('active');
-        //         });
-        //         option.classList.add('active');
-        //     })
-        // })
+// Usage!
+
+
+// ----------------------public preview------------------
+domPublicShows = document.querySelectorAll('#public-show')
+domPublicShows.forEach(domPublicShow => {
+    domPublicShow.addEventListener('click', function (e) {
+        public_alert(e);
+    });
+});
+function public_alert(e) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Public'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Public!',
+                'Your show has been public.',
+                'success'
+            )
+            sleep(900).then(() => {
+                location.href = "/actionShow?public=" + e.target.dataset.index;
+            });
+        }
     })
-})
+}
+// ----------------------alert delete------------------
+domDeleteShow = document.querySelectorAll('#delete-show')
+domDeleteShow.forEach(deleteShow => {
+    deleteShow.addEventListener('click', function (e) {
+        delete_alert(e);
+    });
+});
+function delete_alert(e) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            )
+            sleep(900).then(() => {
+                location.href = "/actionShow?delete=" + e.target.dataset.index;
+            });
+        }
+    })
+}

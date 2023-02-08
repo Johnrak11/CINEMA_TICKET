@@ -6,46 +6,60 @@ require_once('views/partials/head.php');
   <!-- ======Backloge====== -->
   <div class="backlog hidden" id="backlog">
     <div class="dom-dialog bg-gray-800  h-[90vh] rounded-xl" style="margin-top:2%">
-      <div class=" mr-[%2] flex justify-between mt-[-1%] bg-red-600 text-white p-2 rounded-xl">
-        <p class="">Picture</p>
-        <p class="mr-[60%]">Title</p>
-        <p class="mr-[-4%]">Public</p>
-        <p class="mr-[3%]">Action</p>
+      <div class="flex justify-between mt-[-3%] text-white p-2 rounded-xl text-xl">
+        <div class="flex flex-1 ">
+          <p class="">Picture</p>
+          <p class="ml-[13%]">Title</p>
+        </div>
+        <div class="flex flex-1 justify-end">
+          <p class="mr-[10%]">Public</p>
+          <p class="mr-[5%]">Action</p>
+        </div>
       </div>
       <div class="scroll" id="dropdown">
         <?php
         $previewProducts = getProduct($_COOKIE['id'], 0);
-        foreach ($previewProducts as $preview) :
-          if (file_exists("views/images/shows_image/" . $preview['image'])) {
+        if (!empty($previewProducts)) {
+          foreach ($previewProducts as $preview) :
+            if (file_exists("views/images/shows_image/" . $preview['image'])) {
         ?>
-            <div>
-              <div class=" flex justify-between bg-gray-900 mt-[1%] p-2 text-white rounded-xl" style="border-left:4px solid red">
-                <img class="w-[5%]" src="views/images/shows_image/<?php echo $preview['image'] ?>">
-                <p class="flex items-center justify-center mr-[50%]"><?php echo $preview['name'] ?></p>
-                <a class="mr-[-9%] px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] py-1 flex items-center justify-center hover:bg-white hover:text-black cursor-pointer">Public</a>
-
-                <div class="dropdown mt-5">
-                  <div class="select">
-                    <button id="btn" class="mr-[5%] py-1 px-10 bg-slate-600 hover:bg-gray-400 w-24 rounded-xl"><i class="material-icons flex items-center justify-center selected">more_horiz</i></button>
+              <div class=" flex justify-between bg-gray-900 mt-[1%] text-white rounded-xl" style="border-left:4px solid red">
+                <div class="card-preview-left flex-1 flex justify-start item-center">
+                  <img class="w-[12%] p-1 rounded-xl" src="views/images/shows_image/<?= $preview['image'] ?>">
+                  <div class="flex justify-center items-center ml-[15%]">
+                    <p class="text-white"><?= $preview['name'] ?></p>
                   </div>
-                  <ul class="menu container" id="list">
-                    <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Add</a></li>
-                    <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Edit</a></li>
-                    <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="/detail?id=<?= $preview['id'] ?>">Detail</a></li>
-                    <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Delete</a></li>
-                  </ul>
+                </div>
+                <div class="card-preview-right flex-1 flex justify-end item-center">
+                  <div class="flex justify-center items-center">
+                    <a class="py-1.5 rounded-xl bg-red-600 px-6 hover:bg-white hover:text-black cursor-pointer" id="public-show" data-index="<?= $preview['id'] ?>">Public</a>
+                  </div>
+                  <div class="dropdown flex justify-center items-center">
+                    <div class="select">
+                      <button id="btn" class="mr-[5%] py-1 px-10 bg-slate-600 hover:bg-gray-400 w-24 rounded-xl"><i class="material-icons flex items-center justify-center selected">more_horiz</i></button>
+                    </div>
+                    <ul class="menu container" id="list">
+                      <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Add</a></li>
+                      <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Edit</a></li>
+                      <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="/detail?id=<?= $preview['id'] ?>">Detail</a></li>
+                      <li id="delete-show" class="hover:bg-red-600 w-[10%] hover:text-white" data-index="<?= $preview['id'] ?>">Delete</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
         <?php
-          }
-        endforeach;
+            }
+          endforeach;
+        } else {
+          echo "<h1 class='text-white text-center mt-[17%] text-2xl'>No preview show</h1>";
+        }
         ?>
       </div>
-      <div class="mt-[-1%] flex justify-end mr-[1%]">
-        <a class="px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] mr-[1%] py-1 text-white hover:bg-white hover:text-black cursor-pointer" onclick="onClickCancel()">Cancel</a>
-        <a class="px-7 rounded-xl bg-red-600 mt-[2%] mb-[2%] py-1 text-white hover:bg-white hover:text-black cursor-pointer">Create</a>
+      <div class="flex-1 flex justify-end mr-[1%] mt-[1%]">
+        <a class="px-7 rounded-xl bg-red-600 mb-[2%] mr-[1%] py-1 text-white hover:bg-white hover:text-black cursor-pointer" onclick="onClickCancel()">Cancel</a>
+        <a class="px-7 rounded-xl bg-red-600 mb-[2%] py-1 text-white hover:bg-white hover:text-black cursor-pointer">Create</a>
       </div>
+      <div class="select-bg-remove hidden"></div>
       <!-- </dialog> -->
     </div>
   </div>
@@ -97,9 +111,9 @@ require_once('views/partials/head.php');
     </ul>
     <div class="account-info">
       <div class="account-info-picture">
-        <img src="https://images.unsplash.com/photo-1527736947477-2790e28f3443?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE2fHx3b21hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="Account">
+        <img src="<?= (file_exists('views/images/users/' . $seller['image'] ) ? 'views/images/users/' . $seller['image'] : "views/images/components_image/user_account.png") ?>" alt="Account">
       </div>
-      <div class="account-info-name">Monica G.</div>
+      <div class="account-info-name"><?= $seller['name'] ?></div>
       <button class="account-info-more">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal">
           <circle cx="12" cy="12" r="1" />
@@ -185,7 +199,9 @@ require_once('views/partials/head.php');
       <!-- =============================== card lists product==================== -->
       <?php
       if (empty($allShow)) {
-        echo "<h1> not found</h1>";
+      ?>
+        <h1 class="text-center text-white text-2xl mt-[20%]">Wellcome to seller page</h1>
+        <?php
       } else {
         foreach ($allShow as $show) {
           $dateTime = getTime($show['id'], date("Y-m-d"));
@@ -195,7 +211,7 @@ require_once('views/partials/head.php');
               $dateTime = getTimeExpired($show['id']);
               $isActive = false;
             }
-      ?>
+        ?>
             <a class="products-row" href="/detail?id=<?= $show['id'] ?>">
               <button class="cell-more-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">

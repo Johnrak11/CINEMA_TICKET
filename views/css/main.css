@@ -344,6 +344,13 @@ img:hover {
     z-index: 10;
 }
 /* ====menu====== */
+.select-bg-remove{
+    position:fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
 .dropdown{
     min-width: 5em;
     position: relative;
@@ -351,6 +358,7 @@ img:hover {
 }
 .dropdown *{
     box-sizing: border-box;
+    
 }
 .select{
     color: #ffffff;
@@ -372,6 +380,7 @@ img:hover {
     z-index: 1;
     /* margin-top: -30%; */
     position: absolute;
+    top: 42px;
 }
 .menu li{
     padding: 0.3em 1em;
