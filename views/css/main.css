@@ -1086,7 +1086,7 @@ textarea::placeholder {
     grid-template-columns: 1fr;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
     background-color: #000;
 }
@@ -1102,12 +1102,15 @@ textarea::placeholder {
     justify-content: center;
     align-items: center;
     position: relative;
+    width: 100%;
+    background: #0451e0;
 }
 
 .wrapper .container .scene {
     position: absolute;
-    width: 100vw;
+    width: 100%;
     vertical-align: middle;
+    background: #e70707;
 }
 
 .wrapper .container .one,
