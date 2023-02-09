@@ -1,6 +1,6 @@
 <div class="flex gap-12 flex-wrap mt-[3%] ml-[7%] mr-[7%]" id="card-show-container">
     <?php
-    $listShows = showList();
+    $listShows = showList(date("Y-m-d"));
     $number = (isset($_GET['rowCard'])? $_GET['rowCard'] : 8);
     if (count($listShows) <= $number) {
         $number = count($listShows);
