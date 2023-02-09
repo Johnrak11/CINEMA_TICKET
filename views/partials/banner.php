@@ -11,10 +11,10 @@ require_once('views/partials/head.php');
             <div class="absolute bottom-40 w-screen text-white flex items-center flex-col" style="margin-top:-70%">
                 <p class="text-3xl">TIME TO START WATCHING</p>
                 <h1 class="text-5xl">Puss in Boots: The Last Wish</h1>
-                <div class="mt-10">
+                <!-- <div class="mt-10">
                     <a href="#" class="bg-[#ff0000] py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 " style="border-radius: 20px;">Get ticket</a>
                     <a href="#" class="bg-[#ff0000] py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 " style="border-radius: 20px;">View trailer</a>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="swiper-slide" id="swiper-slide">
@@ -23,10 +23,10 @@ require_once('views/partials/head.php');
             <div class="absolute bottom-40 w-screen text-white flex items-center flex-col" style="margin-top:-70%">
                 <p class="text-3xl">TIME TO START WATCHING</p>
                 <h1 class="text-5xl">Black Widow</h1>
-                <div class="mt-10">
+                <!-- <div class="mt-10">
                     <a href="#" class="bg-[#ff0000] py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 " style="border-radius: 20px;">Get ticket</a>
                     <a href="#" class="bg-[#ff0000] py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 " style="border-radius: 20px;">View trailer</a>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="swiper-slide" id="swiper-slide">
@@ -35,10 +35,10 @@ require_once('views/partials/head.php');
             <div class="absolute bottom-40 w-screen text-white flex items-center flex-col" style="margin-top:-70%">
                 <p class="text-3xl">TIME TO START WATCHING</p>
                 <h1 class="text-5xl">AVERTAR</h1>
-                <div class="mt-10">
+                <!-- <div class="mt-10">
                     <a href="#" class="bg-[#ff0000] py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 " style="border-radius: 20px;">Get ticket</a>
                     <a href="#" class="bg-[#ff0000] py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 " style="border-radius: 20px;">View trailer</a>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="swiper-slide" id="swiper-slide">
@@ -47,10 +47,10 @@ require_once('views/partials/head.php');
             <div class="absolute bottom-40 w-screen text-white flex items-center flex-col" style="margin-top:-70%">
                 <p class="text-3xl">TIME TO START WATCHING</p>
                 <h1 class="text-5xl">Iron Man</h1>
-                <div class="mt-10">
+                <!-- <div class="mt-10">
                     <a href="#" class="bg-[#ff0000] py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 " style="border-radius: 20px;">Get ticket</a>
                     <a href="#" class="bg-[#ff0000] py-3 px-3 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 " style="border-radius: 20px;">View trailer</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
