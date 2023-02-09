@@ -1,6 +1,6 @@
 <div class="flex gap-12 flex-wrap mt-[3%] ml-[7%] mr-[7%]">
   <?php
-  $listShows = showList();
+  $listShows = showList(date("Y-m-d"));
   $number = 16;
   if (count($listShows) <= 16) {
     $number = count($listShows);

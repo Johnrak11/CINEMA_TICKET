@@ -39,7 +39,7 @@ require_once('views/partials/head.php');
                       <button id="btn" class="mr-[5%] py-1 px-10 bg-slate-600 hover:bg-gray-400 w-24 rounded-xl"><i class="material-icons flex items-center justify-center selected">more_horiz</i></button>
                     </div>
                     <ul class="menu container" id="list">
-                      <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Add</a></li>
+                      <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="/createVenue">Add</a></li>
                       <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Edit</a></li>
                       <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="/detail?id=<?= $preview['id'] ?>">Detail</a></li>
                       <li id="delete-show" class="hover:bg-red-600 w-[10%] hover:text-white" data-index="<?= $preview['id'] ?>">Delete</li>
@@ -87,16 +87,16 @@ require_once('views/partials/head.php');
             <line x1="3" y1="6" x2="21" y2="6" />
             <path d="M16 10a4 4 0 0 1-8 0" />
           </svg>
-          <span>Products</span>
+          <span>Show</span>
         </a>
       </li>
       <li class="sidebar-list-item">
-        <a href="#">
+        <a href="/sellerVenue">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox">
             <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
             <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
           </svg>
-          <span>Inbox</span>
+          <span>Venue</span>
         </a>
       </li>
       <li class="sidebar-list-item">
@@ -158,7 +158,7 @@ require_once('views/partials/head.php');
         </button>
       </div>
     </div>
-    <div class="products-area-wrapper tableView">
+    <div class="products-area-wrapper tableView ">
       <!-- ================== header name ==================== -->
       <div class="products-header">
         <div class="product-cell image">

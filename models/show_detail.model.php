@@ -9,13 +9,12 @@ function showDetail(int $id): array
     return $statement->fetch();
 }
 
-function getTime(int $id, string $dateNow): array 
+function getTime(int $id, string $dateNow): array
 {
     global $connection;
-    $statement = $connection->prepare("SELECT  d.date, MIN(d.date) as 'date' FROM show_details d 
-                                        INNER JOIN  venues v ON d.venue_id = v.id
-                                        INNER JOIN shows s ON v.show_id = s.id 
-                                        WHERE v.show_id = :id AND d.date >= :dateNow;");
+    $statement = $connection->prepare("SELECT  dt.date, MIN(dt.date) as 'date' FROM show_details dt 
+                                        INNER JOIN shows s ON dt.show_id = s.id 
+                                        WHERE dt.show_id = :id AND dt.date >= :dateNow;");
     $statement->execute([
         ":id" => $id,
         ":dateNow" => $dateNow,
@@ -26,12 +25,19 @@ function getTime(int $id, string $dateNow): array
 function getTimeExpired(int $id): array
 {
     global $connection;
-    $statement = $connection->prepare("SELECT  d.date, MAX(d.date) as 'date' FROM show_details d 
-                                        INNER JOIN  venues v ON d.venue_id = v.id
-                                        INNER JOIN shows s ON v.show_id = s.id 
-                                        WHERE v.show_id = :id");
+    $statement = $connection->prepare("SELECT  dt.date, MAX(dt.date) as 'date' FROM show_details dt 
+                                        INNER JOIN shows s ON dt.show_id = s.id 
+                                        WHERE dt.show_id = :id");
     $statement->execute([
         ":id" => $id,
     ]);
     return $statement->fetch();
 }
+function getVenue(): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM venues");
+    $statement->execute([]);
+    return $statement->fetchAll();
+}
+
