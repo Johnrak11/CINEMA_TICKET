@@ -1103,14 +1103,12 @@ textarea::placeholder {
     align-items: center;
     position: relative;
     width: 100%;
-    background: #0451e0;
 }
 
 .wrapper .container .scene {
     position: absolute;
     width: 100%;
-    vertical-align: middle;
-    background: #e70707;
+    margin-top: 5%;
 }
 
 .wrapper .container .one,
@@ -1218,6 +1216,7 @@ textarea::placeholder {
     align-items: center;
     position: absolute;
     z-index: 2;
+    /* background: #000; */
     animation: anime404 0.6s cubic-bezier(0.3, 0.8, 1, 1.05) both;
     animation-delay: 1.2s;
 }
