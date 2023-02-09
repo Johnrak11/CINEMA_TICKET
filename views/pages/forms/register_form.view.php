@@ -34,41 +34,9 @@ require_once('views/partials/head.php');
                <small class="text-[#ff0000]" id="passwordError">
                     <?= $passwordError ?>
                </small>
-               <div class="appearance-none mt-2 w-full">
-                    <select name="days" id="date" class="bg-[#ff0000] rounded-full p-2.5 hover:text-black hover:bg-white">
-                         <option value="" disabled selected>Days</option>
-                         <?php 
-                         for($i=1 ; $i<=31; $i++){ ?>
-                              <option value="<?= $i ?>"> <?= $i ?> </option>
-                         <?php }
-                         ?>
-                    </select>
-                    <select name="months" id="date" class="bg-[#ff0000] rounded-full p-2.5 hover:text-black hover:bg-white">
-                         <option value="" disabled selected>Months</option>
-                         <option value="01">January</option>
-                         <option value="02">February</option>
-                         <option value="03">March</option>
-                         <option value="04">April</option>
-                         <option value="05">May</option>
-                         <option value="06">June</option>
-                         <option value="07">July</option>
-                         <option value="08">August</option>
-                         <option value="09">September</option>
-                         <option value="10">October</option>
-                         <option value="11">November</option>
-                         <option value="12">December</option>
-                    </select>
-                    <select name="years" id="date" class="bg-[#ff0000] rounded-full p-2.5 hover:text-black hover:bg-white">
-                         <option value="" disabled selected>Years</option>
-                         <?php 
-                         $minYear = 1960;
-                         $maxYear = 2008;
-                         for($minYear ; $minYear<=$maxYear; $minYear++){ ?>
-                              <option value="<?= $minYear ?>"> <?= $minYear ?> </option>
-                         <?php }
-                         ?>
-                    </select>
-               </div>
+               <input name="date" id="birth"
+                    class="bg-opacity-0 appearance-none border <?php echo $dateValid ? 'border-white' : 'border-red-600' ?> rounded-[20px] w-full py-2 px-3 mt-3 bg-slate-800"
+                    type="date" placeholder="Date of bairt">
                <small class=" text-[#ff0000] " id="date-error">
                     <?= $dateError ?>
                </small>
