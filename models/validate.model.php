@@ -58,10 +58,14 @@ function durationShow(int $h,int $m):bool
 
 function randomNameImage()
 {
+    $newName = "";
     $text = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "Y", "W", "X", "Y", "Z"];
-    $text_rand = $text[rand(0, count($text))];
-    $num_rand = rand(0, 10000000);
-    return $text_rand . "$num_rand";
+    for ($i = 0; $i < 2; $i++){
+        $text_rand = $text[rand(0, count($text))];
+        $num_rand = rand(0, 10000000);
+        $newName .= $text_rand . "$num_rand";
+    }
+    return $newName;
 }
 
 function describtionShow(string $description):bool

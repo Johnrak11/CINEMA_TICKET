@@ -27,7 +27,6 @@ require_once("views/partials/head.php");
                     </div>
                     <small id="duration-message" class = "text-red-600">
                         <?= $durationError?>
-                        <?= $duration?>
                     </small>
                 </div>
                 <div class="screen">
@@ -83,7 +82,7 @@ require_once("views/partials/head.php");
             <div class="describtion">
                 <textarea name="descripton" id="description" cols="10" placeholder="Description"></textarea>
                 <small id="descripton-message" class = "text-red-600">
-                        <?= $describtionError?>
+                        <?= $descriptionError?>
                 </small>
             </div>
             

@@ -8,7 +8,7 @@ $screenError = "";
 $catetoryError = "";
 $imageError = "";
 $trailerError = "";
-$describtionError = "";
+$descriptionError = "";
 $dateError = "";
 $timeError = "";
 $hallError = "";
@@ -25,7 +25,7 @@ $screen = "";
 $catetory = "";
 $image = "";
 $trailer = "";
-$describtion = "";
+$description = "";
 $date = "";
 $time = "";
 $hall = "";
@@ -40,7 +40,7 @@ $screenValid = true;
 $catetoryValid = true;
 $imageValid = true;
 $trailerValid = true;
-$describtionValid = true;
+$descriptionValid = true;
 $dateValid  = true;
 $timeValid =  true;
 $hallValid = true;
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      $catetoryValid = FALSE;
      $imageValid = FALSE;
      $trailerValid = FALSE;
-     $describtionValid = FALSE;
+     $descriptionValid = FALSE;
      $dateValid = FALSE;
      $timeValid = FALSE;
      $hallValid = FALSE;
@@ -150,14 +150,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // ----------------------------describtion-- ----------------
     if(isset($_POST["descripton"])){
           if (empty($_POST["descripton"])){
-               $describtionError = "Description must be input";
+               $descriptionError = "Description must be input";
           }
           else if (empty($_POST["descript"])){
                if(describtionShow($_POST["descripton"])){
-                    $describtionValid = true;
+                    $descriptionValid = true;
                }
                else{
-                    $describtionError = "Description must be at least 250 characters and more than 3";
+                    $descriptionError = "Description must be at least 250 characters and more than 3";
                }
           }
 
@@ -197,30 +197,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $venueError = "You must be fill in a venue";
      }
      // ---------------------------------------condection is correct---------
-     if($titleValid && $authorValid && $durationValid && $screenValid && $catetoryValid && $imageValid && $trailerValid && $describtionValid && $dateValid && $timeValid && $hallValid && $venueValid){
+     if($titleValid && $authorValid && $durationValid && $screenValid && $catetoryValid && $imageValid && $trailerValid && $descriptionValid && $dateValid && $timeValid && $hallValid && $venueValid){
           // --------------table show -------------
-
           $title = $_POST["name"];
           $author = $_POST["author"];
           $duration = $_POST["h"].":".$_POST["m"];
           $screen = $_POST["screen"];
           $catetory = $_POST["category"];
-          // -----------image insert---------------
-          $target_file = basename($_FILES["imageUpload"]["name"]);
-          $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-          $random_file_name = "hello_image";
-          // insert_image($random_file_name . "." . $imageFileType);
-          move_uploaded_file($_FILES["imageUpload"]["tmp_name"], "views/images/shows_image/" . $random_file_name . "." . $imageFileType);
-          // $image = $_POST["image"];
           $trailer = $_POST["trailer"];
-          $describtion = $_POST["descripton"];
+          $description = $_POST["descripton"];
+          $sellerId = $_COOKIE["id"];
+          if (!getPreviewShows($title,$sellerId,0)){
+               // -----------image insert---------------
+               $target_file = basename($_FILES["imageUpload"]["name"]);
+               $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+               $random_file_name = randomNameImage();
+               move_uploaded_file($_FILES["imageUpload"]["tmp_name"], "views/images/shows_image/" . $random_file_name . "." . $imageFileType);
+               $image = $random_file_name . "." . $imageFileType;
+               $showCurrent = createNewShow($title, $description, $image , $author, $trailer, $duration, $catetory, $screen, $sellerId);
+          }else{
+               $titleError = "Your show already exists";
+          }
      // --------------table show detail -------------
-
+          
           $date = $_POST["date"];
           $time = $_POST["time"];
           $hall = $_POST["hall"];
           $venue = $_POST["venue"];
-          echo "<h1 class='text-white'>". "hello" . "</h1>";
+          // echo "<h1 class='text-white'>". "hello $nameExist" . "</h1>";
           
      }
 }
