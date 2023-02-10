@@ -22,7 +22,7 @@ function validatePassword(string $password): bool
     $specialChars = preg_match('@[^\w]@', $password);
     return strlen($password) < 5 || !$number || !$lowercase || !$specialChars;
 }
-function validateDate(string $date, $format = 'Y-m-d'): bool
+function validateDate(string $date): bool
 {
     $d = DateTime::createFromFormat($format, $date);
     return $d && $d->format($format) === $date;
@@ -31,9 +31,10 @@ function validateDate(string $date, $format = 'Y-m-d'): bool
 
 // --------------------create shows--------------
 
+
 function titleshow(string $title):bool
 {
-    return (strlen(trim($title, "")) <= 50 && (strlen(trim($title, "")) >=2) );
+    return (strlen(trim($title, "")) <= 40 && (strlen(trim($title, "")) >=2) );
    
 }
 
@@ -48,8 +49,7 @@ function authorOfShow(string $author):bool
 
 function durationShow(int $duration):bool
 {
-    // echo $duration; 
-    return ($duration >= 0 && $duration <= 10);
+    return ($duration > -1 && $duration <= 10);
 }
 
 function randomNameImage()
@@ -65,13 +65,16 @@ function randomNameImage()
 
 function describtionShow(string $description):bool
 {
-    return (strlen(trim($description, "")) <=200  && (strlen(trim($description, "")) >=20) );
+    return (strlen(trim($description, "")) <=100  && (strlen(trim($description, "")) >=10) );
    
 }
-function dateOfShow(string $date, $format = 'Y-m-d'): bool
+
+
+function dateOfShow(string $date): bool
 {
-    $d = DateTime::createFromFormat($format, $date);
-    return $d && $d->format($format) === $date;
+    $date_now = date("m/d/Y");
+    return ($date_now <= $date);
+    
 }
 function addressShow($description):bool
 {

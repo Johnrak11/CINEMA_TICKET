@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
      if(isset($_POST["name"])){
           if(empty($_POST["name"])){
-               $titleError = "You must provide a title";
+               $titleError = "You must beinput a title";
           }
           else{
                if(titleShow($_POST["name"])){
@@ -77,15 +77,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $title = ($_POST["name"]);
                }
                else{
-                    $titleError = "Title must be add less 2 letters and less than 50 letters";   
+                    $titleError = "Title must be more than 2 letters and less than 40 letters";   
                }
           }
      }
      // ------------------------------author----------------
      if (isset($_POST["author"])){
           if (empty($_POST["author"])){
-               $authorError = "You must be fill a author name";
-
+               $authorError = "Must be a text";
           }else if(authorOfShow($_POST["author"])){
                $authorValid = true;  
           }                                            
@@ -95,8 +94,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                } 
           
      }
-
-     
      // ------------------------------duration----------------
       if(isset($_POST["duration"])){
           if(empty($_POST["duration"])){
@@ -106,20 +103,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $durationValid = true;
                     $duration = ($_POST["duration"]);
                }else{
-                    $durationError = "You must be equal or less than 0 and add less 10";
+                    $durationError = "Duration must be less then 10 hours";
                }
-
-          }
-              
-          
+          } 
      }
-
      // ------------------------------screen ----------------
     if(isset($_POST["screen"])){
           $screenValid = true;
      }
      else{
-          $screenError = "You must be choose a screen";
+          $screenError = "You must be select a screen";
      }
     // ------------------------------category ----------------
      if(isset($_POST["category"])){
@@ -129,30 +122,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $catetoryError = "You must be select a category";
      }
 
-    
     // ----------------------------Uplaod image -- ----------------
     $target_dir = "views/images/show_images";
     $target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
     if(isset($_POST["submit"])){
-     if(!empty($_POST["submit"])){
-          $check = getimagesize($_FILES["imageUpload"]["tmp_name"]);
-          if($check !== false) {
-             $imageError = $check;
-             $random_file_name = randomNameImage();
-             $imageError = $random_file_name;   
-          }else{
-               $imageError = "Mush be file image ";
+          if(!empty($_POST["submit"])){
+               $check = getimagesize($_FILES["imageUpload"]["tmp_name"]);
+               if($check !== false) {
+               $imageError = $check;
+               $random_file_name = randomNameImage();
+               $imageError = $random_file_name;   
+               }else{
+                    $imageError = "Mush be file image ";
+               }
           }
      }
-         
-      }
      else{
           $imageError = "You must be choose a image";      
      }
-
-
     // ----------------------------trailer-- ----------------
     if(isset($_POST["trailer"])){
           if(empty($_POST["trailer"])){
@@ -166,7 +155,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                }
           }
      }
-
     // ----------------------------describtion-- ----------------
     if(isset($_POST["descripton"])){
           if (empty($_POST["descripton"])){
@@ -177,11 +165,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $describtionValid = true;
                }
                else{
-                    $describtionError = "Describtion must be have add less 20 letters and less than 200 letters";
+                    $describtionError = "Describtion must be have add less 10 letters and less than 100 letters";
                }
           }
 
      }
+    
     // ----------------------------Date of show -- ----------------
     
     if(isset($_POST["date"])){
@@ -191,12 +180,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           if(dateOfShow($_POST["date"])){
                $dateValid = true;
 
+          }else{
+               $dateError = "Date must be eqail or more than today";
           }
      }
 }
-
 // ----------------------------time show-- ----------------
-    
      if(isset($_POST["time"])){
           if(empty($_POST["time"])){
                $timeError = "You must be choose a time";
@@ -204,20 +193,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                $timeValid = true;
           }
      }
-
 // ----------------------------hall-- ----------------
-
-
      if(isset($_POST["hall"])){
           $hallValid = true;
      }
      else{
           $hallError = "You must be fill hall";
      }
-     
-
      // ----------------------------venue-- ----------------
-
 
      if(isset($_POST["venue"])){
           if(empty($_POST["venue"])){
@@ -226,7 +209,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                $venueValid = true;
           }
      }
-
      // ----------------------------address-- ----------------
 
 

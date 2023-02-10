@@ -31,7 +31,7 @@ require_once("views/partials/head.php");
                     </div>
                     <small class = "text-red-600">
                         <?= $durationError?>
-                   
+                        <?= $duration?>
                     </small>
                 </div>
                 <div class="screen">
@@ -137,7 +137,7 @@ require_once("views/partials/head.php");
             <div class="flex w-full h-full justify-between">
                 <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="canBtn" onclick="">Cancel</button>
                 <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="prevBtn" onclick="nextPrev(-1)">Back</button>
-                <button type="submit" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" name = "submit" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                <button type="submit" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" name = "next" id="nextBtn" onclick="nextPrev(1)">Next</button>
             </div>
         </div>
         <!-- Circles which indicates the steps of the form: -->
