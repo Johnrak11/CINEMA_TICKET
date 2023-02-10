@@ -11,9 +11,13 @@ require_once("views/partials/head.php");
                 <input placeholder="Author" oninput="this.className = ''" id="author" name="author">
             </div>
             <div class="flex gap-2.5">
-                <input placeholder="Duration" oninput="this.className = ''" id="duration" name="duration">
+                <div class="flex gap-3">
+                    <input type="number" placeholder="Hours" oninput="this.className = ''" id="duration"  name="duration" class="hour">
+                    <input type="number" placeholder="Minutes" oninput="this.className = ''" id="duration" name="duration" class="minute">
+                    <input type="number" placeholder="Second" oninput="this.className = ''" id="duration" name="duration" class="second">
+                </div>
                 <select name="screen" id="screen" class="p-2.5 rounded-[30px] mt-[15px] bg-transparent border border-white w-full ">
-                    <option value="" disabled selected>Screen</option>
+                    <option disabled selected>Screen</option>
                     <option value="2D">2D</option>
                     <option value="3D">3D</option>
                     <option value="SCEEN-X">SCREEN-X</option>
@@ -69,4 +73,21 @@ require_once("views/partials/head.php");
         </div>
     </form>
 </div>
+<style>
+    .input-green:focus {
+        outline: 2px green solid;
+        border-radius: 2rem;
+    }
+    #regForm .input-green{
+        border: 1px green solid;
+    }
+
+    .input-red:focus {
+        outline: 2px red solid;
+        border-radius: 2rem;
+    }
+    #regForm .input-red{
+        border: 1px red solid;
+    }
+</style>
 <script src="views/js/create_show.js"></script>

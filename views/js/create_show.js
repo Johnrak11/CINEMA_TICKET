@@ -38,27 +38,7 @@ function nextPrev(n) {
     // Otherwise, display the correct tab:
     showTab(currentTab);
 }
-function validateForm() {
-    // This function deals with validation of the form fields
-    var x, y, i, valid = true;
-    x = document.getElementsByClassName("tab");
-    y = x[currentTab].getElementsByTagName("input");
-    // A loop that checks every input field in the current tab:
-    for (i = 0; i < y.length; i++) {
-        // If a field is empty...
-        if (y[i].value == "") {
-            // add an "invalid" class to the field:
-            y[i].className += " invalid";
-            // and set the current valid status to false
-            valid = false;
-        }
-    }
-    // If the valid status is true, mark the step as finished and valid:
-    if (valid) {
-        document.getElementsByClassName("step")[currentTab].className += " finish";
-    }
-    return valid; // return the valid status
-}
+
 function fixStepIndicator(n) {
     // This function removes the "active" class of all steps...
     var i, x = document.getElementsByClassName("step");
@@ -76,3 +56,165 @@ input.addEventListener("change", () => {
 
     imageName.innerText = inputImage.name;
 })
+// ----------------teb 1 dom--------------------------
+let domTitle = document.querySelector('#title')
+domTitle.addEventListener('keyup', (e) => {
+    validateText(domTitle, 2, 40)
+});
+let domauthor = document.querySelector('#author')
+domauthor.addEventListener('keyup', (e) => {
+    validateName(domauthor)
+});
+let domhour = document.querySelector('.hour')
+domhour.addEventListener('keyup', (e) => {
+    validateNumber(domhour)
+});
+let domMinute = document.querySelector('.minute')
+domMinute.addEventListener('keyup', (e) => {
+    validateHour(domMinute)
+});
+let domSecond = document.querySelector('.second')
+domSecond.addEventListener('keyup', (e) => {
+    validateHour(domSecond)
+});
+let domScreen = document.querySelector('#screen')
+let domTypeMovie = document.querySelector('#type-movie')
+let domImage = document.querySelector('#inputTag')
+let domTrailler = document.querySelector('#trailler')
+domTrailler.addEventListener('keyup', (e) => {
+    validateUrl(domTrailler)
+});
+let domDescription = document.querySelector('#description')
+domDescription.addEventListener('keyup', (e) => {
+    validateText(domDescription, 5, 250)
+});
+
+// ------------title---check-----
+function validateFailedBorders(domInput) {
+    let valueInput = domInput.value;
+    console.log(valueInput)
+    if (valueInput !== "") {
+        domInput.className = 'input-green'
+        return true;
+    }
+    else {
+        domInput.className = 'input-red';
+        return false;
+    }
+}
+
+function validateFailed() {
+    if (validateFailedBorders(domTitle) &&
+        validateFailedBorders(domauthor) &&
+        validateFailedBorders(domhour) &&
+        validateFailedBorders(domMinute) &&
+        validateFailedBorders(domSecond) &&
+        validateFailedBorders(domScreen) &&
+        validateFailedBorders(domTypeMovie) &&
+        validateFailedBorders(domImage) &&
+        validateFailedBorders(domTrailler) &&
+        validateFailedBorders(domDescription)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function validateUrl(domUrl) {
+    let url = domUrl.value
+    if (isValidUrl(url)) {
+        domUrl.className = 'input-green'
+        return true
+    } else {
+        domUrl.className = 'input-red'
+        return false
+    }
+}
+
+function isValidUrl(string) {
+    try {
+        new URL(string);
+        return true;
+    } catch (err) {
+        return false;
+    }
+}
+
+function validateHour(domNum) {
+    let number = parseInt(domNum.value);
+    if (Number.isInteger(number) && number >= 0 && number <= 59) {
+        domNum.className = 'input-green'
+        return true
+    } else {
+        domNum.className = 'input-red'
+        return false
+    }
+}
+
+function validateNumber(domNum) {
+    let number = parseInt(domNum.value);
+    if (Number.isInteger(number) && number >= 0 && number <= 10) {
+        domNum.className = 'input-green'
+        return true
+    } else {
+        domNum.className = 'input-red'
+        return false
+    }
+}
+
+function validateText(domText, min, max) {
+    let text = domText.value
+    if (text.length > min && text.length < max) {
+        domText.className = 'input-green'
+        return true
+    } else {
+        domText.className = 'input-red'
+        return false
+    }
+}
+
+function validateName(inputValue) {
+    var name = inputValue.value
+    if (/^[A-Za-z\s]+$/.test(name) && name.length > 2 && name.length < 40) {
+        inputValue.className = 'input-green'
+        return true
+    }
+    else {
+        inputValue.className = 'input-red'
+        return false
+    }
+}
+
+function validateForm() {
+    // This function deals with validation of the form fields
+    let valid = false;
+    // if (validateText(domTitle, 2, 40) &&
+    //     validateName(domauthor) &&
+    //     validateNumber(domhour) &&
+    //     validateHour(domMinute) &&
+    //     validateHour(domSecond) &&
+    //     validateUrl(domTrailler) &&
+    //     validateText(domDescription, 5, 250));{
+    //         valid = true;
+    //     }
+    if (validateText(domTitle, 2, 40)) {
+        valid = true;
+    }
+    // if (validateName(domauthor)) {
+    //     valid = true;
+    // }
+    // if (validateName(domauthor)) {
+    //     valid = true;
+    // }
+    // if (validateName(domauthor)) {
+    //     valid = true;
+    // }
+    
+
+    // If the valid status is true, mark the step as finished and valid:
+    if (valid) {
+        document.getElementsByClassName("step")[currentTab].className += " finish";
+    }
+    return valid; // return the valid status
+}
