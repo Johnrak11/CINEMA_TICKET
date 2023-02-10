@@ -22,14 +22,20 @@ function validatePassword(string $password): bool
     $specialChars = preg_match('@[^\w]@', $password);
     return strlen($password) < 5 || !$number || !$lowercase || !$specialChars;
 }
-function validateDate(string $date): bool
+
+function validateDate(string $date, $format = 'Y-m-d'): bool
 {
     $d = DateTime::createFromFormat($format, $date);
     return $d && $d->format($format) === $date;
 }
+function validateHour(string $hour, $format = 'h:i:sa'): bool
+{
+    $d = DateTime::createFromFormat($format, $hour);
+    return $d && $d->format($format) === $hour;
+}
 
 
-// --------------------create shows--------------
+// --------------------create shows--------------------------
 
 
 function titleshow(string $title):bool
@@ -42,14 +48,12 @@ function authorOfShow(string $author):bool
 {
     $specialChars = preg_match('@[^\w]@', $author);
     $number = preg_match('@[0-9]@', $author);
- 
     return (!$specialChars && !$number);
-
 }
 
-function durationShow(int $duration):bool
+function durationShow(int $h,int $m):bool
 {
-    return ($duration > -1 && $duration <= 10);
+    return (($h >=0 && $h <= 10) && ($m >= 0 && $m <= 59));
 }
 
 function randomNameImage()
@@ -60,27 +64,12 @@ function randomNameImage()
     return $text_rand . "$num_rand";
 }
 
-
-
-
 function describtionShow(string $description):bool
 {
-    return (strlen(trim($description, "")) <=100  && (strlen(trim($description, "")) >=10) );
+    return (strlen(trim($description, "")) <=250  && (strlen(trim($description, "")) >=3) );
    
 }
 
-
-function dateOfShow(string $date): bool
-{
-    $date_now = date("m/d/Y");
-    return ($date_now <= $date);
-    
-}
-function addressShow($description):bool
-{
-    return (strlen(trim($description, "")) <=100  && (strlen(trim($description, "")) >=3) );
-   
-}
 function traillerShow($trailler):bool
 {
     return (!filter_var($trailler, FILTER_VALIDATE_URL) === false);

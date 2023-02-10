@@ -30,7 +30,7 @@ $date = "";
 $time = "";
 $hall = "";
 $venue = "";
-$address = "";
+
 
 //    if correct condition
 $titleValid = true;
@@ -45,7 +45,6 @@ $dateValid  = true;
 $timeValid =  true;
 $hallValid = true;
 $venueValid = true;
-$addressValid = true;
 
 
 
@@ -63,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      $timeValid = FALSE;
      $hallValid = FALSE;
      $venueValid = FALSE;
-     $addressValid = FALSE;
+   
 
     // ------------------title show  -----------------------
 
@@ -74,7 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           else{
                if(titleShow($_POST["name"])){
                     $titleValid = true;
-                    $title = ($_POST["name"]);
                }
                else{
                     $titleError = "Title must be more than 2 letters and less than 40 letters";   
@@ -95,17 +93,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           
      }
      // ------------------------------duration----------------
-      if(isset($_POST["duration"])){
-          if(empty($_POST["duration"])){
-               $durationError = "You must be fill a duration";
+      if(isset($_POST["h"]) && (isset($_POST["m"])) ){
+          if(empty($_POST["h"]) && empty($_POST["m"]) ){
+               $durationError = "Duration must be input";
           }else{
-               if(durationShow($_POST["duration"])){
+               if(durationShow($_POST["h"],$_POST["m"])){
                     $durationValid = true;
-                    $duration = ($_POST["duration"]);
                }else{
-                    $durationError = "Duration must be less then 10 hours";
+                    $durationError = "Duration must be less than 10 hours";
                }
-          } 
+          }
+               
+          
      }
      // ------------------------------screen ----------------
     if(isset($_POST["screen"])){
@@ -116,31 +115,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      }
     // ------------------------------category ----------------
      if(isset($_POST["category"])){
-          $categoryValid = true;
+          $catetoryValid = true;
      }
      else{
           $catetoryError = "You must be select a category";
      }
 
     // ----------------------------Uplaod image -- ----------------
-    $target_dir = "views/images/show_images";
-    $target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-    if(isset($_POST["submit"])){
-          if(!empty($_POST["submit"])){
+    if(isset($_FILES["imageUpload"]["name"])){
+          if(!empty($_FILES["imageUpload"]["name"])){
                $check = getimagesize($_FILES["imageUpload"]["tmp_name"]);
                if($check !== false) {
-               $imageError = $check;
-               $random_file_name = randomNameImage();
-               $imageError = $random_file_name;   
+                    $imageValid = true;  
                }else{
                     $imageError = "Mush be file image ";
                }
+          }else{
+               $imageError = "You must be choose a image";      
           }
-     }
-     else{
-          $imageError = "You must be choose a image";      
      }
     // ----------------------------trailer-- ----------------
     if(isset($_POST["trailer"])){
@@ -158,14 +150,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // ----------------------------describtion-- ----------------
     if(isset($_POST["descripton"])){
           if (empty($_POST["descripton"])){
-               $describtionError = "You must be fill describtion";
+               $describtionError = "Description must be input";
           }
           else if (empty($_POST["descript"])){
                if(describtionShow($_POST["descripton"])){
                     $describtionValid = true;
                }
                else{
-                    $describtionError = "Describtion must be have add less 10 letters and less than 100 letters";
+                    $describtionError = "Description must be at least 250 characters and more than 3";
                }
           }
 
@@ -173,22 +165,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // ----------------------------Date of show -- ----------------
     
-    if(isset($_POST["date"])){
-     if(empty($_POST["date"])){
-          $dateError = "You must be choose a date";
-     }else{
-          if(dateOfShow($_POST["date"])){
-               $dateValid = true;
-
-          }else{
-               $dateError = "Date must be eqail or more than today";
-          }
+    if (isset($_POST['date'])) {
+     if (empty($_POST['date'])) {
+          $dateError = "Date must be input";
+     } elseif (validateDate($_POST['date']) && $_POST['date'] >= date("Y-m-d")) {
+         $dateValid = true;
+     } else {
+          $dateError = "date incorrect";
      }
-}
+ }
 // ----------------------------time show-- ----------------
      if(isset($_POST["time"])){
           if(empty($_POST["time"])){
-               $timeError = "You must be choose a time";
+               $timeError = "Time must be select a time";
           }else{
                $timeValid = true;
           }
@@ -203,28 +192,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      // ----------------------------venue-- ----------------
 
      if(isset($_POST["venue"])){
-          if(empty($_POST["venue"])){
-               $venueError = "You must be fill in a venue";
-          }else{
-               $venueValid = true;
-          }
+          $venueValid = true;
+     }else{
+          $venueError = "You must be fill in a venue";
      }
-     // ----------------------------address-- ----------------
+     // ---------------------------------------condection is correct---------
+     if($titleValid && $authorValid && $durationValid && $screenValid && $catetoryValid && $imageValid && $trailerValid && $describtionValid && $dateValid && $timeValid && $hallValid && $venueValid){
+          // --------------table show -------------
 
+          $title = $_POST["name"];
+          $author = $_POST["author"];
+          $duration = $_POST["h"].":".$_POST["m"];
+          $screen = $_POST["screen"];
+          $catetory = $_POST["category"];
+          // -----------image insert---------------
+          $target_file = basename($_FILES["imageUpload"]["name"]);
+          $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+          $random_file_name = "hello_image";
+          // insert_image($random_file_name . "." . $imageFileType);
+          move_uploaded_file($_FILES["imageUpload"]["tmp_name"], "views/images/shows_image/" . $random_file_name . "." . $imageFileType);
+          // $image = $_POST["image"];
+          $trailer = $_POST["trailer"];
+          $describtion = $_POST["descripton"];
+     // --------------table show detail -------------
 
-     if(isset($_POST["address"])){
-          if(empty($_POST["address"])){
-               $addressError = "You must be fill a address";
-          }else{
-               if(addressShow($_POST["address"])){
-                    $adressValid = true;
-               }else{
-                    $addressError = "Address must be add less 3 letters and less than 100 letters";
-               }
-          }
+          $date = $_POST["date"];
+          $time = $_POST["time"];
+          $hall = $_POST["hall"];
+          $venue = $_POST["venue"];
+          echo "<h1 class='text-white'>". "hello" . "</h1>";
+          
      }
-
-
 }
 
 

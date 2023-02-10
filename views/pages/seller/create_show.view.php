@@ -22,9 +22,8 @@ require_once("views/partials/head.php");
             <div class="flex gap-2.5">
                 <div class="duration">
                     <div class="flex gap-3">
-                        <input type="number" placeholder="Hours" oninput="this.className = ''" id="duration"  name="duration" class="hour">
-                        <input type="number" placeholder="Minutes" oninput="this.className = ''" id="duration"  class="minute">
-                        <input type="number" placeholder="Second" oninput="this.className = ''" id="duration"  class="second">
+                        <input type="number" placeholder="Hours" oninput="this.className = ''" id="duration"  name="h" class="hour">
+                        <input type="number" placeholder="Minutes" oninput="this.className = ''" id="duration" name = "m" class="minute">
                     </div>
                     <small id="duration-message" class = "text-red-600">
                         <?= $durationError?>
@@ -93,38 +92,42 @@ require_once("views/partials/head.php");
         <div class="tab">
             <div class="date">
                 <input type="date" oninput="this.className = ''" id="date" name="date">
-                <small class = "text-red-600">
+                <small id = "date-message" class = "text-red-600" >
                         <?= $dateError?>
                 </small>
             </div>
             <div class="time">
                 <input type="time" oninput="this.className = ''" id="time" name="time">
-                <small class = "text-red-600">
+                <small id = "time-message" class = "text-red-600">
                         <?= $timeError?>
                 </small>
             </div>
             <div class="hall">
-                <select name="hall" class="p-2.5 rounded-[30px] text-white mt-[15px] bg-[#101827] border border-white w-full ">
+                <select name="hall" id = "hall" class="p-2.5 rounded-[30px] text-white mt-[15px] bg-[#101827] border border-white w-full ">
                     <option value="" disabled selected>Choose Hall</option>
                     <option value="Hall-1">Hall 1</option>
                     <option value="Hall-2">Hall 2</option>
                     <option value="Hall-3">Hall 3</option>
                     <option value="Hall-4">Hall 4</option>
                 </select>
-                <small class = "text-red-600">
+                <small id = "hall-message"class = "text-red-600">
                         <?= $hallError?>
                 </small>
             </div>
             <div class="venue">
-                <input type="text" placeholder="Venue Name" oninput="this.className = ''" id="venue-name" name="venue">
+                <select name="venue"  id="venue-name" class="p-2.5 rounded-[30px] text-white mt-[15px] bg-[#101827] border border-white w-full ">
+                    <option value="" disabled selected>Venue Name</option>
+                    <?php 
+                    $venues = getVenue();
+                    foreach ($venues as $venue) :
+                    ?>
+                    <option value="<?= htmlspecialchars($venue['id'])?>"><?= htmlspecialchars($venue['name'])?></option>
+                    <?php endforeach ?>
+                </select>
+
+                <!-- <input type="text" placeholder="Venue Name" oninput="this.className = ''" id="venue-name" name="venue"> -->
                 <small id="venue-name-message" class = "text-red-600">
                         <?= $venueError?>
-                </small>
-            </div>
-            <div class="address">
-                <input type="text" placeholder="Address" oninput="this.className = ''" id="venue" name="address">
-                <small id="address-message" class = "text-red-600">
-                        <?= $addressError?>
                 </small>
             </div>
         </div>
@@ -132,7 +135,7 @@ require_once("views/partials/head.php");
             <div class="flex w-full h-full justify-between">
                 <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="canBtn" onclick="">Cancel</button>
                 <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="prevBtn" onclick="nextPrev(-1)">Back</button>
-                <button type="submit" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" name = "submit" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" name = "submit" id="nextBtn" onclick="nextPrev(1)">Next</button>
             </div>
         </div>
         <!-- Circles which indicates the steps of the form: -->

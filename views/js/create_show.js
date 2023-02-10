@@ -79,13 +79,25 @@ let domMinute = document.querySelector('.minute')
 domMinute.addEventListener('keyup', (e) => {
     validateHour(domMinute, '#duration-message', "Minute must be less than 60 hours")
 });
-let domSecond = document.querySelector('.second')
-domSecond.addEventListener('keyup', (e) => {
-    validateHour(domSecond, '#duration-message', "Second must be less than 60 hours")
-});
 let domScreen = document.querySelector('#screen')
+domScreen.addEventListener("click",(e)=>{
+    document.querySelector("#screen-message") .textContent = "";
+    domScreen.className = 'input-green';
+
+
+})
 let domTypeMovie = document.querySelector('#type-movie')
+domTypeMovie.addEventListener("click",(e)=>{
+    document.querySelector("#category-message") .textContent = "";
+    domTypeMovie.className = 'input-green';
+
+})
 let domImage = document.querySelector('#inputTag')
+domImage.addEventListener("click",(e)=>{
+    document.querySelector("#image-message") .textContent = "";
+    domImage.className = 'input-green';
+
+})
 let domTrailler = document.querySelector('#trailler')
 domTrailler.addEventListener('keyup', (e) => {
     validateUrl(domTrailler, '#trailler-message', "Trailler must be a URL")
@@ -94,15 +106,33 @@ let domDescription = document.querySelector('#description')
 domDescription.addEventListener('keyup', (e) => {
     validateText(domDescription, 10, 250, "#descripton-message", "description must be at least 250 characters and more than 3")
 });
-let domVenue = document.querySelector('#venue-name')
-domVenue.addEventListener('keyup', (e) => {
-    validateText(domVenue, 3, 50, "#venue-name-message", "Venue name must be at least 50 characters and more than 3")
+let domDate = document.querySelector('#date')
+domDate.addEventListener('click', (e) => {
+    document.querySelector("#date-message") .textContent = "";
+    domDate.className = 'input-green';
+    
 });
-let domAddress = document.querySelector('#venue')
-domAddress.addEventListener('keyup', (e) => {
-    console.log('here')
-    validateText(domAddress, 3, 100, "#address-message", "Venue address must be at least 100 characters and more than 3")
-})
+let domTime = document.querySelector('#time')
+domTime.addEventListener('click', (e) => {
+    document.querySelector("#time-message") .textContent = "";
+    domTime.className = 'input-green';
+    
+});
+let domHall = document.querySelector('#hall')
+domHall.addEventListener('click', (e) => {
+    document.querySelector("#hall-message") .textContent = "";
+    domHall.className.style.border = "1px solid green ";
+    
+});
+let domVenue = document.querySelector('#venue-name')
+domVenue.addEventListener('click', (e) => {
+    document.querySelector("#venue-name-message") .textContent = "";
+    domVenue.className = 'input-green';
+
+    
+    
+});
+
 // ------------title---check-----
 function validateFailedBorders(domInput,domMessage, message) {
     let valueInput = domInput.value;
@@ -131,12 +161,6 @@ function validateFailed() {
         isFill = false;
     }
     if (validateFailedBorders(domMinute,"#duration-message","Duration must be fill")) {
-        isFill = false;
-    }
-    if (validateFailedBorders(domSecond,"#duration-message","Duration must be fill")) {
-        isFill = false;
-    }
-    if (validateFailedBorders(domSecond,"#duration-message","Duration must be fill")) {
         isFill = false;
     }
     if (validateFailedBorders(domScreen,"#screen-message","Screen must be select")) {
@@ -235,7 +259,6 @@ function validateName(inputValue, domMessage, message) {
 function validateForm() {
     // This function deals with validation of the form fields
     let valid = true;
-    let test = true;
     if (validateFailed()) {
         valid = false
     }
@@ -249,9 +272,6 @@ function validateForm() {
         valid = false;
     }
     else if (!validateHour(domMinute, '#duration-message', "Minute must be less than 60 hours")) {
-        valid = false;
-    }
-    else if (!validateHour(domSecond, '#duration-message', "Second must be less than 60 hours")) {
         valid = false;
     }
     else if (!validateUrl(domTrailler, '#trailler-message', "Trailler must be a URL")) {
