@@ -9,15 +9,12 @@ require_once("views/partials/head.php");
             <div class="flex gap-2.5">
                 <div class="title w-full">
                     <input placeholder="Title" oninput="this.className = ''" id="title" name="name">
-                    <small class = "text-red-600">
-                        <?= $titleError ?>
-                        
-                    </small>
+                    <small id="title-message" class = "text-red-600"><?= $titleError ?></small>
                 </div>
                 
                 <div class="author w-full" >
                     <input placeholder="Author" oninput="this.className = ''" id="author" name="author">
-                    <small class = "text-red-600">
+                    <small id="author-message" class = "text-red-600">
                         <?= $authorError?>
                     </small>
                 </div>
@@ -29,7 +26,7 @@ require_once("views/partials/head.php");
                         <input type="number" placeholder="Minutes" oninput="this.className = ''" id="duration"  class="minute">
                         <input type="number" placeholder="Second" oninput="this.className = ''" id="duration"  class="second">
                     </div>
-                    <small class = "text-red-600">
+                    <small id="duration-message" class = "text-red-600">
                         <?= $durationError?>
                         <?= $duration?>
                     </small>
@@ -41,10 +38,8 @@ require_once("views/partials/head.php");
                         <option value="3D">3D</option>
                         <option value="SCEEN-X">SCREEN-X</option>
                     </select>
-                    <small class = "text-red-600">
-                        <?= $screenError?>  
-                        <?= $screen?>  
-                        
+                    <small id="screen-message" class = "text-red-600">
+                        <?= $screenError?>              
                     </small>
                 </div>
             </div>
@@ -60,7 +55,7 @@ require_once("views/partials/head.php");
                         <option value="Drama">Drama</option>
                         <option value="Fantasy">Fantasy</option>
                     </select>
-                    <small class = "text-red-600">
+                    <small id="category-message"  class = "text-red-600">
                         <?= $catetoryError?>
                     </small>
                 </div>
@@ -74,21 +69,21 @@ require_once("views/partials/head.php");
                         </label>
                         
                     </div>
-                    <small class = "text-red-600">
+                    <small id="image-message"  class = "text-red-600">
                             <?=( $imageError)?>
                     </small>
                 </div>    
             </div>
             <div class="trailer">
                 <input placeholder="Trailler" oninput="this.className = ''" id="trailler" name="trailer">
-                <small class = "text-red-600">
+                <small id="trailler-message" class = "text-red-600">
                         <?= $trailerError?>
                 </small>
 
             </div>
             <div class="describtion">
                 <textarea name="descripton" id="description" cols="10" placeholder="Description"></textarea>
-                <small class = "text-red-600">
+                <small id="descripton-message" class = "text-red-600">
                         <?= $describtionError?>
                 </small>
             </div>
@@ -122,13 +117,13 @@ require_once("views/partials/head.php");
             </div>
             <div class="venue">
                 <input type="text" placeholder="Venue Name" oninput="this.className = ''" id="venue-name" name="venue">
-                <small class = "text-red-600">
+                <small id="venue-name-message" class = "text-red-600">
                         <?= $venueError?>
                 </small>
             </div>
             <div class="address">
                 <input type="text" placeholder="Address" oninput="this.className = ''" id="venue" name="address">
-                <small class = "text-red-600">
+                <small id="address-message" class = "text-red-600">
                         <?= $addressError?>
                 </small>
             </div>
@@ -137,7 +132,7 @@ require_once("views/partials/head.php");
             <div class="flex w-full h-full justify-between">
                 <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="canBtn" onclick="">Cancel</button>
                 <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="prevBtn" onclick="nextPrev(-1)">Back</button>
-                <button type="submit" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" name = "next" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                <button type="submit" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" name = "submit" id="nextBtn" onclick="nextPrev(1)">Next</button>
             </div>
         </div>
         <!-- Circles which indicates the steps of the form: -->
@@ -147,4 +142,21 @@ require_once("views/partials/head.php");
         </div>
     </form>
 </div>
+<style>
+    .input-green:focus {
+        outline: 2px green solid;
+        border-radius: 2rem;
+    }
+    #regForm .input-green{
+        border: 1px green solid;
+    }
+
+    .input-red:focus {
+        outline: 2px red solid;
+        border-radius: 2rem;
+    }
+    #regForm .input-red{
+        border: 1px red solid;
+    }
+</style>
 <script src="views/js/create_show.js"></script>
