@@ -1,6 +1,5 @@
 <?php
 require_once ('models/show_detail.model.php');
-require_once('models/show_list.model.php');
 $showDetail = [];
 $date = [];
 $strikthrough = "";
@@ -15,5 +14,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         }
     }
 }
-require_once('views/pages/detail/detail.view.php')
+require_once('views/pages/booking/booking.view.php')
 ?>
