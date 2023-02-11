@@ -37,7 +37,7 @@ require_once("models/user.model.php");
                 <div id="dropdown-menu" class="z-50  my-10 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-[#ff0000] dark:divide-[#ff0000]">
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-white dark:text-gray-200 dark:hover:text-black">Profile Detail</a>
+                            <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-white dark:text-gray-200 dark:hover:text-black">Profile Detail</a>
                         </li>
                         <?php
                         $role = getRole($_COOKIE['id']);

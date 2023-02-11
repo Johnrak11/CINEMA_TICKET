@@ -45,7 +45,19 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+/* ============================profile======================================= */
+.upload{
+    width: 100px;
+    position: relative;
+    margin: auto;
+}
+.upload img{
+    border-radius: 50%;
+    /* border: 6px solid rgb(232, 195, 83); */
+}
+.upload .round input[type="file"]{
+    position: absolute;
+}
 /* ================================banner================================== */
 #banner-container {
     position: relative;

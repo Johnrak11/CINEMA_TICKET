@@ -14,6 +14,7 @@ $router = [
     "/createShow" => "controllers/pages/seller/create_show.controller.php",
     "/createVenue" => "controllers/pages/seller/create_venue.controller.php",
     "/sellerVenue" => "controllers/pages/seller/venue.controller.php",
+    "/profile" => "controllers/pages/profile/profile.controller.php",
     "/venueDetele" => "controllers/pages/seller/venue_action/delete_venue.controller.php",
 ];
 
