@@ -1,4 +1,5 @@
 <?php
+require_once("models/user.model.php");
 ?>
 <nav id='navbar' class=" bg-white border-gray-200 rounded dark:bg-black">
     <div class=" flex flex-wrap items-center justify-between">
@@ -14,11 +15,11 @@
             </div>
             <?php
             if (isset($_COOKIE['email']) and isset($_COOKIE['id'])) {
-
+                $user = getUser($_COOKIE['id']);
             ?>
                 <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 p-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
-                    <img id="profile-user" class="w-9 h-9 rounded-full" src='views/images/components_image/user_account.png' alt="user photo">
+                    <img id="profile-user" class="w-9 h-9 rounded-full" src="<?= (file_exists('views/images/users/' . $user['image']) and !empty($user['image'])) ? 'views/images/users/' . $user['image'] : "views/images/components_image/user_account.png" ?>" alt="user photo">
                 </button>
 
             <?php

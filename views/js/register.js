@@ -19,7 +19,7 @@ domPassword.addEventListener('keyup', function(e) {
     validateBorder(domPassword, domPasswordError);
 });
 let domdateError = document.getElementById('date-error');
-let domDate = document.querySelectorAll('#date')
+let domDate = document.querySelectorAll('#birth');
 domDate.forEach(function(item){
     item.addEventListener('click', () => {
         domdateError.textContent = ""

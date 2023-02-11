@@ -3,7 +3,7 @@ require_once('../../../database/database.php');
 require_once('../../../models/show_list.model.php');
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['row'])) {
-        $rowsCard = showMore($_GET['row']);
+        $rowsCard = showMore($_GET['row'],date("Y-m-d"));
         foreach ($rowsCard as $row) {
 ?>
             <div class="card"><img src="<?= "views/images/shows_image/" . $row['image'] ?>" />

@@ -1,11 +1,13 @@
 <?php 
-function getContantName($name): array
+function getContantName(string $name, string $dateNow): array
 {
     global $connection;
-    $statement = $connection->prepare("SELECT name,id FROM shows WHERE name LIKE :name AND is_confirm = 1");
+    $statement = $connection->prepare("SELECT s.name,s.id FROM shows s 
+                                        INNER JOIN show_details sd ON s.id = sd.show_id
+                                        WHERE s.name LIKE :name AND s.is_confirm = 1 AND sd.date >= :dateNow;");
     $statement->execute([
         ":name" => "%$name%",
+        ":dateNow" => $dateNow
     ]);
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
-?>
