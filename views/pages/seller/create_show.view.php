@@ -9,7 +9,7 @@ require_once("views/partials/head.php");
             <div class="flex gap-2.5">
                 <div class="title w-full">
                     <input placeholder="Title" oninput="this.className = ''" id="title" name="name">
-                    <small id="title-message" class = "text-red-600"><?= $titleError ?></small>
+                    <small id="title-message" class = "text-red-600"><?php print_r($titleError)  ?></small>
                 </div>
                 
                 <div class="author w-full" >

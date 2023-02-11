@@ -1,5 +1,12 @@
 <?php
-function createNewShow(string $name, string $description, string $image, string $author, string $trailer, string $duration, string $category, string $screen, int $sellerId) : bool
+function getShows()
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM shows WHERE is_confirm = 0");
+    $statement->execute();
+    return $statement ->fetchAll();
+}
+function createNewShow(string $name, string $description, string $image, string $author, string $trailer, string $duration, string $category, string $screen, int $sellerId) : int
 {
     global $connection;
     $statement = $connection->prepare("INSERT INTO shows (name,description,image,author,trailer,duration,category,screen,seller_id) 
@@ -15,7 +22,9 @@ function createNewShow(string $name, string $description, string $image, string 
         ":screen" => $screen,
         ":seller_id" => $sellerId
     ]);
-    return $statement ->rowCount() > 0;
+    $allShows = getShows();
+    $lastShow = count($allShows)-1;
+    return $allShows[$lastShow]['id'];
 }
 function getPreviewShows(string $name, int $sellerId, int $confirm)
 {
@@ -29,5 +38,19 @@ function getPreviewShows(string $name, int $sellerId, int $confirm)
         ":nameShow" => "%$name",
     ]);
     return $statement ->rowCount() > 0;
+}
+function createShowDetails(int $venueId, string $dateShow, string $timeShow, string $hall, int $showId): bool
+{
+    global $connection;
+    $statement = $connection->prepare("INSERT INTO show_details (venue_id,date,time,hall,show_id) 
+                                        VALUES (:venue_id,:dateShow,:timeShow,:hall,:show_id)");
+    $statement -> execute([
+       ":venue_id" => $venueId,
+       ":dateShow" => $dateShow,
+       ":timeShow" => $timeShow,
+       ":hall" => $hall,
+       ":show_id" => $showId
+    ]);
+    return $statement -> rowCount() >0;
 }
 ?>

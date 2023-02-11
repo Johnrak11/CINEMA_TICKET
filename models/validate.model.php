@@ -61,8 +61,8 @@ function randomNameImage()
     $newName = "";
     $text = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "Y", "W", "X", "Y", "Z"];
     for ($i = 0; $i < 2; $i++){
-        $text_rand = $text[rand(0, count($text))];
-        $num_rand = rand(0, 10000000);
+        $text_rand = $text[rand(0, count($text)-1)];
+        $num_rand = rand(0, 10000);
         $newName .= $text_rand . "$num_rand";
     }
     return $newName;

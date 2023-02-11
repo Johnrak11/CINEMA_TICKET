@@ -198,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      }
      // ---------------------------------------condection is correct---------
      if($titleValid && $authorValid && $durationValid && $screenValid && $catetoryValid && $imageValid && $trailerValid && $descriptionValid && $dateValid && $timeValid && $hallValid && $venueValid){
-          // --------------table show -------------
+          // --------------table show data-------------
           $title = $_POST["name"];
           $author = $_POST["author"];
           $duration = $_POST["h"].":".$_POST["m"];
@@ -207,25 +207,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $trailer = $_POST["trailer"];
           $description = $_POST["descripton"];
           $sellerId = $_COOKIE["id"];
-          if (!getPreviewShows($title,$sellerId,0)){
-               // -----------image insert---------------
-               $target_file = basename($_FILES["imageUpload"]["name"]);
-               $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-               $random_file_name = randomNameImage();
-               move_uploaded_file($_FILES["imageUpload"]["tmp_name"], "views/images/shows_image/" . $random_file_name . "." . $imageFileType);
-               $image = $random_file_name . "." . $imageFileType;
-               $showCurrent = createNewShow($title, $description, $image , $author, $trailer, $duration, $catetory, $screen, $sellerId);
-          }else{
-               $titleError = "Your show already exists";
-          }
-     // --------------table show detail -------------
-          
+          // --------------table show_detail data-------------
           $date = $_POST["date"];
           $time = $_POST["time"];
           $hall = $_POST["hall"];
           $venue = $_POST["venue"];
-          // echo "<h1 class='text-white'>". "hello $nameExist" . "</h1>";
-          
+          if (!getPreviewShows($title,$sellerId,0)){
+               // -----------image insert into folder---------------
+               $target_file = basename($_FILES["imageUpload"]["name"]);
+               $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+               // -----------image insert name into db---------------
+               $random_file_name = randomNameImage();
+               move_uploaded_file($_FILES["imageUpload"]["tmp_name"], "views/images/shows_image/" . $random_file_name . "." . $imageFileType);
+               $image = $random_file_name . "." . $imageFileType;
+               // -----------Show insert into table show---------------
+               $idShowCurrent = createNewShow($title, $description, $image , $author, $trailer, $duration, $catetory, $screen, $sellerId);
+               // --------------table show detail -------------
+               createShowDetails($venue, $date, $time, $hall, $idShowCurrent);
+               header('location:/seller');
+          }else{
+               $titleError = "Your show already exists";
+          }     
      }
 }
 
