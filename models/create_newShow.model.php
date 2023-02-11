@@ -1,8 +1,4 @@
 <?php
-function creatNewShow(string $name, string $description, string $image, string $author, string $trailer, string $duration, string $category) : bool
-{
-    global $connection;
-    $statement = $connection->prepare("INSERT INTO show (name,description,image,author,trailer,duration,category) VALUES (':name,:description,:image,:author,:trailer,:duration,:category')");
 function getShows()
 {
     global $connection;
@@ -23,9 +19,6 @@ function createNewShow(string $name, string $description, string $image, string 
         ":trailer" => $trailer,
         ":duration" => $duration,
         ":category" => $category,
-    ]);
-    return $statement ->rowCount() > 0;
-}
         ":screen" => $screen,
         ":seller_id" => $sellerId
     ]);

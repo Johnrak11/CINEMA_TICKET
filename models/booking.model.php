@@ -1,5 +1,5 @@
 <?php
-function showBooking(int $id): array
+function showBooking(int $id): array 
 {
     global $connection;
     $statement = $connection->prepare('SELECT * FROM shows WHERE id = :id');
