@@ -36,3 +36,4 @@ function getSeller(int $id) : array
     $statement->execute([':id' => $id]);
     return $statement->fetch();
 }
+

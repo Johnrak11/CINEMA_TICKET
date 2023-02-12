@@ -26,7 +26,7 @@ function createNewShow(string $name, string $description, string $image, string 
     $lastShow = count($allShows)-1;
     return $allShows[$lastShow]['id'];
 }
-function getPreviewShows(string $name, int $sellerId, int $confirm)
+function getShowsName(string $name, int $sellerId, int $confirm)
 {
     global $connection;
     $statement = $connection->prepare("SELECT s.name FROM shows s INNER JOIN 

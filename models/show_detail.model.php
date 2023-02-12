@@ -33,6 +33,8 @@ function getTimeExpired(int $id): array
     ]);
     return $statement->fetch();
 }
+
+// ------------------------------venue-------------------
 function getVenue(): array
 {
     global $connection;

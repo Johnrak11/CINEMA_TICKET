@@ -18,7 +18,6 @@ require_once('views/partials/head.php');
       </div>
       <div class="scroll" id="dropdown">
         <?php
-        $previewProducts = getProduct($_COOKIE['id'], 0);
         if (!empty($previewProducts)) {
           foreach ($previewProducts as $preview) :
             if (file_exists("views/images/shows_image/" . $preview['image'])) {
@@ -32,14 +31,16 @@ require_once('views/partials/head.php');
                 </div>
                 <div class="card-preview-right flex-1 flex justify-end item-center">
                   <div class="flex justify-center items-center">
-                    <a class="py-1.5 rounded-xl bg-red-600 px-6 hover:bg-white hover:text-black cursor-pointer" id="public-show" data-index="<?= $preview['id'] ?>">Public</a>
+                    <a class="py-1.5 rounded-xl bg-red-600 px-6 hover:bg-white hover:text-black cursor-pointer" id="public-show" data-index="<?= $preview['id'] ?>" data-show="<?= $preview['name'] ?>">Public</a>
                   </div>
                   <div class="dropdown flex justify-center items-center">
                     <div class="select">
                       <button id="btn" class="mr-[5%] py-1 px-10 bg-slate-600 hover:bg-gray-400 w-24 rounded-xl"><i class="material-icons flex items-center justify-center selected">more_horiz</i></button>
                     </div>
                     <ul class="menu container" id="list">
-                      <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="/createVenue">Add</a></li>
+                      <a href="/add-ticket?showId=<?= $preview['id'] ?>">
+                        <li class="hover:bg-red-600 w-[10%] hover:text-white">Add</li>
+                      </a>
                       <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Edit</a></li>
                       <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="/detail?id=<?= $preview['id'] ?>">Detail</a></li>
                       <li id="delete-show" class="hover:bg-red-600 w-[10%] hover:text-white" data-index="<?= $preview['id'] ?>">Delete</li>
@@ -194,6 +195,11 @@ require_once('views/partials/head.php');
               <path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
             </svg>
           </button></div>
+        <div class="product-cell price">Action<button class="sort-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
+              <path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
+            </svg>
+          </button></div>
       </div>
 
       <!-- =============================== card lists product==================== -->
@@ -232,6 +238,13 @@ require_once('views/partials/head.php');
               <div class="product-cell sales"><span class="cell-label">Date:</span><?= htmlspecialchars($dateTime['date']) ?></div>
               <div class="product-cell stock"><span class="cell-label">Duration:</span><?= htmlspecialchars($show['duration'])  ?></div>
               <div class="product-cell price"><span class="cell-label">Screen:</span><?= htmlspecialchars($show['screen'])  ?></div>
+              <div class="product-cell price"><span class="cell-label">Action:</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal ml-2">
+                  <circle cx="12" cy="12" r="1" />
+                  <circle cx="19" cy="12" r="1" />
+                  <circle cx="5" cy="12" r="1" />
+                </svg>
+              </div>
             </a>
       <?php
           }

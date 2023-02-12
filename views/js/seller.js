@@ -13,7 +13,7 @@ document.querySelector(".list").addEventListener("click", function () {
     document.querySelector(".products-area-wrapper").classList.remove("gridView");
     document.querySelector(".products-area-wrapper").classList.add("tableView");
 });
-
+let isPublic = '';
 var modeSwitch = document.querySelector('.mode-switch');
 modeSwitch.addEventListener('click', function () {
     document.documentElement.classList.toggle('light');
@@ -60,7 +60,13 @@ function sleep(time) {
 }
 
 // Usage!
-
+let productRows = document.querySelectorAll('.products-row')
+productRows.forEach(row => {
+    row.addEventListener('click',(e) => {
+        console.log(e.target.id)
+       
+    });
+})
 
 // ----------------------public preview------------------
 domPublicShows = document.querySelectorAll('#public-show')
@@ -80,14 +86,14 @@ function public_alert(e) {
         confirmButtonText: 'Public'
     }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire(
-                'Public!',
-                'Your show has been public.',
-                'success'
-            )
-            sleep(900).then(() => {
-                location.href = "/actionShow?public=" + e.target.dataset.index;
-            });
+            if (isPublic === 'exist'){
+                isConfirmed('error',"This show already exists")
+            }else{
+                isConfirmed('success',"Your show has been publiced")
+                sleep(900).then(() => {
+                    location.href = "/actionShow?public=" + e.target.dataset.index;
+                });
+            }
         }
     })
 }
@@ -114,9 +120,47 @@ function delete_alert(e) {
                 'Your file has been deleted.',
                 'success'
             )
-            sleep(900).then(() => {
+            sleep(1000).then(() => {
                 location.href = "/actionShow?delete=" + e.target.dataset.index;
             });
         }
     })
 }
+// ---------------------------codition alert------------------
+function isConfirmed(icon,message) {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    Toast.fire({
+        icon: icon,
+        title: message,
+    })
+}
+// ---------------------------ajax-----comfirm--------------
+$(document).ready(function () {
+    let domPublicShows = document.querySelectorAll('#public-show')
+    domPublicShows.forEach(domPublicShow =>{
+        $(domPublicShow).click(function (e) {
+            let nameShow = e.currentTarget.dataset.show;
+            if (nameShow != "") {
+                $.ajax({
+                    url: 'controllers/pages/components/is_public.controller.php',
+                    method: 'get',
+                    data: { showName: nameShow},
+                    success: function (response) {
+                        isPublic = response
+                    }
+                })
+            }
+        })
+    });
+});

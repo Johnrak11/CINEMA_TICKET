@@ -16,19 +16,19 @@ require_once("views/partials/nav.php");
             <p>E-MAIL : <span>group5@strong.com</span></p>
         </div>
         <div class="border-r-2 border-white"></div>
-        <div class="flex-col">
+        <form class="flex-col" action="https://formsubmit.co/tickhubcinema@gmail.com" method="post">
             <h1 class="flex justify-center text-2xl">CONTACT US</h1><br>
             <div class="flex gap-4">
-                <input type="text" placeholder="First Name" class="p-2 rounded-full bg-zinc-800" style="border:1px solid white">
-                <input type="text" placeholder="Last Name" class="p-2 rounded-full bg-zinc-800" style="border:1px solid white">
+                <input type="text" placeholder="First Name" name="First-name" class="p-2 rounded-full bg-zinc-800" style="border:1px solid white">
+                <input type="text" placeholder="Last Name" name="Last-name" class="p-2 rounded-full bg-zinc-800" style="border:1px solid white">
             </div><br>
-            <input type="email" placeholder="Email address" class="w-[100%] p-2 rounded-full bg-zinc-800" style="border:1px solid white"><br><br>
-            <input type="text" placeholder="Phone number" class="w-[100%] p-2 rounded-full bg-zinc-800" style="border:1px solid white"><br><br>
-            <input type="text" placeholder="Topic" class="w-[100%] p-2 rounded-full bg-zinc-800" style="border:1px solid white"><br><br>
+            <input type="email" placeholder="Email address" name="Email" class="w-[100%] p-2 rounded-full bg-zinc-800" style="border:1px solid white"><br><br>
+            <input type="text" placeholder="Phone number" name="Phone-number" class="w-[100%] p-2 rounded-full bg-zinc-800" style="border:1px solid white"><br><br>
+            <input type="text" placeholder="Topic" name="Topic" class="w-[100%] p-2 rounded-full bg-zinc-800" style="border:1px solid white"><br><br>
             <label for="">MESSAGE</label><br><br>
-            <textarea name="" id="" cols="50" rows="4" class="resize-none w-[100%] bg-zinc-800" style="border:1px solid white"></textarea><br><br>
-            <button class="bg-red-600 hover:bg-white text-white hover:text-black font-bold py-2 px-4 w-[100%] rounded-full ">SEND</button>
-        </div>
+            <textarea name="message" id="" cols="50" rows="4" class="resize-none w-[100%] bg-zinc-800" style="border:1px solid white"></textarea><br><br>
+            <button class="bg-red-600 hover:bg-white text-white hover:text-black font-bold py-2 px-4 w-[100%] rounded-full " type="submit">SEND</button>
+        </form>
     </div>
 </div>
 
