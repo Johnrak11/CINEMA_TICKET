@@ -41,7 +41,9 @@ require_once('views/partials/head.php');
                       <a href="/add-ticket?showId=<?= $preview['id'] ?>">
                         <li class="hover:bg-red-600 w-[10%] hover:text-white">Add</li>
                       </a>
-                      <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="">Edit</a></li>
+                      <a href="/edit-show?id=<?= $preview['id'] ?>">
+                        <li class="hover:bg-red-600 w-[10%] hover:text-white">Edit</li>
+                      </a>
                       <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="/detail?id=<?= $preview['id'] ?>">Detail</a></li>
                       <li id="delete-show" class="hover:bg-red-600 w-[10%] hover:text-white" data-index="<?= $preview['id'] ?>">Delete</li>
                     </ul>

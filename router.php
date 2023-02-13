@@ -15,6 +15,7 @@ $router = [
     "/add-ticket" => "controllers/pages/seller/create_ticket.controller.php",
     "/sellerVenue" => "controllers/pages/seller/venue.controller.php",
     "/venueDetele" => "controllers/pages/seller/venue_action/delete_venue.controller.php",
+    "/edit-show" => "controllers/pages/seller/edit_show.controller.php",
 ];
 
 function not_found($code = 404)
