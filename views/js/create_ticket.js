@@ -29,4 +29,10 @@ domVenue.addEventListener('click', (e) => {
     document.querySelector("#venue-name-message").textContent = "";
     domDate.style.border = "";
 });
+let domPrice = document.querySelector('#price')
+domPrice.addEventListener("click",(e)=>{
+    document.querySelector("#price-message") .textContent = "";
+    domPrice.className = 'input-green';
+
+})
 

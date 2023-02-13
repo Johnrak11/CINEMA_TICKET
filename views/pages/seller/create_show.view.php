@@ -57,6 +57,17 @@ require_once("views/partials/head.php");
                         <?= $catetoryError?>
                     </small>
                 </div>
+                <div class="category">
+                    <select name="language" id="language" class="p-2.5 rounded-[30px] mt-[15px] bg-transparent border border-white w-full ">
+                        <option value="" disabled selected>Movie language</option>
+                        <option value="Khmer">Khmer</option>
+                        <option value="English">English</option>
+                        <option value="China">China</option>
+                    </select>
+                    <small id="language-message"  class = "text-red-600">
+                        <?= $languageError ?>
+                    </small>
+                </div>
                 <div class="image">
                     <div class="mt-[15px] text-center p-2.5 border border-white rounded-[30px] w-full">
                         <label for="inputTag">Choose Image <br />
@@ -101,6 +112,7 @@ require_once("views/partials/head.php");
                         <?= $timeError?>
                 </small>
             </div>
+            
             <div class="hall">
                 <select name="hall" id = "hall" class="p-2.5 rounded-[30px] text-white mt-[15px] bg-[#101827] border border-white w-full ">
                     <option value="" disabled selected>Choose Hall</option>
@@ -123,10 +135,14 @@ require_once("views/partials/head.php");
                     <option value="<?= htmlspecialchars($venue['id'])?>"><?= htmlspecialchars($venue['name'])?></option>
                     <?php endforeach ?>
                 </select>
-
-                <!-- <input type="text" placeholder="Venue Name" oninput="this.className = ''" id="venue-name" name="venue"> -->
                 <small id="venue-name-message" class = "text-red-600">
                         <?= $venueError?>
+                </small>
+            </div>
+            <div class="price">
+                <input type="number" oninput="this.className = ''" id="price" name="price" placeholder="Price">
+                <small id = "price-message" class = "text-red-600">
+                        <?= $priceError ?>
                 </small>
             </div>
         </div>

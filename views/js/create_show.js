@@ -92,6 +92,18 @@ domTypeMovie.addEventListener("click",(e)=>{
     domTypeMovie.className = 'input-green';
 
 })
+let domLanguageMovie = document.querySelector('#language')
+domLanguageMovie.addEventListener("click",(e)=>{
+    document.querySelector("#language-message") .textContent = "";
+    domLanguageMovie.className = 'input-green';
+
+})
+let domPrice = document.querySelector('#price')
+domPrice.addEventListener("click",(e)=>{
+    document.querySelector("#price-message") .textContent = "";
+    domPrice.className = 'input-green';
+
+})
 let domImage = document.querySelector('#inputTag')
 domImage.addEventListener("click",(e)=>{
     document.querySelector("#image-message") .textContent = "";
@@ -121,16 +133,13 @@ domTime.addEventListener('click', (e) => {
 let domHall = document.querySelector('#hall')
 domHall.addEventListener('click', (e) => {
     document.querySelector("#hall-message") .textContent = "";
-    domHall.className.style.border = "1px solid green ";
+    domTime.className = 'input-green';
     
 });
 let domVenue = document.querySelector('#venue-name')
 domVenue.addEventListener('click', (e) => {
     document.querySelector("#venue-name-message") .textContent = "";
     domVenue.className = 'input-green';
-
-    
-    
 });
 
 // ------------title---check-----

@@ -5,16 +5,19 @@ $timeError = "";
 $hallError = "";
 $venueError = "";
 $addressError = "";
+$priceError = "";
 //correct text display
 $date = "";
 $time = "";
 $hall = "";
 $venue = "";
+$price = "";
 //    if correct condition
 $dateValid  = true;
 $timeValid =  true;
 $hallValid = true;
 $venueValid = true;
+$priceValid = true;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -22,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $timeValid = FALSE;
     $hallValid = FALSE;
     $venueValid = FALSE;
+    $priceValid = FALSE;
     // ----------------------------Date of show -- ----------------
 
     if (isset($_POST['date'])) {
@@ -54,6 +58,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $venueError = "You must be fill in a venue";
     }
+    // ----------------------------price -- ----------------
+    if (isset($_POST["price"])) {
+        if (empty($_POST["price"])) {
+             $priceError = "Price must be fill ";
+        } elseif ($_POST["price"] >= 0 && $_POST["price"] <= 100) {
+             $priceValid  = true;
+        } else {
+             $priceError = "Price must be more than 0$ and less than 100$";
+        }
+   }
     // ---------------------------------------condection is correct---------
     if ($dateValid && $timeValid && $hallValid && $venueValid) {
         // --------------table show_detail data-------------
@@ -62,7 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $hall = $_POST["hall"];
         $venue = $_POST["venue"];
         $idShowCurrent = $_POST["showId"];
-        createShowDetails($venue, $date, $time, $hall, $idShowCurrent);
-        header('location:/seller');
+        $price = $_POST["price"]."$";
+        createShowDetails($venue, $date, $time, $hall, $idShowCurrent,$price);
+        header('location:/seller?add-success=successfull');
     }
 }

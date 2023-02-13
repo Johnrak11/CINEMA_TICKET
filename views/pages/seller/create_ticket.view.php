@@ -43,6 +43,12 @@ require_once("views/partials/head.php");
                         <?= $venueError?>
                 </small>
             </div>
+            <div class="price">
+                <input type="number" oninput="this.className = ''" id="price" name="price" placeholder="Price">
+                <small id = "price-message" class = "text-red-600">
+                        <?= $priceError ?>
+                </small>
+            </div>
         </div>
         <div class="h-[45px] mt-[15px]" style="overflow:auto;">
             <div class="flex w-full h-full justify-between">
