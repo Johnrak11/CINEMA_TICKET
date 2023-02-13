@@ -235,7 +235,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                $idShowCurrent = createNewShow($title, $description, $image, $author, $trailer, $duration, $catetory, $screen, $sellerId, $language);
                // --------------table show detail -------------
                createShowDetails($venue, $date, $time, $hall, $idShowCurrent, $price);
-               header('location:/seller?create-show=successful');
+               header('location:/seller?create-show=1');
           } else {
                $titleError = "Your show already exists";
           }

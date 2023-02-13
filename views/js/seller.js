@@ -214,3 +214,9 @@ function isTicketOrder(showId) {
         })
     });
 }
+function successfulAlert(icon,message) {
+    isConfirmed(icon,message)
+    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '';
+    window.history.pushState({path:newurl},'',newurl);
+    console.log(newurl);
+}
