@@ -92,7 +92,6 @@ domTypeMovie.addEventListener("click",(e)=>{
     domTypeMovie.className = 'input-green';
 
 })
-<<<<<<< HEAD
 let domLanguageMovie = document.querySelector('#language')
 domLanguageMovie.addEventListener("click",(e)=>{
     document.querySelector("#language-message") .textContent = "";
@@ -105,14 +104,6 @@ domPrice.addEventListener("click",(e)=>{
     domPrice.className = 'input-green';
 
 })
-=======
-let domUpload = document.querySelector('#image-upload');
-    domUpload.addEventListener("click",(e)=>{
-    document.querySelector("#image-message") .textContent = "";
-    domUpload.className = 'input-green p-2 rounded-[30px] mt-3 ';
-
-});
->>>>>>> main
 let domImage = document.querySelector('#inputTag')
 domImage.addEventListener("click",(e)=>{
     document.querySelector("#image-message") .textContent = "";
@@ -143,22 +134,13 @@ domTime.addEventListener('click', (e) => {
 let domHall = document.querySelector('#hall-show');
 domHall.addEventListener('click', (e) => {
     document.querySelector("#hall-message") .textContent = "";
-<<<<<<< HEAD
     domTime.className = 'input-green';
     
-=======
-    domHall.style.border = "green solid";
-
->>>>>>> main
 });
 let domVenue = document.querySelector('#venue-name')
 domVenue.addEventListener('click', (e) => {
     document.querySelector("#venue-name-message") .textContent = "";
-<<<<<<< HEAD
     domVenue.className = 'input-green';
-=======
-    domVenue.style.border = "green solid";
->>>>>>> main
 });
 // ------------title---check-----
 function validateFailedBorders(domInput,domMessage, message) {

@@ -32,9 +32,7 @@ require_once("views/partials/head.php");
                             <?= $durationError?>
                         </small>
                     </div>
-
                 <!-- </div> -->
-                
                 <div class="screen w-full">
                     <select name="screen" id="screen" class="<?php echo $authorValid ? '': 'input-red'?> p-2.5 rounded-[30px] mt-[15px] bg-transparent border w-[100%] bg ">
                         <option value="" disabled selected>Screen</option>
@@ -63,7 +61,6 @@ require_once("views/partials/head.php");
                         <?= $catetoryError?>
                     </small>
                 </div>
-<<<<<<< HEAD
                 <div class="category">
                     <select name="language" id="language" class="p-2.5 rounded-[30px] mt-[15px] bg-transparent border border-white w-full ">
                         <option value="" disabled selected>Movie language</option>
@@ -77,10 +74,6 @@ require_once("views/partials/head.php");
                 </div>
                 <div class="image">
                     <div class="mt-[15px] text-center p-2.5 border border-white rounded-[30px] w-full">
-=======
-                <div class="image w-full">
-                    <div id = "image-upload"class="flex justify-between mt-[15px] text-center p-2.5 border border-white rounded-[30px] w-full <?= $imageValid ? 'border-white' : 'border-red-600' ?>">
->>>>>>> main
                         <label for="inputTag">Choose Image <br />
                             <i class="fa fa-2x fa-camera  text-white"></i>
                             <input name="imageUpload" id="inputTag" type="file" />
