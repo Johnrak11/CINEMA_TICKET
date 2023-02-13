@@ -101,6 +101,5 @@ require_once("models/user.model.php");
     <ul class="result-search text-white ml-36" id="show-list">
         <!-- -------------Show Result Search--------------------  -->
     </ul>
-
 </div>
 <script src="views/js/main.js"></script>

@@ -98,16 +98,11 @@ domLanguageMovie.addEventListener("click",(e)=>{
     domLanguageMovie.className = 'input-green';
 
 })
-let domPrice = document.querySelector('#price')
-domPrice.addEventListener("click",(e)=>{
-    document.querySelector("#price-message") .textContent = "";
-    domPrice.className = 'input-green';
 
-})
-let domImage = document.querySelector('#inputTag')
+let domImage = document.querySelector('#image')
 domImage.addEventListener("click",(e)=>{
     document.querySelector("#image-message") .textContent = "";
-    domImage.className = 'input-green';
+    domImage.className = 'input-green rounded-3xl p-1.5 mt-4 ';
 
 })
 let domTrailler = document.querySelector('#trailler')
@@ -134,7 +129,8 @@ domTime.addEventListener('click', (e) => {
 let domHall = document.querySelector('#hall-show');
 domHall.addEventListener('click', (e) => {
     document.querySelector("#hall-message") .textContent = "";
-    domTime.className = 'input-green';
+    domHall.style.border = "green solid";
+
     
 });
 let domVenue = document.querySelector('#venue-name')
@@ -142,6 +138,15 @@ domVenue.addEventListener('click', (e) => {
     document.querySelector("#venue-name-message") .textContent = "";
     domVenue.className = 'input-green';
 });
+
+let domPrice = document.querySelector('#price')
+domPrice.addEventListener("click",(e)=>{
+    document.querySelector("#price-message") .textContent = "";
+    // domPrice.className = 'input-green';
+    domPrice.style.border = "green solid";
+
+
+})
 // ------------title---check-----
 function validateFailedBorders(domInput,domMessage, message) {
     let valueInput = domInput.value;

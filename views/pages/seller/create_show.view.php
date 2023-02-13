@@ -1,8 +1,8 @@
 <?php
 require_once("views/partials/head.php");
 ?>
-<div class="flex justify-center items-center h-full w-full">
-    <form id="regForm" action="" method = "post" enctype="multipart/form-data" class="border-t-4 border-[#ff0000] shadow-2xl shadow-[#ff0000] w-[50%] p-[10px] rounded-[30px] bg-[#101827] mt-[1%] mb-2" >
+<div class="flex justify-center items-center w-full">
+    <form id="regForm" action="" method = "post" enctype="multipart/form-data" class="border-t-4 border-[#ff0000] shadow-2xl shadow-[#ff0000] w-[60%] p-[10px] rounded-[30px]  bg-[#101827] mt-[3%] mb-5" >
         <h1 class="text-[30px] text-white font-bold text-center">CREATE NEW SHOW</h1>
         <!-- One "tab" for each step in the form: -->
         <div class="tab m-3 ">
@@ -22,17 +22,6 @@ require_once("views/partials/head.php");
                 </div>
             </div>
             <div class="flex gap-2.5">
-                <!-- <div class="durations"> -->
-                    <div class="duration w-full">
-                        <div class="flex gap-2 w-[100%]">
-                            <input type="number" placeholder="Hours" oninput="this.className = ''" id="duration"  name="h" class="hour <?php echo $authorValid ? '': 'input-red'?> ">
-                            <input type="number" placeholder="Minutes" oninput="this.className = ''" id="duration" name = "m" class="minute <?php echo $authorValid ? '': 'input-red'?>">
-                        </div>
-                        <small id="duration-message" class = "text-red-600 ml-2">
-                            <?= $durationError?>
-                        </small>
-                    </div>
-                <!-- </div> -->
                 <div class="screen w-full">
                     <select name="screen" id="screen" class="<?php echo $authorValid ? '': 'input-red'?> p-2.5 rounded-[30px] mt-[15px] bg-transparent border w-[100%] bg ">
                         <option value="" disabled selected>Screen</option>
@@ -44,8 +33,7 @@ require_once("views/partials/head.php");
                         <?= $screenError?>              
                     </small>
                 </div>
-            </div>
-            <div class="flex gap-2.5">
+
                 <div class="category w-full">
                     <select name="category" id="type-movie" class="<?php echo $categoryValid ? '': 'input-red'?>p-2.5 rounded-[30px] mt-[15px] bg-transparent border w-full ">
                         <option value="" disabled selected>Type Movie</option>
@@ -61,7 +49,18 @@ require_once("views/partials/head.php");
                         <?= $catetoryError?>
                     </small>
                 </div>
-                <div class="category">
+            </div>
+            <div class="duration w-full">
+                    <div class="flex gap-2 ">
+                        <input type="number" placeholder="Hours" oninput="this.className = ''" id="duration"  name="h" class="hour <?php echo $authorValid ? '': 'input-red'?> ">
+                        <input type="number" placeholder="Minutes" oninput="this.className = ''" id="duration" name = "m" class="minute <?php echo $authorValid ? '': 'input-red'?>">
+                    </div>
+                    <small id="duration-message" class = "text-red-600 ml-2">
+                        <?= $durationError?>
+                    </small>
+            </div>
+            <div class="flex w-full justify-between">
+                <div class="category w-[49%] ">
                     <select name="language" id="language" class="p-2.5 rounded-[30px] mt-[15px] bg-transparent border border-white w-full ">
                         <option value="" disabled selected>Movie language</option>
                         <option value="Khmer">Khmer</option>
@@ -72,11 +71,11 @@ require_once("views/partials/head.php");
                         <?= $languageError ?>
                     </small>
                 </div>
-                <div class="image">
-                    <div class="mt-[15px] text-center p-2.5 border border-white rounded-[30px] w-full">
+                <div class="w-[49%]">
+                    <div id = "image"class="mt-[15px] text-center p-1.5 border border-white rounded-[30px] w-full">
                         <label for="inputTag">Choose Image <br />
-                            <i class="fa fa-2x fa-camera  text-white"></i>
                             <input name="imageUpload" id="inputTag" type="file" />
+                            <i class="fa fa-2x fa-camera text-white"></i>
                             <br />
                             <span id="imageName" class="text-green-600"></span>
                         </label>
