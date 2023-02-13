@@ -218,7 +218,7 @@ require_once('views/partials/head.php');
               $isActive = false;
             }
         ?>
-            <a class="products-row" data-index="<?= htmlspecialchars($show['id']) ?>">
+            <div class="products-row" data-index="<?= htmlspecialchars($show['id']) ?>">
               <div class="product-cell image">
                 <img src="<?= "views/images/shows_image/" . $show['image'] ?>" alt="product">
                 <span><?= $show['name'] ?></span>
@@ -236,7 +236,7 @@ require_once('views/partials/head.php');
                 <span id="show-venue-add" class="text-blue-500 cursor-pointer hover:text-red-600" data-index="<?= htmlspecialchars($show['id']) ?>">Add</span>
                 <span class="ml-1 cursor-pointer hover:text-red-600 <?= (empty(isOrderShow($show['id'])) ? 'text-blue-500' : 'line-through text-red-600 show-ordered') ?>" id="show-delete" data-index="<?= htmlspecialchars($show['id']) ?>">Delete</span>
               </div>
-            </a>
+            </div>
       <?php
           }
         }
