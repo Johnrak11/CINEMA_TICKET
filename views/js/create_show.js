@@ -92,6 +92,12 @@ domTypeMovie.addEventListener("click",(e)=>{
     domTypeMovie.className = 'input-green';
 
 })
+let domUpload = document.querySelector('#image-upload');
+    domUpload.addEventListener("click",(e)=>{
+    document.querySelector("#image-message") .textContent = "";
+    domUpload.className = 'input-green p-2 rounded-[30px] mt-3 ';
+
+});
 let domImage = document.querySelector('#inputTag')
 domImage.addEventListener("click",(e)=>{
     document.querySelector("#image-message") .textContent = "";
@@ -109,30 +115,27 @@ domDescription.addEventListener('keyup', (e) => {
 let domDate = document.querySelector('#date')
 domDate.addEventListener('click', (e) => {
     document.querySelector("#date-message") .textContent = "";
-    domDate.className = 'input-green';
+    domDate.style.border = "green solid";
+
     
 });
 let domTime = document.querySelector('#time')
 domTime.addEventListener('click', (e) => {
     document.querySelector("#time-message") .textContent = "";
-    domTime.className = 'input-green';
-    
+    domTime.style.border = "green solid";
+
 });
-let domHall = document.querySelector('#hall')
+let domHall = document.querySelector('#hall-show');
 domHall.addEventListener('click', (e) => {
     document.querySelector("#hall-message") .textContent = "";
-    domHall.className.style.border = "1px solid green ";
-    
+    domHall.style.border = "green solid";
+
 });
 let domVenue = document.querySelector('#venue-name')
 domVenue.addEventListener('click', (e) => {
     document.querySelector("#venue-name-message") .textContent = "";
-    domVenue.className = 'input-green';
-
-    
-    
+    domVenue.style.border = "green solid";
 });
-
 // ------------title---check-----
 function validateFailedBorders(domInput,domMessage, message) {
     let valueInput = domInput.value;

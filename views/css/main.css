@@ -1388,50 +1388,18 @@ textarea::placeholder {
     animation-name: pieceLeft;
     animation-delay: 4.5s;
 }
-.movie-container select {
-    border: 0;
-    padding: 5px 15px;
-    margin-bottom: 40px;
-    font-size: 14px;
-    border-radius: 5px;
-    background: #050529;
+.input-green:focus {
+    outline: 2px green solid;
+    border-radius: 2rem;
+}
+#regForm .input-green{
+    border: 1px green solid;
 }
 
-.selected {
-    border: 3px solid #ffffff;
-    border-radius: 50%;
+.input-red:focus {
+    outline: 2px red solid;
+    border-radius: 2rem;
 }
-
-.occupied {
-    opacity: 0.5;
-}
-
-.letter-row {
-    padding: 0 16px;
-    font-size: 20px;
-    font-weight: bolder;
-}
-
-.seat:nth-of-type(2) {
-    margin-right: 30px;
-}
-
-.seat:nth-last-of-type(2) {
-    margin-left: 30px;
-}
-
-.seat:not(.occupied):hover {
-    cursor: pointer;
-    transform: scale(1.2);
-}
-
-.row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.screen {
-    transform: rotateX(-45deg);
-    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+#regForm .input-red{
+    border: 1px red solid;
 }
