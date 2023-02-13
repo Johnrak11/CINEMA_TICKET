@@ -1384,3 +1384,18 @@ textarea::placeholder {
     animation-name: pieceLeft;
     animation-delay: 4.5s;
 }
+.input-green:focus {
+    outline: 2px green solid;
+    border-radius: 2rem;
+}
+#regForm .input-green{
+    border: 1px green solid;
+}
+
+.input-red:focus {
+    outline: 2px red solid;
+    border-radius: 2rem;
+}
+#regForm .input-red{
+    border: 1px red solid;
+}
