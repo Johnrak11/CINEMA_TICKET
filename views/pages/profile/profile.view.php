@@ -2,7 +2,10 @@
 require_once("views/partials/head.php");
 // require_once("views/partials/nav.php");
 ?>
-<div class="flex mt-[10%] justify-evenly">
+<div class="flex justify-evenly">
+    <div class="bg-red-900 w-[30%] h-screen">
+    
+    </div>
     <div class="upload flex-1 flex justify-center flex-col">
         <div>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png" alt="" class="w-[40%] ml-[20%]">
@@ -23,11 +26,11 @@ require_once("views/partials/head.php");
         </div>
     </div>
     <div class="flex-1 text-2xl text-white">
-    <h1 class="text-2xl mt-3"><span>Full name:</span><Strong class="ml-[4%]">Vanda SOPHAL</Strong></h1>
-    <h1 class="text-2xl mt-3"><span>Email:</span><Strong class="ml-[9%]">Vanda SOPHAL</Strong></h1>
-    <h1 class="text-2xl mt-3"><span>Date of birth:</span><Strong class="ml-[1%]">Vanda SOPHAL</Strong></h1>
-    <h1 class="text-2xl mt-3"><span>Address:</span><Strong class="ml-[7%]">Vanda SOPHAL</Strong></h1>
-    <h1 class="text-2xl mt-3"><span>Role:</span><Strong class="ml-[11%]">Vanda SOPHAL</Strong></h1>
-        
+        <h1 class="text-2xl mt-3"><span>Full name:</span><Strong class="ml-[4%]">Vanda SOPHAL</Strong></h1>
+        <h1 class="text-2xl mt-3"><span>Email:</span><Strong class="ml-[9%]">Vanda SOPHAL</Strong></h1>
+        <h1 class="text-2xl mt-3"><span>Date of birth:</span><Strong class="ml-[1%]">Vanda SOPHAL</Strong></h1>
+        <h1 class="text-2xl mt-3"><span>Address:</span><Strong class="ml-[7%]">Vanda SOPHAL</Strong></h1>
+        <h1 class="text-2xl mt-3"><span>Role:</span><Strong class="ml-[11%]">Vanda SOPHAL</Strong></h1>
+
     </div>
 </div>
