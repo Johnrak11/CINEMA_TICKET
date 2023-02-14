@@ -18,7 +18,7 @@ if (isset($_COOKIE['id'])) {
         $router['/createShow'] = "controllers/pages/seller/create_show.controller.php";
         $router['/add-ticket'] = "controllers/pages/seller/create_ticket.controller.php";
         $router['/actionShow'] = "controllers/pages/seller/action_shwo.controller.php";
-        $router['/edit-show'] = "controllers/pages/seller/edit_show.controller.php";
+        $router['/edit-show'] = "controllers/pages/seller/action/edit_show.controller.php";
     } elseif ($roleUser['role'] === 'admin') {
         $router['/seller'] = "controllers/pages/seller/seller.controller.php";
         $router['/createShow'] = "controllers/pages/seller/create_show.controller.php";
