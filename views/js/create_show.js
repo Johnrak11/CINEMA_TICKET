@@ -102,7 +102,7 @@ domLanguageMovie.addEventListener("click",(e)=>{
 let domImage = document.querySelector('#image')
 domImage.addEventListener("click",(e)=>{
     document.querySelector("#image-message") .textContent = "";
-    domImage.className = 'input-green rounded-3xl p-1.5 mt-4 ';
+    domImage.className = 'input-green rounded-3xl p-2.5 mt-4 ';
 
 })
 let domTrailler = document.querySelector('#trailler')

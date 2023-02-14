@@ -34,8 +34,8 @@ require_once("views/partials/head.php");
                     </small>
                 </div>
 
-                <div class="category w-full">
-                    <select name="category" id="type-movie" class="<?php echo $categoryValid ? '': 'input-red'?>p-2.5 rounded-[30px] mt-[15px] bg-transparent border w-full ">
+                <div class="category w-full ">
+                    <select name="category" id="type-movie" class="<?php echo $catetoryValid ? '': 'input-red'?> p-2.5 rounded-[30px] mt-[15px] bg-transparent border w-full ">
                         <option value="" disabled selected>Type Movie</option>
                         <option value="Action">Action</option>
                         <option value="Romance">Romance</option>
@@ -50,7 +50,7 @@ require_once("views/partials/head.php");
                     </small>
                 </div>
             </div>
-            <div class="duration w-full">
+            <div class="duration w-full gap-2.5">
                     <div class="flex gap-2 ">
                         <input type="number" placeholder="Hours" oninput="this.className = ''" id="duration"  name="h" class="hour <?php echo $authorValid ? '': 'input-red'?> ">
                         <input type="number" placeholder="Minutes" oninput="this.className = ''" id="duration" name = "m" class="minute <?php echo $authorValid ? '': 'input-red'?>">
@@ -59,9 +59,9 @@ require_once("views/partials/head.php");
                         <?= $durationError?>
                     </small>
             </div>
-            <div class="flex w-full justify-between">
+            <div class="flex w-full justify-between gap-2.5 ">
                 <div class="category w-[49%] ">
-                    <select name="language" id="language" class="p-2.5 rounded-[30px] mt-[15px] bg-transparent border border-white w-full ">
+                    <select name="language" id="language" class="<?php echo $languageValid ? '': 'input-red'?> p-2.5 rounded-[30px] mt-[10px] bg-transparent border border-white w-full ">
                         <option value="" disabled selected>Movie language</option>
                         <option value="Khmer">Khmer</option>
                         <option value="English">English</option>
@@ -71,12 +71,11 @@ require_once("views/partials/head.php");
                         <?= $languageError ?>
                     </small>
                 </div>
-                <div class="w-[49%]">
-                    <div id = "image"class="mt-[15px] text-center p-1.5 border border-white rounded-[30px] w-full">
-                        <label for="inputTag">Choose Image <br />
+                <div class="w-[49%] ">
+                    <div id = "image"class="<?php echo $imageValid ? '': 'input-red'?> mt-[15px] text-center p-1.5 border border-white rounded-[30px] w-full">
+                        <label class = "" for="inputTag">Choose Image <br />
                             <input name="imageUpload" id="inputTag" type="file" />
-                            <i class="fa fa-2x fa-camera text-white"></i>
-                            <br />
+                            <i class="fa fa-2x fa-camera text-white text-2xl ml-10"></i>
                             <span id="imageName" class="text-green-600"></span>
                         </label>
                         
@@ -102,7 +101,7 @@ require_once("views/partials/head.php");
                 </small>
             </div>
             
-            
+
         </div>
         <div class="tab m-3">
             <div class="date">
@@ -119,7 +118,7 @@ require_once("views/partials/head.php");
             </div>
             
             <div class="hall">
-                <select name="hall" id = "hall-show" class="<?php echo $hallValid? '': 'input-red'?> p-2.5 rounded-[30px] text-white mt-[15px] bg-[#101827] border border-white w-full  ">
+                <select name="hall" id = "hall-show" class="<?php echo $hallValid? '': 'input-red'?> p-3 rounded-[30px] text-white mt-[15px] bg-[#101827] border border-white w-full  ">
                     <option value="" disabled selected>Choose Hall</option>
                     <option value="Hall-1">Hall 1</option>
                     <option value="Hall-2">Hall 2</option>
@@ -131,7 +130,7 @@ require_once("views/partials/head.php");
                 </small>
             </div>
             <div class="venue">
-                <select name="venue"  id="venue-name" class="<?php echo $venueValid ? '': 'input-red'?> p-2.5 rounded-[30px] text-white mt-[15px] bg-[#101827] border border-white w-full ">
+                <select name="venue"  id="venue-name" class="<?php echo $venueValid ? '': 'input-red'?> p-3 rounded-[30px] text-white mt-[15px] bg-[#101827] border border-white w-full ">
                     <option value="" disabled selected>Venue Name</option>
                     <?php 
                     $venues = getVenue();
@@ -145,7 +144,7 @@ require_once("views/partials/head.php");
                 </small>
             </div>
             <div class="price">
-                <input type="number" oninput="this.className = ''" id="price" name="price" placeholder="Price">
+                <input type="number" oninput="this.className = ''" id="price" name="price" placeholder="Price" class = "<?php echo $priceValid ? '': 'input-red'?>">
                 <small id = "price-message" class = "text-red-600">
                         <?= $priceError ?>
                 </small>
@@ -153,7 +152,7 @@ require_once("views/partials/head.php");
         </div>
         <div class="mr-5 ml-5 h-[45px] mt-[15px]" style="overflow:auto;">
             <div class="flex w-full h-full justify-between">
-                <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="canBtn" onclick="">Cancel</button>
+                <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="canBtn" onclick=""> <a href="/cancel">Cancel</a></button>
                 <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="prevBtn" onclick="nextPrev(-1)">Back</button>
                 <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" name = "submit" id="nextBtn" onclick="nextPrev(1)">Next</button>
             </div>
