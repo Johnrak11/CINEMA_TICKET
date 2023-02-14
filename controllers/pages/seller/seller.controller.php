@@ -8,9 +8,20 @@ $previewProducts = getProduct($_COOKIE['id'], 0);
 require_once('views/pages/seller/seller.view.php');
 // ---------------add--venue----------
 if (isset($_GET['add-success'])) {
-    echo "<script>isConfirmed('success', 'Add ticket successfully')</script>";
+    if ($_GET['add-success'] == 1) {
+?>
+        <script>
+            successfulAlert('success', 'Add ticket successfully')
+        </script>
+<?php
+    }
 }
 if (isset($_GET['create-show'])) {
-    echo "<script>isConfirmed('success', 'Show had created successfully')</script>";
-}
+    if ($_GET['create-show'] == 1) {
 ?>
+        <script>
+            successfulAlert('success', 'Show had created successfully')
+        </script>
+<?php
+    }
+}

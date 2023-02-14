@@ -78,6 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $idShowCurrent = $_POST["showId"];
         $price = $_POST["price"]."$";
         createShowDetails($venue, $date, $time, $hall, $idShowCurrent,$price);
-        header('location:/seller?add-success=successfull');
+        header('location:/seller?add-success=1');
     }
 }

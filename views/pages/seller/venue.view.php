@@ -20,8 +20,8 @@ require_once('views/partials/head.php');
                     <span>Home</span>
                 </a>
             </li>
-            <li class="sidebar-list-item active">
-                <a href="#">
+            <li class="sidebar-list-item">
+                <a href="/seller">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
                         <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                         <line x1="3" y1="6" x2="21" y2="6" />
@@ -30,7 +30,7 @@ require_once('views/partials/head.php');
                     <span>Show</span>
                 </a>
             </li>
-            <li class="sidebar-list-item">
+            <li class="sidebar-list-item active">
                 <a>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox">
                         <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
@@ -66,7 +66,7 @@ require_once('views/partials/head.php');
     <!-- ============================main=================================== -->
     <div class="app-content">
         <div class="app-content-header">
-            <h1 class="app-content-headerText">Products</h1>
+            <h1 class="app-content-headerText">Admin dasbord</h1>
             <button class="mode-switch" title="Switch Theme">
                 <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
                     <defs></defs>
