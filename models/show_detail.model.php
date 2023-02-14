@@ -8,6 +8,15 @@ function showDetail(int $id): array
     ]);
     return $statement->fetch();
 }
+function showHall(int $id): array
+{
+    global $connection;
+    $statement = $connection->prepare('SELECT * FROM show_details WHERE show_id = :id');
+    $statement->execute([
+        ":id" => $id,
+    ]);
+    return $statement->fetch();
+}
 
 function getTime(int $id, string $dateNow): array
 {

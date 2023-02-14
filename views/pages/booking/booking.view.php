@@ -2,7 +2,7 @@
 require_once('views/partials/head.php');
 require_once('views/partials/nav.php');
 ?>
-<div>
+<div class="movie-hall">
     <div class="flex justify-between mt-[10%]">
         <div class="text-3xl ml-[10%] text-white" style="flex:2;">
             <h1 class="text-2xl mt-3"> <span class="text-2xl font-bold">
@@ -38,7 +38,9 @@ require_once('views/partials/nav.php');
             <h1 class="border border-red-600"></h1>
         </div>
         <div>
-            <h1 class="text-2xl mt-[1%] text-white">Hall: Smart1</h1>
+            <h1 class="text-2xl mt-[1%] text-white">
+                <?=(!empty($showHall && !empty($showHall['hall'])) ? htmlspecialchars($showHall['hall']) : 'None') ?>
+            </h1>
             <div class="bg-gray-400 bg-opacity-20 mr-[10%] p-5 text-white rounded-xl mt-[2%] shadow-xl">
                 <div class="">
                     <?php
@@ -46,13 +48,13 @@ require_once('views/partials/nav.php');
                         ?>
                         <div class="flex justify-between mt-[2%]">
                             <h1 class="text-2xl ml-[2%]">2023/02/08</h1>
-                            <div class="mr-[2%]">
-                                <a href=""><button
-                                        class="py-1 px-7 bg-red-800 hover:bg-white hover:text-black">13:00</button></a>
-                                <a href=""><button
-                                        class="py-1 px-7 bg-red-800 hover:bg-white hover:text-black">15:00</button></a>
-                                <a href=""><button
-                                        class="py-1 px-7 bg-red-800 hover:bg-white hover:text-black">20:00</button></a>
+                            <div class="mr-[2%] " id="time-show">
+                                <button data-index="1" class="start-time py-1 px-7 bg-red-800 hover:bg-white hover:text-black"
+                                    onclick="displaySeat()">13:00</button>
+                                <button data-index="2" class="start-time py-1 px-7 bg-red-800 hover:bg-white hover:text-black"
+                                    onclick="displaySeat()">15:00</button>
+                                <button data-index="3" class="start-time py-1 px-7 bg-red-800 hover:bg-white hover:text-black"
+                                    onclick="displaySeat()">20:00</button>
                             </div>
                         </div>
                         <div class="border border-black mr-[2%] ml-[2%] mt-[2%]"></div>
@@ -65,12 +67,12 @@ require_once('views/partials/nav.php');
     </div>
 </div>
 
-<div class="seat-information hidden text-white">
-    <div class="movie-container width-full flex p-5">
-        <div class="container flex flex-col gap-2.5 width-full bg-[#050529] p-4 rounded-l-[80px]">
+<div id="seat-information" class="hidden absolute text-white w-full top-[50px] ">
+    <div class="movie-container width-full text-white flex p-5">
+        <div class="container flex flex-col gap-2.5 width-full  p-4 rounded-l-[80px]">
             <h1 class="text-[28px] text-center font-bold">SELECT YOUR SEAT</h1>
             <div class="w-full">
-                <div class="letter-container flex flex-col items-center bg-gray-800 bg-opacity-[50%] p-2.5 rounded-[30px]"
+                <div class="letter-container flex flex-col items-center bg-gray-700 bg-opacity-[75%] p-2.5 rounded-[30px]"
                     style="perspective: 1000px;">
                     <div class="screen bg-white h-[30px] flex self-center w-[80%] mb-[20px]"></div>
                     <?php
@@ -80,10 +82,10 @@ require_once('views/partials/nav.php');
                             <p class='letter-row w-[20px] mt-[10px] flex'>
                                 <?= $alphabet ?>
                             </p>
-                            <div class='row flex-1'>
+                            <div class='row flex-1' id="seat-movie">
                                 <?php
                                 for ($i = 1; $i <= 12; $i++) {
-                                    echo '<img dataset="' . $i . '" src="views/images/components_image/seat.png" alt="" class="seat w-[30px] h-[30x] m-[3px]">';
+                                    echo "<img data-index='" . $alphabet . $i . "' src='views/images/components_image/seat.png' alt='' id='chair' class='seat w-[30px] h-[30x] m-[3px]'>";
                                 }
                                 ?>
                             </div>
@@ -94,31 +96,54 @@ require_once('views/partials/nav.php');
                 </div>
             </div>
         </div>
-        <div class="info-movie bg-[#050529] p-4 flex flex-col items-center gap-2.5 w-full rounded-r-[80px]">
+        <div class="info-movie p-4 flex flex-col items-center gap-2.5 w-full rounded-r-[80px]">
             <h1 class="text-[28px] font-bold">SUMMARY</h1>
-            <div class="movie bg-gray-800 bg-opacity-[50%] w-full flex flex-col gap-5 p-2.5 rounded-[30px]">
+            <div class="movie bg-gray-700 bg-opacity-[75%] w-full flex flex-col gap-5 p-2.5 rounded-[30px]">
                 <div class="movie-summary flex gap-5 rounded-[30px]">
                     <div class="movie-image w-[80px] flex-1 rounded-[30px]">
-                        <img src="views/images/shows_image/phn099.png" alt="" class="w-full rounded-[30px]">
+                        <img src="<?=(file_exists("views/images/shows_image/" . $showDetail['image']) ? "views/images/shows_image/" . $showDetail['image'] : "None") ?>"
+                            alt="" class="w-full rounded-[30px]">
                     </div>
-                    <div class="movie-title flex-1">
-                        <h3 class="text-center text-[26px] font-bold">Title</h3>
-                        <h3 class="text-[20px] font-bold">Time</h3>
-                        <h3 class="text-[20px] font-bold">Language</h3>
-                        <h3 class="text-[20px] font-bold">Action</h3>
-                        <h3 class="text-[20px] font-bold">Description</h3>
+                    <div class="movie-title flex flex-col flex-1 gap-2.5">
+                        <h3 class="text-center text-[26px] font-bold">
+                            <?=(!empty($showDetail && !empty($showDetail['name'])) ? htmlspecialchars($showDetail['name']) : 'None') ?>
+                        </h3>
+                        <h3 class="text-[20px] font-bold text-gray-400">Duration:
+                            <span class="text-white">
+                                <?=(!empty($showDetail && !empty($showDetail['duration'])) ? htmlspecialchars($showDetail['duration']) : 'None') ?>
+                            </span>
+                        </h3>
+                        <h3 class="text-[20px] font-bold text-gray-400">Language:
+                            <span class="text-white">
+                                <?=(!empty($showDetail && !empty($showDetail['language'])) ? htmlspecialchars($showDetail['language']) : 'None') ?>
+                            </span>
+                        </h3>
+                        <h3 class="text-[20px] font-bold text-gray-400">Action:
+                            <span class="text-white">
+                                <?=(!empty($showDetail && !empty($showDetail['category'])) ? htmlspecialchars($showDetail['category']) : 'None') ?>
+                            </span>
+                        </h3>
+                        <h3 class="text-[20px] font-bold text-gray-400 m-0 p-0">Description:
+                            <span class="text-white">
+                                <?=(!empty($showDetail && !empty($showDetail['description'])) ? htmlspecialchars($showDetail['description']) : 'None') ?>
+                            </span>
+                        </h3>
                     </div>
                 </div>
                 <div class="flex flex-col gap-2.5">
                     <p>TICKHUB:</p>
-                    <p>Date:</p>
+                    <p>Date:
+                        <?= htmlspecialchars($date['date']) ?>
+                    </p>
                 </div>
                 <div class="show-info flex flex-col gap-2.5">
                     <div class="hall flex">
-                        <h4 class="flex-1">Hall:</h4>
-                        <h4 class="flex-1">Time:</h4>
+                        <h4 class="flex-1">Hall:
+                            <?=(!empty($showHall && !empty($showHall['hall'])) ? htmlspecialchars($showHall['hall']) : 'None') ?>
+                        </h4>
+                        <h4 id="show-time" class="flex-1">Time: </h4>
                     </div>
-                    <h4 class="flex-wrap">Seat:</h4>
+                    <h4 class="flex-wrap" id="total-seat">Seat:</h4>
                 </div>
                 <div class="total-price flex flex-col gap-2.5 ">
                     <h2>Total Price</h2>
@@ -134,7 +159,8 @@ require_once('views/partials/nav.php');
                         placeholder="Your phone number" name="phoneNumber">
                 </div>
                 <div class="checkout-btn flex justify-between">
-                    <button class="bg-[#ff0000] p-2.5 rounded-[20px] hover:bg-white hover:text-black">Concel</button>
+                    <button class="bg-[#ff0000] p-2.5 rounded-[20px] hover:bg-white hover:text-black"
+                        onclick="displayNone()">Cancel</button>
                     <button class="bg-[#ff0000] p-2.5 rounded-[20px] hover:bg-white hover:text-black"
                         type="submit">Checkout</button>
                 </div>
