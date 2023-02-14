@@ -14,5 +14,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         }
     }
 }
-require_once("views/pages/seller/edit_show.view.php");
+require_once("views/pages/seller/action/edit_show.view.php");
 ?>

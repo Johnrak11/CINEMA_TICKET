@@ -29,14 +29,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // ----------------------------Date of show -- ----------------
 
     if (isset($_POST['date'])) {
+        $date = date_create($_POST['date']);
+        $dateFormat = date_format($date,"Y-m-d");
         if (empty($_POST['date'])) {
-            $dateError = "Date must be input";
-        } elseif (validateDate($_POST['date']) && $_POST['date'] >= date("Y-m-d")) {
-            $dateValid = true;
+             $dateError = "Date must be input";
+        } elseif (validateDate($dateFormat) && $dateFormat >= date("Y-m-d")) {
+             $dateValid = true;
         } else {
-            $dateError = "date incorrect";
+             $dateError = "date incorrect";
         }
-    }
+   }
     // ----------------------------time show-- ----------------
     if (isset($_POST["time"])) {
         if (empty($_POST["time"])) {

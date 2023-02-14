@@ -166,10 +166,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      // ----------------------------Date of show -- ----------------
 
      if (isset($_POST['date'])) {
+          $date = date_create($_POST['date']);
+          $dateFormat = date_format($date,"Y-m-d");
           if (empty($_POST['date'])) {
                $dateError = "Date must be input";
-          } elseif (validateDate($_POST['date']) && $_POST['date'] >= date("Y-m-d")) {
+          } elseif (validateDate($dateFormat) && $dateFormat >= date("Y-m-d")) {
                $dateValid = true;
+               $date =  $dateFormat ;
           } else {
                $dateError = "date incorrect";
           }
@@ -218,7 +221,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $language = $_POST["language"];
           $sellerId = $_COOKIE["id"];
           // --------------table show_detail data-------------
-          $date = $_POST["date"];
           $time = $_POST["time"];
           $hall = $_POST["hall"];
           $venue = $_POST["venue"];

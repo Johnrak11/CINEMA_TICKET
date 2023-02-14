@@ -80,7 +80,7 @@ domSubmit.addEventListener('click', function (e) {
     if (e.currentTarget.textContent === "Create") {
         if (validateVenu(domInputName) && checkName(domInputName) && inputCheck(domInputName) && addressValidate(domInputAddress)) {
             domInputName.style.border = '2px solid green'
-            domVenueSubmit.action = ("controllers/pages/seller/venue_action/venue_create.controller.php")
+            domVenueSubmit.action = ("controllers/pages/admin/venue_action/venue_create.controller.php")
             domVenueSubmit.submit()
 
         } else {
@@ -93,7 +93,7 @@ domSubmit.addEventListener('click', function (e) {
     if (e.currentTarget.textContent === "Update") {
         if (validateVenu(domInputName) && checkName(domInputName) && inputCheck(domInputName) && addressValidate(domInputAddress)) {
             domInputName.style.border = '2px solid green'
-            domVenueSubmit.action = ("controllers/pages/seller/venue_action/venue_edit.controller.php")
+            domVenueSubmit.action = ("controllers/pages/admin/venue_action/venue_edit.controller.php")
             domVenueSubmit.submit()
 
         } else {

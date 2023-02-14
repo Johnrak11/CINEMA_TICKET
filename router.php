@@ -9,13 +9,6 @@ $router = [
     "/detail" => "controllers/pages/detail/detail.controller.php",
     "/login" => "controllers/pages/forms/login.controller.php",
     "/logout" => "controllers/pages/forms/logout.controller.php",
-    "/seller" => "controllers/pages/seller/seller.controller.php",
-    "/actionShow" => "controllers/pages/seller/action_shwo.controller.php",
-    "/createShow" => "controllers/pages/seller/create_show.controller.php",
-    "/add-ticket" => "controllers/pages/seller/create_ticket.controller.php",
-    "/sellerVenue" => "controllers/pages/seller/venue.controller.php",
-    "/venueDetele" => "controllers/pages/seller/venue_action/delete_venue.controller.php",
-    "/edit-show" => "controllers/pages/seller/edit_show.controller.php",
 ];
 $roleUser =[];
 if (isset($_COOKIE['id'])) {
@@ -31,7 +24,8 @@ if (isset($_COOKIE['id'])) {
         $router['/createShow'] = "controllers/pages/seller/create_show.controller.php";
         $router['/add-ticket'] = "controllers/pages/seller/create_ticket.controller.php";
         $router['/actionShow'] = "controllers/pages/seller/action_shwo.controller.php";
-        $router['/sellerVenue'] = "controllers/pages/seller/venue.controller.php";
+        $router['/edit-show'] = "controllers/pages/seller/edit_show.controller.php";
+        $router['/admin'] = "controllers/pages/admin/admin.controller.php";
         $router['/venueDetele'] = "controllers/pages/seller/venue_action/delete_venue.controller.php";
     }
 };
