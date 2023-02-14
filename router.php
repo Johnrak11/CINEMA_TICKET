@@ -10,11 +10,13 @@ $router = [
     "/login" => "controllers/pages/forms/login.controller.php",
     "/logout" => "controllers/pages/forms/logout.controller.php",
     "/seller" => "controllers/pages/seller/seller.controller.php",
+    "/cancel" => "controllers/pages/seller/seller.controller.php",
     "/actionShow" => "controllers/pages/seller/action_shwo.controller.php",
     "/createShow" => "controllers/pages/seller/create_show.controller.php",
     "/add-ticket" => "controllers/pages/seller/create_ticket.controller.php",
     "/sellerVenue" => "controllers/pages/seller/venue.controller.php",
     "/venueDetele" => "controllers/pages/seller/venue_action/delete_venue.controller.php",
+    
 ];
 
 function not_found($code = 404)
