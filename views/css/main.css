@@ -52,8 +52,10 @@ body {
     margin: auto;
 }
 .upload img{
+    width: 50%;
+    height: 50%;
     border-radius: 50%;
-    /* border: 6px solid rgb(232, 195, 83); */
+    border: 5px solid white;
 }
 .upload .round input[type="file"]{
     position: absolute;
@@ -117,6 +119,14 @@ body {
     right: 0;
     z-index: 29;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.edit-profile input{
+    border-radius: 10px;
+    /* background-color: rgb(171, 44, 44); */
+    color: black;
+}
+.edit-profile input[type="date"]{
+    width: 45%;
 }
 
 /* ---------------------------------------show-------------------------------- */
