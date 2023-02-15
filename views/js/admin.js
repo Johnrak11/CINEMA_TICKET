@@ -13,7 +13,7 @@ let domDelete = document.querySelectorAll("#venue-delete")
 let currentName = '';
 domDelete.forEach(deleteBtn => {
     deleteBtn.addEventListener('click', (e) => {
-        delete_alert(e.currentTarget.dataset.index)
+        delete_alert(e.currentTarget.dataset.index, '/venueDetele?id=')
     });
 })
 function validateVenu(inputValue) {
@@ -132,7 +132,7 @@ domEditBtn.forEach(bntEdit => {
     })
 })
 
-function delete_alert(btn) {
+function delete_alert(btn, destination) {
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -148,9 +148,8 @@ function delete_alert(btn) {
                 'Your file has been deleted.',
                 'success'
             )
-            console.log(btn)
             sleep(900).then(() => {
-                location.href = "/venueDetele?id=" + btn;
+                location.href = destination + btn;
             });
         }
     })
@@ -158,3 +157,38 @@ function delete_alert(btn) {
 function sleep(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 }
+// --------------------position-----------
+
+let domChangePositionForm = document.querySelector('#user-form')
+let domInputPosition = document.querySelector('#position')
+let domChangePositionFormEdit = document.querySelector('#role-submit')
+let userId = 0;
+let domChangePositionBtn = document.querySelectorAll('#role-edit')
+domChangePositionBtn.forEach(editBtn => {
+    editBtn.addEventListener('click', (e) => {
+        domChangePositionForm.style.display = 'flex';
+        userId = e.currentTarget.dataset.index
+    })
+})
+let domChangePositionFormCancel = document.querySelector('#cencel-role')
+domChangePositionFormCancel.addEventListener('click', (e) => {
+    domChangePositionForm.style.display = 'none';
+})
+domChangePositionFormEdit.addEventListener('click', (e) => {
+    let inputValue = domInputPosition.value
+    console.log(userId)
+    if (inputValue !== 'Position' ) {
+        location.href = "/userEdit?id=" + userId + "&role=" + inputValue;
+    }else{
+        
+    }
+});
+let domDeleteUser = document.querySelectorAll('#user-delete')
+domDeleteUser.forEach(deleteBtn => {
+    deleteBtn.addEventListener('click', (e) => {
+        console.log('hello')
+        delete_alert(e.currentTarget.dataset.index,"/userEdit?deleteId=")
+    });
+})
+
+

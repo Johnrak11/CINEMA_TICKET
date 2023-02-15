@@ -42,11 +42,4 @@ function getVenue(): array
     $statement->execute([]);
     return $statement->fetchAll();
 }
-function getUsers(): array
-{
-    global $connection;
-    $statement = $connection->prepare("SELECT name,email,role,id FROM users ORDER BY name ASC LIMIT 20");
-    $statement->execute([]);
-    return $statement->fetchAll();
-}
 

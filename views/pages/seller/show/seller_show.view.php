@@ -105,7 +105,7 @@
                         <div class="product-cell stock"><span class="cell-label">Duration:</span><?= htmlspecialchars($show['duration'])  ?></div>
                         <div class="product-cell price"><span class="cell-label">Screen:</span><?= htmlspecialchars($show['screen'])  ?></div>
                         <div class="product-cell image items-center text-center gap-5">
-                            <span class="mr-1 cursor-pointer hover:text-red-600 <?= (empty(isOrderShow($show['id'])) ? 'text-blue-500' : 'line-through text-red-600 show-ordered') ?>" id="show-edit">Edit</span>
+                            <span data-index="<?= $show['id']?>" class="mr-1 cursor-pointer hover:text-red-600 text-blue-700" id="show-edit">Edit</span>
                             <span id="show-venue-add" class="text-blue-500 cursor-pointer hover:text-red-600" data-index="<?= htmlspecialchars($show['id']) ?>">Add</span>
                             <span class="ml-1 cursor-pointer hover:text-red-600 <?= (empty(isOrderShow($show['id'])) ? 'text-blue-500' : 'line-through text-red-600 show-ordered') ?>" id="show-delete" data-index="<?= htmlspecialchars($show['id']) ?>">Delete</span>
                         </div>
