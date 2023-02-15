@@ -7,8 +7,6 @@ require_once("models/user.model.php");
             <img src="views/images/components_image/tickhub.png" class="w-16 mr-3 rounded-full" />
             <!-- <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">CINEMA</span> -->
         </a>
-
-
         <div class="flex justify-between items-center md:order-2 mr-10 w-[10%]">
             <div class="text-white p-2 flex justify-center">
                 <i class="material-icons " style="font-size: 30px;" id="btn-search">search</i>
@@ -40,17 +38,26 @@ require_once("models/user.model.php");
                             <a href="/user-profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-white dark:text-gray-200 dark:hover:text-black">Profile Detail</a>
                         </li>
                         <?php
-                        if (isset($_COOKIE['email']) and isset($_COOKIE['id'])){
+                        if (isset($_COOKIE['email']) and isset($_COOKIE['id'])) {
                             $role = getRole($_COOKIE['id']);
                             if ($role['role'] === 'seller') {
-                            ?>
+                        ?>
                                 <li>
                                     <a href="/seller" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-with dark:text-gray-200 dark:hover:text-black">Seller</a>
                                 </li>
                             <?php
+                            } else if ($role['role'] === 'admin') {
+                            ?>
+                                <li>
+                                    <a href="/admin" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-with dark:text-gray-200 dark:hover:text-black">Managment</a>
+                                </li>
+                                <li>
+                                    <a href="/seller" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-with dark:text-gray-200 dark:hover:text-black">Seller</a>
+                                </li>
+                        <?php
                             }
                         }
-                            ?>
+                        ?>
                         <li>
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-white dark:text-gray-200 dark:hover:text-black">Purchese</a>
                         </li>
@@ -101,6 +108,5 @@ require_once("models/user.model.php");
     <ul class="result-search text-white ml-36" id="show-list">
         <!-- -------------Show Result Search--------------------  -->
     </ul>
-
 </div>
 <script src="views/js/main.js"></script>

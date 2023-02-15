@@ -24,10 +24,10 @@ function nextPrev(n) {
     // This function will figure out which tab to display
     var x = document.getElementsByClassName("tab");
     // Exit the function if any field in the current tab is invalid:
-    if (n == 1 && !validateForm()){
+    if (n == 1 && !validateForm()) {
         return false;
-    } 
-        
+    }
+
     // Hide the current tab:
     x[currentTab].style.display = "none";
     // Increase or decrease the current tab by 1:
@@ -80,28 +80,29 @@ domMinute.addEventListener('keyup', (e) => {
     validateHour(domMinute, '#duration-message', "Minute must be less than 60 hours")
 });
 let domScreen = document.querySelector('#screen')
-domScreen.addEventListener("click",(e)=>{
-    document.querySelector("#screen-message") .textContent = "";
+domScreen.addEventListener("click", (e) => {
+    document.querySelector("#screen-message").textContent = "";
     domScreen.className = 'input-green';
 
 
 })
 let domTypeMovie = document.querySelector('#type-movie')
-domTypeMovie.addEventListener("click",(e)=>{
-    document.querySelector("#category-message") .textContent = "";
+domTypeMovie.addEventListener("click", (e) => {
+    document.querySelector("#category-message").textContent = "";
     domTypeMovie.className = 'input-green';
 
 })
-let domUpload = document.querySelector('#image-upload');
-    domUpload.addEventListener("click",(e)=>{
-    document.querySelector("#image-message") .textContent = "";
-    domUpload.className = 'input-green p-2 rounded-[30px] mt-3 ';
+let domLanguageMovie = document.querySelector('#language')
+domLanguageMovie.addEventListener("click", (e) => {
+    document.querySelector("#language-message").textContent = "";
+    domLanguageMovie.className = 'input-green';
 
-});
-let domImage = document.querySelector('#inputTag')
-domImage.addEventListener("click",(e)=>{
-    document.querySelector("#image-message") .textContent = "";
-    domImage.className = 'input-green';
+})
+
+let domImage = document.querySelector('#image')
+domImage.addEventListener("click", (e) => {
+    document.querySelector("#image-message").textContent = "";
+    domImage.className = 'input-green rounded-3xl p-2.5 mt-4 ';
 
 })
 let domTrailler = document.querySelector('#trailler')
@@ -114,30 +115,40 @@ domDescription.addEventListener('keyup', (e) => {
 });
 let domDate = document.querySelector('#date')
 domDate.addEventListener('click', (e) => {
-    document.querySelector("#date-message") .textContent = "";
+    document.querySelector("#date-message").textContent = "";
     domDate.style.border = "green solid";
 
-    
+
 });
 let domTime = document.querySelector('#time')
 domTime.addEventListener('click', (e) => {
-    document.querySelector("#time-message") .textContent = "";
+    document.querySelector("#time-message").textContent = "";
     domTime.style.border = "green solid";
 
 });
 let domHall = document.querySelector('#hall-show');
 domHall.addEventListener('click', (e) => {
-    document.querySelector("#hall-message") .textContent = "";
+    document.querySelector("#hall-message").textContent = "";
     domHall.style.border = "green solid";
+
 
 });
 let domVenue = document.querySelector('#venue-name')
 domVenue.addEventListener('click', (e) => {
-    document.querySelector("#venue-name-message") .textContent = "";
-    domVenue.style.border = "green solid";
+    document.querySelector("#venue-name-message").textContent = "";
+    domVenue.className = 'input-green';
 });
+
+let domPrice = document.querySelector('#price')
+domPrice.addEventListener("click", (e) => {
+    document.querySelector("#price-message").textContent = "";
+    // domPrice.className = 'input-green';
+    domPrice.style.border = "green solid";
+
+
+})
 // ------------title---check-----
-function validateFailedBorders(domInput,domMessage, message) {
+function validateFailedBorders(domInput, domMessage, message) {
     let valueInput = domInput.value;
     if (valueInput !== "") {
         domInput.className = 'input-green'
@@ -154,31 +165,31 @@ function validateFailedBorders(domInput,domMessage, message) {
 function validateFailed() {
 
     let isFill = true;
-    if (validateFailedBorders(domTitle,"#title-message","Title must be fill")) {
+    if (validateFailedBorders(domTitle, "#title-message", "Title must be fill")) {
         isFill = false;
     }
-    if (validateFailedBorders(domauthor,"#author-message","Author must be fill")) {
+    if (validateFailedBorders(domauthor, "#author-message", "Author must be fill")) {
         isFill = false;
     }
-    if (validateFailedBorders(domhour,"#duration-message","Duration must be fill")) {
+    if (validateFailedBorders(domhour, "#duration-message", "Duration must be fill")) {
         isFill = false;
     }
-    if (validateFailedBorders(domMinute,"#duration-message","Duration must be fill")) {
+    if (validateFailedBorders(domMinute, "#duration-message", "Duration must be fill")) {
         isFill = false;
     }
-    if (validateFailedBorders(domScreen,"#screen-message","Screen must be select")) {
+    if (validateFailedBorders(domScreen, "#screen-message", "Screen must be select")) {
         isFill = false;
     }
-    if (validateFailedBorders(domTypeMovie,"#category-message","Category must be select")) {
+    if (validateFailedBorders(domTypeMovie, "#category-message", "Category must be select")) {
         isFill = false;
     }
-    if (validateFailedBorders(domImage,"#image-message","Image must be chooes")) {
+    if (validateFailedBorders(domImage, "#image-message", "Image must be chooes")) {
         isFill = false;
     }
-    if (validateFailedBorders(domTrailler,"#trailler-message","Trailler must be input")) {
+    if (validateFailedBorders(domTrailler, "#trailler-message", "Trailler must be input")) {
         isFill = false;
     }
-    if (validateFailedBorders(domDescription,"#descripton-message","Descripton must be input")) {
+    if (validateFailedBorders(domDescription, "#descripton-message", "Descripton must be input")) {
         isFill = false;
     }
     return isFill;
@@ -290,3 +301,13 @@ function validateForm() {
     }
     return true; // return the valid status
 }
+// Date picker 
+$(document).ready(function () {
+    $("#date").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "d M yy",
+        maxDate: '30',
+        minDate: '0'
+    });
+});

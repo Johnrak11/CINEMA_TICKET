@@ -1,9 +1,6 @@
 <?php
 require_once('views/partials/head.php');
 ?>
-<style>
-
-</style>
 <div class="h-full flex justify-center items-center"
      style="background-image: url('views/images/components_image/register_background.jpg'); background-size: cover; background-position: center;">
      <div
@@ -36,7 +33,7 @@ require_once('views/partials/head.php');
                </small>
                <input name="date" id="birth"
                     class="bg-opacity-0 appearance-none border <?php echo $dateValid ? 'border-white' : 'border-red-600' ?> rounded-[20px] w-full py-2 px-3 mt-3 bg-slate-800"
-                    type="date" placeholder="Date of bairt">
+                    type="text" placeholder="Date of bairt">
                <small class=" text-[#ff0000] " id="date-error">
                     <?= $dateError ?>
                </small>

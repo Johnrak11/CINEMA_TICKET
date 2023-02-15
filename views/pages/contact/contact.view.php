@@ -15,11 +15,11 @@ require_once("views/partials/nav.php");
             <p>E-MAIL : <span>group5@strong.com</span></p>
         </div>
         <div class="border-r-2 border-white"></div>
-        <div class="flex-col">
+        <form class="flex-col" action="https://formsubmit.co/tickhubcinema@gmail.com" method="post">
             <h1 class="flex justify-center text-2xl">CONTACT US</h1><br>
             <div class="flex gap-4">
-                <input type="text" placeholder="First Name" class="p-2 rounded-full bg-zinc-800" style="border:1px solid white">
-                <input type="text" placeholder="Last Name" class="p-2 rounded-full bg-zinc-800" style="border:1px solid white">
+                <input type="text" placeholder="First Name" name="First-name" class="p-2 rounded-full bg-zinc-800" style="border:1px solid white">
+                <input type="text" placeholder="Last Name" name="Last-name" class="p-2 rounded-full bg-zinc-800" style="border:1px solid white">
             </div><br>
             <input type="email" placeholder="Email address" class="w-[100%] p-2 rounded-full bg-zinc-800" style="border:1px solid white"><br><br>
             <input type="text" placeholder="Phone number" class="w-[100%] p-2 rounded-full bg-zinc-800" style="border:1px solid white"><br><br>

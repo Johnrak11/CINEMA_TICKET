@@ -10,15 +10,27 @@ $router = [
     "/booking" => "controllers/pages/booking/booking.controller.php",
     "/login" => "controllers/pages/forms/login.controller.php",
     "/logout" => "controllers/pages/forms/logout.controller.php",
-    "/seller" => "controllers/pages/seller/seller.controller.php",
-    "/actionShow" => "controllers/pages/seller/action_shwo.controller.php",
-    "/createShow" => "controllers/pages/seller/create_show.controller.php",
-    "/createVenue" => "controllers/pages/seller/create_venue.controller.php",
-    "/sellerVenue" => "controllers/pages/seller/venue.controller.php",
-    "/venueDetele" => "controllers/pages/seller/venue_action/delete_venue.controller.php",
-    "/user-profile" => "views/pages/users/profile.view.php",
 ];
-
+$roleUser =[];
+if (isset($_COOKIE['id'])) {
+    $roleUser = getRole($_COOKIE['id']);
+    if ($roleUser['role'] === 'seller') {
+        $router['/seller'] = "controllers/pages/seller/seller.controller.php";
+        $router['/createShow'] = "controllers/pages/seller/create_show.controller.php";
+        $router['/add-ticket'] = "controllers/pages/seller/create_ticket.controller.php";
+        $router['/actionShow'] = "controllers/pages/seller/action_shwo.controller.php";
+        $router['/edit-show'] = "controllers/pages/seller/action/edit_show.controller.php";
+    } elseif ($roleUser['role'] === 'admin') {
+        $router['/seller'] = "controllers/pages/seller/seller.controller.php";
+        $router['/createShow'] = "controllers/pages/seller/create_show.controller.php";
+        $router['/add-ticket'] = "controllers/pages/seller/create_ticket.controller.php";
+        $router['/actionShow'] = "controllers/pages/seller/action_shwo.controller.php";
+        $router['/edit-show'] = "controllers/pages/seller/action/edit_show.controller.php";
+        $router['/admin'] = "controllers/pages/admin/admin.controller.php";
+        $router['/venueDetele'] = "controllers/pages/admin/venue_action/delete_venue.controller.php";
+        $router['/userEdit'] = "controllers/pages/admin/user_action/user_action.controller.php";
+    }
+};
 function not_found($code = 404)
 {
     require_once("views/pages/errors/$code.php");

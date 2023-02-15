@@ -24,7 +24,7 @@ domClearBtn.addEventListener("click", (e) => {
     console.log(e.target)
 
 });
-
+// --------------------searchText------------------------
 $(document).ready(function () {
     $("#search").keyup(function () {
         let searchText = $(this).val();

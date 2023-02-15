@@ -13,7 +13,7 @@ document.querySelector(".list").addEventListener("click", function () {
     document.querySelector(".products-area-wrapper").classList.remove("gridView");
     document.querySelector(".products-area-wrapper").classList.add("tableView");
 });
-
+let isPublic = '';
 var modeSwitch = document.querySelector('.mode-switch');
 modeSwitch.addEventListener('click', function () {
     document.documentElement.classList.toggle('light');
@@ -59,9 +59,6 @@ function sleep(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 }
 
-// Usage!
-
-
 // ----------------------public preview------------------
 domPublicShows = document.querySelectorAll('#public-show')
 domPublicShows.forEach(domPublicShow => {
@@ -80,14 +77,14 @@ function public_alert(e) {
         confirmButtonText: 'Public'
     }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire(
-                'Public!',
-                'Your show has been public.',
-                'success'
-            )
-            sleep(900).then(() => {
-                location.href = "/actionShow?public=" + e.target.dataset.index;
-            });
+            if (isPublic === 'exist') {
+                isConfirmed('error', "This show already exists")
+            } else {
+                isConfirmed('success', "Your show has been publiced")
+                sleep(900).then(() => {
+                    location.href = "/actionShow?public=" + e.target.dataset.index;
+                });
+            }
         }
     })
 }
@@ -95,10 +92,10 @@ function public_alert(e) {
 domDeleteShow = document.querySelectorAll('#delete-show')
 domDeleteShow.forEach(deleteShow => {
     deleteShow.addEventListener('click', function (e) {
-        delete_alert(e);
+        deletePreviewAlert(e);
     });
 });
-function delete_alert(e) {
+function deletePreviewAlert(e) {
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -109,14 +106,123 @@ function delete_alert(e) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-            )
-            sleep(900).then(() => {
+            isConfirmed('success', "Your preview has been deleted successfully")
+            sleep(1000).then(() => {
                 location.href = "/actionShow?delete=" + e.target.dataset.index;
             });
         }
     })
+}
+// ---------------------------codition alert------------------
+function isConfirmed(icon, message) {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 1800,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    Toast.fire({
+        icon: icon,
+        title: message,
+    })
+}
+// ---------------------------ajax-----comfirm public--------------
+$(document).ready(function () {
+    let domPublicShows = document.querySelectorAll('#public-show')
+    domPublicShows.forEach(domPublicShow => {
+        $(domPublicShow).click(function (e) {
+            let nameShow = e.currentTarget.dataset.show;
+            if (nameShow != "") {
+                $.ajax({
+                    url: 'controllers/pages/components/is_public.controller.php',
+                    method: 'get',
+                    data: { showName: nameShow },
+                    success: function (response) {
+                        isPublic = response
+                    }
+                })
+            }
+        })
+    });
+});
+let domProductRows = document.querySelectorAll('.products-row')
+domProductRows.forEach(domProductRow => {
+    domProductRow.addEventListener('click', (e) => {
+        if (e.target.id === ""){
+            location.href = "/detail?id=" + e.currentTarget.dataset.index;
+        }
+    });
+})
+let domShowVenueAdds = document.querySelectorAll('#show-venue-add')
+domShowVenueAdds.forEach(domShowVenueAdd => {
+    domShowVenueAdd.addEventListener('click', (e) => {
+        location.href = "/add-ticket?showId=" + e.currentTarget.dataset.index;
+    });
+})
+let domShowDeletes = document.querySelectorAll('#show-delete')
+domShowDeletes.forEach(domShowDelete => {
+    domShowDelete.addEventListener('click', (e) => {
+        if(e.currentTarget.classList.contains('show-ordered')){
+            isConfirmed('error', "This show has been booked");
+        }else{
+            deleteShowAlert(e)
+        }
+    });
+})
+let domShowEdits = document.querySelectorAll('#show-edit')
+domShowEdits.forEach(domShowEdit => {
+    domShowEdit.addEventListener('click', (e) => {
+        location.href = "/edit-show?id=" + e.currentTarget.dataset.index;
+    });
+})
+
+// ---------------------show delete------------
+let isFound = '';
+function deleteShowAlert(e) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        let showId = e.target.dataset.index;
+        if (result.isConfirmed) {
+            isTicketOrder(showId)
+        }
+    })
+}
+function isTicketOrder(showId) {
+    $(document).ready(function () {
+        $.ajax({
+            url: 'controllers/pages/components/is_order.controller.php',
+            method: 'get',
+            data: { showId: showId },
+            success: function (response) {
+                isFound = response
+                if (isFound === "none") {
+                    isConfirmed('success', "Your show has been deleted successfully")
+                    sleep(1000).then(() => {
+                        location.href = "/actionShow?delete=" + showId;
+                    });
+                } else {
+                    isConfirmed('error', "This show has been booked")
+                }
+            }
+        })
+    });
+}
+function successfulAlert(icon,message) {
+    isConfirmed(icon,message)
+    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '';
+    window.history.pushState({path:newurl},'',newurl);
+    console.log(newurl);
 }
