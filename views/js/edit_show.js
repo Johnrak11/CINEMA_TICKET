@@ -4,6 +4,11 @@ let dateEdit = document.getElementById('date-edit').textContent;
 let authorEdit = document.getElementById('author-edit').textContent;
 let lenguageEdit = document.getElementById('lenguage-edit').textContent;
 let descriptionEdit = document.getElementById('description-edit').textContent;
+let domVenueEdit = document.querySelector('.dom-venue-edit');
+let editVenueBtn = document.querySelector('#edit');
+
+editVenueBtn.addEventListener('click', () => {
+})
 
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
@@ -16,18 +21,18 @@ let domEditSow = document.querySelector("#venue-form")
 let domEditSowBtn = document.querySelector("#edit-show")
 domEditSowBtn.addEventListener('click', (e) => {
     domEditSow.style.display = 'flex';
-    domTitle.style.border = "green solid";
-    domauthor.style.border = "green solid";
-    domhour.style.border = "green solid";
-    domMinute.style.border = "green solid";
-    domDescription.style.border = "green solid";
-    domScreen.style.border = "green solid";
-    domScreen.style.border = "green solid";
-    domTypeMovie.style.border = "green solid";
-    domLanguageMovie.style.border = "green solid";
-    domImage.style.border = "green solid";
-    domTrailler.style.border = "green solid";
-    domHall.style.border = "green solid";
+    // domTitle.style.border = "green solid";
+    // domauthor.style.border = "green solid";
+    // domhour.style.border = "green solid";
+    // domMinute.style.border = "green solid";
+    // domDescription.style.border = "green solid";
+    // domScreen.style.border = "green solid";
+    // domScreen.style.border = "green solid";
+    // domTypeMovie.style.border = "green solid";
+    // domLanguageMovie.style.border = "green solid";
+    // domImage.style.border = "green solid";
+    // domTrailler.style.border = "green solid";
+    // domHall.style.border = "green solid";
 })
 let domEditCancelBtn = document.querySelector("#canBtn")
 domEditCancelBtn.addEventListener('click', (e) => {
