@@ -6,7 +6,7 @@ require_once("views/partials/head.php");
         <h1 class="text-[30px] text-white font-bold text-center">CREATE NEW TICKET</h1>
         <div class="tab">
             <div class="date">
-                <input datepicker type="text"  placeholder="Select date" oninput="this.className = ''" id="date" name="date">
+                <input type="text"  placeholder="Select date" oninput="this.className = ''" id="date" name="date">
                 <small id = "date-message" class = "text-red-600" >
                         <?= $dateError?>
                 </small>

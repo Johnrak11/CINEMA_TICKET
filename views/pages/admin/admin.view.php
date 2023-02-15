@@ -1,7 +1,6 @@
 <?php
 require_once('views/partials/head.php');
 ?>
-
 <div class="app-container">
     <!-- ==================================sidebar================== -->
     <div class="sidebar">
@@ -26,7 +25,7 @@ require_once('views/partials/head.php');
                     <span class="text-white">Home</span>
                 </a>
             </li>
-            <li class="nav-item flex-grow text-center sidebar-list-item active" role="presentation">
+            <li class="nav-item flex-grow text-center sidebar-list-item " role="presentation">
                 <a href="" class="
           flex
           item-center
@@ -35,7 +34,7 @@ require_once('views/partials/head.php');
           leading-tight
           focus:border-transparent
           active
-          " id="tabs-home-tabVertical" data-bs-toggle="pill" data-bs-target="#tabs-admin-venue">
+          " id="tabs-venue-tabVertical" data-bs-toggle="pill" data-bs-target="#tabs-admin-venue">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox">
                         <polyline points="22 12 16 12 14 15 10 15 8 12 2 12" />
                         <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
@@ -51,12 +50,12 @@ require_once('views/partials/head.php');
           font-medium
           leading-tight
           focus:border-transparent
-          " id="tabs-messages-tabVertical" data-bs-toggle="pill" data-bs-target="#tabs-messagesVertical" role="tab" aria-controls="tabs-messagesVertical" aria-selected="false">
+          " id="tabs-messages-tabVertical" data-bs-toggle="pill" data-bs-target="#tabs-admin-user">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
                         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
                         <path d="M13.73 21a2 2 0 0 1-3.46 0" />
                     </svg>
-                    <span class="">Nofication</span>
+                    <span class="">user</span>
                 </a>
             </li>
             <li class="nav-item flex-grow text-center sidebar-list-item " role="presentation">
@@ -93,9 +92,26 @@ require_once('views/partials/head.php');
     <!-- ============================main=================================== -->
     <div class="tab-content w-full" id="tabs-tabContentVertical">
         <?php require_once('views/pages/admin/venue/admin_venue.view.php'); ?>
+        <?php require_once('views/pages/admin/venue/admin_user.view.php'); ?>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
-<script src="views/js/venue.js"></script>
+
+<!-- ========================venue form========== -->
+<div id="venue-form" class="flex justify-center items-center h-full w-full bg-[#000000a5] " style="position: fixed;display:none;">
+    <form id="venue-submit" class="border-t-4 border-[#ff0000] shadow-2xl shadow-[#0c0c0c] w-[35%] p-[15px] rounded-[30px] bg-[#101827]">
+        <h1 class="text-[20px] text-white font-bold text-center">CREATE VENUE</h1>
+        <div class="tab block">
+            <input type="text" id="date" name="name" placeholder="Venue name" class="venue-name">
+            <input type="text" id="time" name="address" placeholder="Address name" class="address-name">
+            <input type="text" id="id-venue" name="id" placeholder="Address name" class="address-name hidden">
+        </div>
+        <div class="h-[45px] mt-[15px]" style="overflow:auto;">
+            <div class="flex w-full h-full justify-between">
+                <a id="cencel-venue" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[15px] rounded-[20px] flex justify-center item-center"><button type="button">Cancel</button></a>
+                <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[15px] rounded-[20px]" id="nextBtn" name="id" value="Hello">Create</button>
+            </div>
+        </div>
+    </form>
 </div>
-<!-- -----------------------------------from------------------ -->
+<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+<script src="views/js/admin.js"></script>

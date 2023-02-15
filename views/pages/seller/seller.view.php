@@ -241,5 +241,5 @@ require_once('views/partials/head.php');
     </div>
   </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 <script src="views/js/seller.js"></script>

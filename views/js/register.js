@@ -43,3 +43,12 @@ togglePassword.addEventListener("click", function (e) {
     // toggle the icon
     this.classList.toggle("bi-eye");
 });
+$(document).ready(function () {
+    $("#birth").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "d M yy",
+        maxDate: '-5474',
+        minDate: '-25550',
+    });
+});

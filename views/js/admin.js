@@ -1,16 +1,16 @@
 
 // ------------------------add venue------------------
-
 let domVenueSubmit = document.querySelector("#venue-submit")
 let domVenueFrom = document.querySelector("#venue-form")
 let AllVenues = document.querySelectorAll("#venue-name-check")
-let domCreateVenue = document.querySelector('.app-content-headerButton')
+let domCreateVenue = document.querySelector('#create-venue')
 let domCancel = document.querySelector('#cencel-venue')
 let domInputName = document.querySelector('.venue-name')
 let domInputAddress = document.querySelector('.address-name')
 let domSubmit = document.querySelector("#nextBtn")
 let domId = document.querySelector("#id-venue")
 let domDelete = document.querySelectorAll("#venue-delete")
+let currentName = '';
 domDelete.forEach(deleteBtn => {
     deleteBtn.addEventListener('click', (e) => {
         delete_alert(e.currentTarget.dataset.index)
@@ -32,6 +32,19 @@ function checkName(name) {
     AllVenues.forEach(allVenue => {
         if (allVenue.textContent === name.value) {
             isFound = false
+        }
+    })
+    return isFound;
+
+}
+function checkNameEdit(name) {
+    let isFound = true
+    AllVenues.forEach(allVenue => {
+        if (allVenue.textContent === name.value) {
+            isFound = false
+        }
+        if (name.value === currentName) {
+            isFound = true
         }
     })
     return isFound;
@@ -76,7 +89,6 @@ domInputAddress.addEventListener('keyup', function (e) {
 })
 
 domSubmit.addEventListener('click', function (e) {
-    console.log(e.target);
     if (e.currentTarget.textContent === "Create") {
         if (validateVenu(domInputName) && checkName(domInputName) && inputCheck(domInputName) && addressValidate(domInputAddress)) {
             domInputName.style.border = '2px solid green'
@@ -91,7 +103,7 @@ domSubmit.addEventListener('click', function (e) {
         }
     }
     if (e.currentTarget.textContent === "Update") {
-        if (validateVenu(domInputName) && checkName(domInputName) && inputCheck(domInputName) && addressValidate(domInputAddress)) {
+        if (validateVenu(domInputName) && checkNameEdit(domInputName) && inputCheck(domInputName) && addressValidate(domInputAddress)) {
             domInputName.style.border = '2px solid green'
             domVenueSubmit.action = ("controllers/pages/admin/venue_action/venue_edit.controller.php")
             domVenueSubmit.submit()
@@ -115,6 +127,8 @@ domEditBtn.forEach(bntEdit => {
         domInputAddress.value = valueAddress
         domId.value = e.currentTarget.dataset.index
         domSubmit.textContent = 'Update';
+        currentName = domInputName.value
+        console.log(currentName)
     })
 })
 

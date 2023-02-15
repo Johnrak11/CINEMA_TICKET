@@ -105,7 +105,7 @@ require_once("views/partials/head.php");
         </div>
         <div class="tab m-3">
             <div class="date">
-                <input datepicker type="text" class="bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date" oninput="this.className = ''" id="date" name="date" class = " <?php echo $descriptionValid ? '': 'input-red'?> p-2.5 rounded-[30px] mt-[15px] bg-[#101827] border  w-full " >
+                <input  type="text"  placeholder="Select date" oninput="this.className = ''" id="date" name="date" class = " <?php echo $descriptionValid ? '': 'input-red'?> p-2.5 rounded-[30px] mt-[15px] bg-[#101827] border  w-full " >
                 <small id = "date-message" class = "text-red-600 ml-2" >
                         <?= $dateError?>
                 </small>
