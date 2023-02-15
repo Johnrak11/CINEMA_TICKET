@@ -35,4 +35,12 @@ domPrice.addEventListener("click",(e)=>{
     domPrice.className = 'input-green';
 
 })
-
+$(document).ready(function () {
+    $("#date").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "d M yy",
+        maxDate: '30',
+        minDate: '0'
+    });
+});

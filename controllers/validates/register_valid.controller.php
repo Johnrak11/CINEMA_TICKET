@@ -71,23 +71,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     // ----------------------------date-------------------------
     if (isset($_POST['date'])) {
+        $date = date_create($_POST['date']);
+        $dateFormat = date_format($date, "Y-m-d");
         if (empty($_POST['date'])) {
             $dateError = "Date must be input";
-        } elseif (validateDate($_POST['date']) && $_POST['date'] <= date("Y-m-d")) {
+        } elseif (validateDate($dateFormat) && $dateFormat <= date("Y-m-d")) {
             $dateValid = true;
+            $date =  $dateFormat;
         } else {
-            $dateError = "date incorrect";
+            $dateError = "Date incorrect";
         }
     }
-    // else{
-    //     $dateError = "Date must be input";
-    // }
     if ($emailValid && $passwordValid && $dateValid && $usernameValid && $addressValid) {
 
         $username = htmlspecialchars($_POST['username']);
         $email = htmlspecialchars($_POST['email']);
         $address = htmlspecialchars($_POST['address']);
-        $date = htmlspecialchars($_POST['date']);
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $users = getUsers();
         $emailExist = true;
@@ -100,10 +99,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($emailExist) {
             $newUser = createUser($username, $email, $password, $date, $address);
             // Login time is stored in a session variable 
-            setcookie('email',$email ,time() + 86400*30);
-            setcookie('id',$newUser ,time() + 86400*30); 
+            setcookie('email', $email, time() + 86400 * 30);
+            setcookie('id', $newUser, time() + 86400 * 30);
             header('location: /');
-            
         };
     };
 };

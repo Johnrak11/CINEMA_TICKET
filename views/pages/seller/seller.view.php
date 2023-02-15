@@ -113,5 +113,5 @@ require_once('views/partials/head.php');
     <?php require_once('views/pages/seller/show/seller_show.view.php'); ?>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script> -->
 <script src="views/js/seller.js"></script>

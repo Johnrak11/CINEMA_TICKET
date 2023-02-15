@@ -30,15 +30,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($_POST['date'])) {
         $date = date_create($_POST['date']);
-        $dateFormat = date_format($date,"Y-m-d");
+        $dateFormat = date_format($date, "Y-m-d");
         if (empty($_POST['date'])) {
-             $dateError = "Date must be input";
+            $dateError = "Date must be input";
         } elseif (validateDate($dateFormat) && $dateFormat >= date("Y-m-d")) {
-             $dateValid = true;
+            $dateValid = true;
+            $date =  $dateFormat;
         } else {
-             $dateError = "date incorrect";
+            $dateError = "date incorrect";
         }
-   }
+    }
     // ----------------------------time show-- ----------------
     if (isset($_POST["time"])) {
         if (empty($_POST["time"])) {
@@ -63,23 +64,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // ----------------------------price -- ----------------
     if (isset($_POST["price"])) {
         if (empty($_POST["price"])) {
-             $priceError = "Price must be fill ";
+            $priceError = "Price must be fill ";
         } elseif ($_POST["price"] >= 0 && $_POST["price"] <= 100) {
-             $priceValid  = true;
+            $priceValid  = true;
         } else {
-             $priceError = "Price must be more than 0$ and less than 100$";
+            $priceError = "Price must be more than 0$ and less than 100$";
         }
-   }
+    }
     // ---------------------------------------condection is correct---------
     if ($dateValid && $timeValid && $hallValid && $venueValid) {
         // --------------table show_detail data-------------
-        $date = $_POST["date"];
         $time = $_POST["time"];
         $hall = $_POST["hall"];
         $venue = $_POST["venue"];
         $idShowCurrent = $_POST["showId"];
-        $price = $_POST["price"]."$";
-        createShowDetails($venue, $date, $time, $hall, $idShowCurrent,$price);
+        $price = $_POST["price"] . "$";
+        createShowDetails($venue, $date, $time, $hall, $idShowCurrent, $price);
         header('location:/seller?add-success=1');
     }
 }
