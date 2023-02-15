@@ -5,9 +5,7 @@ require_once('views/partials/head.php');
     <div class="flex justify-between flex-2 text-white">
         <div class="text-3xl ml-[10%] " style="flex:2;">
             <h1 class="text-2xl mt-3">
-                <span id="title-edit" class="text-2xl font-bold">
-                    <?=(!empty($showDetail && !empty($showDetail['name'])) ? htmlspecialchars($showDetail['name']) : 'None') ?>
-                </span>
+                <span id="title-edit" class="text-2xl font-bold"><?=(!empty($showDetail && !empty($showDetail['name'])) ? htmlspecialchars($showDetail['name']) : 'None') ?></span>
             </h1>
             <div class="star-container text-sm">
                 <span class="fa fa-star checked text-orange-600"></span>

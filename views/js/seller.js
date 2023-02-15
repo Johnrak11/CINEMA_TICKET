@@ -175,6 +175,12 @@ domShowDeletes.forEach(domShowDelete => {
         }
     });
 })
+let domShowEdits = document.querySelectorAll('#show-edit')
+domShowEdits.forEach(domShowEdit => {
+    domShowEdit.addEventListener('click', (e) => {
+        location.href = "/edit-show?id=" + e.currentTarget.dataset.index;
+    });
+})
 
 // ---------------------show delete------------
 let isFound = '';
