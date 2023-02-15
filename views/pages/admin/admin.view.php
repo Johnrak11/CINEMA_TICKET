@@ -113,5 +113,26 @@ require_once('views/partials/head.php');
         </div>
     </form>
 </div>
+
+<!-- --------------position form -------------- -->
+<div id="user-form" class="flex justify-center items-center h-full w-full bg-[#000000a5] " style="position: fixed;display:none;">
+    <form id="user-submit" class="border-t-4 border-[#ff0000] shadow-2xl shadow-[#0c0c0c] w-[30%] p-[15px] rounded-[30px] bg-[#101827]">
+        <h1 class="text-[20px] text-white font-bold text-center">CHANGE THE POSITION</h1>
+        <div class="tab block">
+            <select name="position" id="position" class="input-role">
+                <option disabled selected>Position</option>
+                <option value="customer">Customer</option>
+                <option value="seller">Seller</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+        <div class="h-[45px] mt-[15px]" style="overflow:auto;">
+            <div class="flex w-full h-full justify-between">
+                <a id="cencel-role" class="w-[20%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[15px] rounded-[20px] flex justify-center item-center"><button type="button">Cancel</button></a>
+                <button type="button" class="w-[20%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[15px] rounded-[20px]" id="role-submit">Update</button>
+            </div>
+        </div>
+    </form>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 <script src="views/js/admin.js"></script>

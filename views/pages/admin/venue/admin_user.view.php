@@ -1,4 +1,4 @@
-<div class="tab-pane fade show active app-content" id="tabs-admin-user">
+<div class="tab-pane fade show app-content" id="tabs-admin-user">
     <div class="app-content-header">
         <h1 class="app-content-headerText">Admin dasbord</h1>
     </div>
@@ -37,7 +37,7 @@
 
             <!-- =============================== card lists product==================== -->
             <?php
-            $users = getUsers();
+            $users = getUsersLimit();
             foreach ($users as $user) :
                 $isActive = true
             ?>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="product-cell image" style="flex:1;">
                         <a class="ml-[24%] text-blue-700 cursor-pointer" id="role-edit" data-index="<?= $user['id'] ?>">Edit</a>
-                        <a data-index="<?= $user['id'] ?>" class="ml-[26%] cursor-pointer text-blue-700 " id="user-delete">Delete</a>
+                        <a data-index="<?= $user['id'] ?>"class="ml-[26%] cursor-pointer text-blue-700 " id="user-delete">Delete</a>
                     </div>
                 </div>
             <?php endforeach
