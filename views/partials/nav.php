@@ -51,7 +51,7 @@ require_once("models/user.model.php");
                             } else if ($role['role'] === 'admin') {
                             ?>
                                 <li>
-                                    <a href="/seller" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-with dark:text-gray-200 dark:hover:text-black">Managment</a>
+                                    <a href="/admin" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-with dark:text-gray-200 dark:hover:text-black">Managment</a>
                                 </li>
                         <?php
                             }

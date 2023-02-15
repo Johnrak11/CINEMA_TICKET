@@ -26,7 +26,7 @@ if (isset($_COOKIE['id'])) {
         $router['/actionShow'] = "controllers/pages/seller/action_shwo.controller.php";
         $router['/edit-show'] = "controllers/pages/seller/action/edit_show.controller.php";
         $router['/admin'] = "controllers/pages/admin/admin.controller.php";
-        $router['/venueDetele'] = "controllers/pages/seller/venue_action/delete_venue.controller.php";
+        $router['/venueDetele'] = "controllers/pages/admin/venue_action/delete_venue.controller.php";
     }
 };
 function not_found($code = 404)
