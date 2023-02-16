@@ -10,6 +10,7 @@ $router = [
     "/booking" => "controllers/pages/booking/booking.controller.php",
     "/login" => "controllers/pages/forms/login.controller.php",
     "/logout" => "controllers/pages/forms/logout.controller.php",
+    "/select-seat" => "controllers/pages/booking/seat/seat.controller.php",
 ];
 $roleUser =[];
 if (isset($_COOKIE['id'])) {
@@ -20,6 +21,7 @@ if (isset($_COOKIE['id'])) {
         $router['/add-ticket'] = "controllers/pages/seller/create_ticket.controller.php";
         $router['/actionShow'] = "controllers/pages/seller/action_shwo.controller.php";
         $router['/edit-show'] = "controllers/pages/seller/action/edit_show.controller.php";
+        $router['/select-seat'] = "controllers/pages/booking/seat/seat.controller.php";
     } elseif ($roleUser['role'] === 'admin') {
         $router['/seller'] = "controllers/pages/seller/seller.controller.php";
         $router['/createShow'] = "controllers/pages/seller/create_show.controller.php";
@@ -29,6 +31,7 @@ if (isset($_COOKIE['id'])) {
         $router['/admin'] = "controllers/pages/admin/admin.controller.php";
         $router['/venueDetele'] = "controllers/pages/admin/venue_action/delete_venue.controller.php";
         $router['/userEdit'] = "controllers/pages/admin/user_action/user_action.controller.php";
+        $router['/select-seat'] = "controllers/pages/booking/seat/seat.controller.php";
     }
 };
 function not_found($code = 404)

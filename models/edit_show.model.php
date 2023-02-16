@@ -71,3 +71,34 @@ function getVenuesTime(int $id, string $name, string $hall, string $date): array
     ]);
     return $statement->fetchAll();
 }
+function getShowDetail(int $id): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM show_details WHERE id = :id");
+    $statement->execute([
+        ":id" => $id,
+    ]);
+    return $statement->fetch();
+}
+function getVenueName(int $id): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT v.name FROM venues v 
+                                        INNER JOIN show_details sd ON v.id = sd.venue_id WHERE sd.id = :id");
+    $statement->execute([
+        ":id" => $id,
+    ]);
+    return $statement->fetch();
+}
+function getSeat(int $id): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT s.name FROM seats s 
+                                        INNER JOIN ticket_orders td ON td.seat_id = s.id 
+                                        INNER JOIN show_details sd ON td.show_detail_id = sd.id 
+                                        WHERE sd.id = :id ;");
+    $statement->execute([
+        ":id" => $id,
+    ]);
+    return $statement->fetchAll();
+}

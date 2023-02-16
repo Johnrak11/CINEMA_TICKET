@@ -78,7 +78,7 @@ require_once("models/user.model.php");
         </div>
 
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
-            <ul class="flex flex-col border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-black md:dark:bg-black dark:border-black">
+            <ul id="nav-container" class="flex flex-col border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-black md:dark:bg-black dark:border-black">
                 <li>
                     <a href="/" class="block bg-black py-2 pl-3 pr-4 text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('/') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">Home</a>
                 </li>
