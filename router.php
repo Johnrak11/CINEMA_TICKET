@@ -9,6 +9,8 @@ $router = [
     "/detail" => "controllers/pages/detail/detail.controller.php",
     "/login" => "controllers/pages/forms/login.controller.php",
     "/logout" => "controllers/pages/forms/logout.controller.php",
+    "/purchese" => "controllers/pages/printable/printable.controller.php",
+
 ];
 $roleUser =[];
 if (isset($_COOKIE['id'])) {
