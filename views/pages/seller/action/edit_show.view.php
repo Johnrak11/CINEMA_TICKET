@@ -221,7 +221,7 @@ require_once('views/partials/head.php');
                     id="canBtn">Cancel</button>
                 <button type="button"
                     class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]"
-                    name="submit" id="nextBtn">Edit</button>
+                    name="submit" id="edit"><a href="/edit">Edit</a></button>
             </div>
         </div>
     </form>

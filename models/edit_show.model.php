@@ -21,3 +21,21 @@ function getVenuesHall(int $id, string $name): array
     ]);
     return $statement->fetchAll();
 }
+// --------------------------edit show------------------------
+function editShow(string $title, string $auhtor, string $screen, string $duration, string $language, string $imager, $trailer, string $descripton, int $id):bool
+{
+    global $connection;
+    $statement = $connection->prepare("UPDATE shows SET title = :name, author = :auther, screen = :screen,
+    duration = :duration, imager = :imager, trailer = :trailer, descripton = :descripton  WHERE id = :id");
+    $statement->execute([
+        ':name' => $title,
+        ':venueAddress' =>$auhtor,
+        ':venueAddress' =>$screen,
+        ':venueAddress' =>$duration,
+        ':venueAddress' =>$language,
+        ':venueAddress' =>$imager,
+        ':venueAddress' =>$trailer,
+        ':id' => $id
+    ]);
+    return $statement->rowCount() > 0;
+}
