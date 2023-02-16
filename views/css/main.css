@@ -983,6 +983,7 @@ footer {
 
 /* ================= create show ========================== */
 #date,
+#position,
 #time,
 #venue-name,
 #venue,
@@ -1395,7 +1396,7 @@ textarea::placeholder {
 }
 
 .input-red:focus {
-    outline: 2px red solid;
+    /* outline: 2px red solid; */
     border-radius: 2rem;
 }
 #regForm .input-red{

@@ -1,4 +1,4 @@
-<div class="tab-pane fade show  app-content" id="tabs-admin-venue">
+<div class="tab-pane fade show active app-content" id="tabs-admin-venue">
     <div class="app-content-header">
         <h1 class="app-content-headerText">Admin dasbord</h1>
         <button class="mode-switch" title="Switch Theme">

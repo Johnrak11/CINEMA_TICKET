@@ -32,6 +32,7 @@ if (isset($_COOKIE['id'])) {
         $router['/edit-show'] = "controllers/pages/seller/action/edit_show.controller.php";
         $router['/admin'] = "controllers/pages/admin/admin.controller.php";
         $router['/venueDetele'] = "controllers/pages/admin/venue_action/delete_venue.controller.php";
+        $router['/userEdit'] = "controllers/pages/admin/user_action/user_action.controller.php";
     }
 };
 function not_found($code = 404)

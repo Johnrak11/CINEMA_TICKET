@@ -1,15 +1,25 @@
-let titleEdit = document.getElementById('title-edit').textContent;
-let durationEdit = document.getElementById('duration-edit').textContent;
-let dateEdit = document.getElementById('date-edit').textContent;
-let authorEdit = document.getElementById('author-edit').textContent;
-let lenguageEdit = document.getElementById('lenguage-edit').textContent;
-let descriptionEdit = document.getElementById('description-edit').textContent;
+// ------------------dom textContent-------------
+let titleEdit = document.getElementById('title-edit');
+let durationEdit = document.getElementById('duration-edit');
+let dateEdit = document.getElementById('date-edit');
+let authorEdit = document.getElementById('author-edit');
+let lenguageEdit = document.getElementById('lenguage-edit');
+let descriptionEdit = document.getElementById('description-edit');
 let domVenueEdit = document.querySelector('.dom-venue-edit');
 let editVenueBtn = document.querySelector('#edit');
 
-editVenueBtn.addEventListener('click', () => {
-})
+// ====================( input value ) =================
+let title = document.querySelector("#title");
+let author = document.querySelector("#author");
+let descriptions = document.querySelector("#description");
+let hours = document.querySelector("#hour");
+let minutes = document.querySelector("#minute");
+let strDate = durationEdit.textContent;
+let arr = strDate.split(':');
+let hourEdit = $.trim(arr[0]);
+let minEdit = $.trim(arr[1]);
 
+// ---------------------display -----------------
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 function showTab(n) {
@@ -17,48 +27,33 @@ function showTab(n) {
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
 }
+
 let domEditSow = document.querySelector("#venue-form")
 let domEditSowBtn = document.querySelector("#edit-show")
 domEditSowBtn.addEventListener('click', (e) => {
+    title.value = titleEdit.textContent;
+    author.value = authorEdit.textContent;
+    descriptions.value = descriptionEdit.textContent;
+    hours.value = hourEdit;
+    minutes.value = minEdit;
     domEditSow.style.display = 'flex';
-    // domTitle.style.border = "green solid";
-    // domauthor.style.border = "green solid";
-    // domhour.style.border = "green solid";
-    // domMinute.style.border = "green solid";
-    // domDescription.style.border = "green solid";
-    // domScreen.style.border = "green solid";
-    // domScreen.style.border = "green solid";
-    // domTypeMovie.style.border = "green solid";
-    // domLanguageMovie.style.border = "green solid";
-    // domImage.style.border = "green solid";
-    // domTrailler.style.border = "green solid";
-    // domHall.style.border = "green solid";
+    domTitle.style.border = "green solid";
+    domauthor.style.border = "green solid";
+    domhour.style.border = "green solid";
+    domMinute.style.border = "green solid";
+    domDescription.style.border = "green solid";
+    domScreen.style.border = "green solid";
+    domScreen.style.border = "green solid";
+    domTypeMovie.style.border = "green solid";
+    domLanguageMovie.style.border = "green solid";
+    domImage.style.border = "green solid";
+    domTrailler.style.border = "green solid";
+
 })
 let domEditCancelBtn = document.querySelector("#canBtn")
 domEditCancelBtn.addEventListener('click', (e) => {
     domEditSow.style.display = 'none';
 })
-
-// ====================( input value ) =================
-let title = document.querySelector("#title");
-title.value = titleEdit;
-
-let author = document.querySelector("#author");
-author.value = authorEdit;
-
-let description = document.querySelector("#description");
-description.value = descriptionEdit;
-
-strDate = durationEdit;
-arr = strDate.split(':');
-hourEdit = $.trim(arr[0]);
-minEdit = $.trim(arr[1]);
-
-let hours = document.querySelector("#hour");
-hours.value = hourEdit;
-
-let minutes = document.querySelector("#minute");
-minutes.value = minEdit;
 // // ----------------teb 1 dom--------------------------
 
 let domTitle = document.querySelector('#title')
@@ -69,6 +64,7 @@ let domauthor = document.querySelector('#author')
 domauthor.addEventListener('keyup', (e) => {
     validateName(domauthor, '#author-message', "Name must be a text")
 });
+// -------------------duration--------------
 let domhour = document.querySelector('.hour')
 domhour.addEventListener('keyup', (e) => {
     validateNumber(domhour, '#duration-message', "Hour must be less than 10 hours")
@@ -77,11 +73,11 @@ let domMinute = document.querySelector('.minute')
 domMinute.addEventListener('keyup', (e) => {
     validateHour(domMinute, '#duration-message', "Minute must be less than 60 hours")
 });
+// ------------------------------screen-----------
 let domScreen = document.querySelector('#screen')
 domScreen.addEventListener("click", (e) => {
     document.querySelector("#screen-message").textContent = "";
     domScreen.className = 'input-green';
-
 })
 let domTypeMovie = document.querySelector('#type-movie')
 domTypeMovie.addEventListener("click", (e) => {
@@ -93,8 +89,8 @@ let domLanguageMovie = document.querySelector('#language')
 domLanguageMovie.addEventListener("click", (e) => {
     document.querySelector("#language-message").textContent = "";
     domLanguageMovie.className = 'input-green';
-
 })
+<<<<<<< HEAD
 let input = document.getElementById("inputTag");
 let imageName = document.getElementById("imageName")
 
@@ -104,11 +100,12 @@ input.addEventListener("change", () => {
     imageName.innerText = inputImage.name;
 })
 
+=======
+>>>>>>> 876e7ca135655e74eb691e5879b1ac73f6a558a8
 let domImage = document.querySelector('#image')
 domImage.addEventListener("click", (e) => {
     document.querySelector("#image-message").textContent = "";
-    domImage.className = 'input-green rounded-3xl p-2.5 mt-4 ';
-
+    domImage.className = 'input-green rounded-3xl p-2 mt-4 ';
 })
 let domTrailler = document.querySelector('#trailler')
 domTrailler.addEventListener('keyup', (e) => {
@@ -118,32 +115,31 @@ let domDescription = document.querySelector('#description')
 domDescription.addEventListener('keyup', (e) => {
     validateText(domDescription, 10, 250, "#descripton-message", "description must be at least 250 characters and more than 3")
 });
-let domDate = document.querySelector('#date')
-domDate.addEventListener('click', (e) => {
-    document.querySelector("#date-message").textContent = "";
-    domDate.style.border = "green solid";
+// let domDate = document.querySelector('#date-venue')
+// domDate.addEventListener('click', (e) => {
+//     document.querySelector("#date-message").textContent = "";
+//     domDate.style.border = "green solid";
 
-
-});
+// });
 let domTime = document.querySelector('#time')
 domTime.addEventListener('click', (e) => {
     document.querySelector("#time-message").textContent = "";
     domTime.style.border = "green solid";
 
 });
-let domHall = document.querySelector('#hall-show');
-domHall.addEventListener('click', (e) => {
-    document.querySelector("#hall-message").textContent = "";
-    domHall.style.border = "green solid";
+// let domHall = document.querySelector('#hall-show');
+// domHall.addEventListener('click', (e) => {
+//     document.querySelector("#hall-message").textContent = "";
+//     domHall.style.border = "green solid";
 
 
-});
-let domVenue = document.querySelector('#venue-name')
-domVenue.addEventListener('click', (e) => {
+// });
+// let domVenue = document.querySelector('#venue-name')
+// domVenue.addEventListener('click', (e) => {
 
-    document.querySelector("#venue-name-message").textContent = "";
-    domVenue.className = 'input-green';
-});
+//     document.querySelector("#venue-name-message").textContent = "";
+//     domVenue.className = 'input-green';
+// });
 
 function validateFailedBorders(domInput, domMessage, message) {
     let valueInput = domInput.value;

@@ -3,7 +3,6 @@ require_once('views/partials/head.php');
 ?>
 
 <div class="app-container">
-
   <!-- ==================================sidebar================== -->
   <div class="sidebar">
     <div class="sidebar-header">
@@ -81,7 +80,8 @@ require_once('views/partials/head.php');
         <a href="#tabs-homeVertical" class="
           flex
           item-center
-          nav-link
+
+nav-link
           font-medium
           leading-tight
           focus:border-transparent
@@ -113,5 +113,5 @@ require_once('views/partials/head.php');
     <?php require_once('views/pages/seller/show/seller_show.view.php'); ?>
   </div>
 </div>
-<!-- <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 <script src="views/js/seller.js"></script>
