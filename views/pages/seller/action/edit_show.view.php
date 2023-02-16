@@ -14,38 +14,17 @@ require_once('views/partials/head.php');
                 <span class="fa fa-star checked text-orange-600"></span>
                 <span class="fa fa-star"></span>
             </div>
-            <h1 class="text-2xl mt-3"><i class="far fa-clock ml-2" style="font-size:18px"></i> <span id="duration-edit"
-                    class="ml-[3%]">
-                    <?=(!empty($showDetail && !empty($showDetail['duration'])) ? htmlspecialchars($showDetail['duration']) : 'None') ?>
-                </span></h1>
-            <h1 class="text-2xl mt-3"><i class='far fa-calendar-check ml-2' style='font-size:18px'></i> <span
-                    id="date-edit" class="ml-[3%]  <?=(empty($strikthrough)) ? "" : "line-through text-red-600" ?>">
-                    <?= htmlspecialchars($date['date']) ?>
-                </span></h1>
-            <h1 class="text-2xl mt-3"><i class='fas fa-book ml-2' style='font-size:18px'></i> <span id="author-edit"
-                    class="ml-[3%]">
-                    <?=(!empty($showDetail && !empty($showDetail['author'])) ? htmlspecialchars($showDetail['author']) : 'None') ?>
-                </span></h1>
-            <h1 class="text-2xl mt-3"><i class='fas fa-closed-captioning ml-2' style='font-size:20px'></i> <span
-                    id="lenguage-edit" class="ml-[3%]">
-                    <?=(!empty($showDetail && !empty($showDetail['language'])) ? htmlspecialchars($showDetail['language']) : 'None') ?>
-                </span></h1>
-            <h1 class="text-2xl mt-3"><i class='fa fa-film ml-2' style='font-size:18px'></i> <span id="category-edit"
-                    class="ml-[3%]">
-                    <?=(!empty($showDetail && !empty($showDetail['category'])) ? htmlspecialchars($showDetail['category']) : 'None') ?>
-                </span></h1>
+            <h1 class="text-2xl mt-3"><i class="far fa-clock ml-2" style="font-size:18px"></i> <span id="duration-edit" class="ml-[3%]"><?=(!empty($showDetail && !empty($showDetail['duration'])) ? htmlspecialchars($showDetail['duration']) : 'None') ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class='far fa-calendar-check ml-2' style='font-size:18px'></i> <span id="date-edit" class="ml-[3%]  <?=(empty($strikthrough)) ? "" : "line-through text-red-600" ?>"><?= htmlspecialchars($date['date']) ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class='fas fa-book ml-2' style='font-size:18px'></i> <span id="author-edit"class="ml-[3%]"><?=(!empty($showDetail && !empty($showDetail['author'])) ? htmlspecialchars($showDetail['author']) : 'None') ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class='fas fa-closed-captioning ml-2' style='font-size:20px'></i> <spanid="lenguage-edit" class="ml-[3%]"><?=(!empty($showDetail && !empty($showDetail['language'])) ? htmlspecialchars($showDetail['language']) : 'None') ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class='fa fa-film ml-2' style='font-size:18px'></i> <span id="category-edit"class="ml-[3%]"><?=(!empty($showDetail && !empty($showDetail['category'])) ? htmlspecialchars($showDetail['category']) : 'None') ?></span></h1>
             <h1 class="text-2xl mt-3 font-bold">Description </h1>
-            <p class="text-xl mt-2" id="description-edit">
-                <?=(!empty($showDetail && !empty($showDetail['description'])) ? htmlspecialchars($showDetail['description']) : 'None') ?>
-            </p>
+            <p class="text-xl mt-2" id="description-edit"><?=(!empty($showDetail && !empty($showDetail['description'])) ? htmlspecialchars($showDetail['description']) : 'None') ?></p>
         </div>
         <div class="flex justify-center flex-col items-end mr-[10%] " style="flex:1;">
-            <img id="right-card-container"
-                src="<?=(file_exists("views/images/shows_image/" . $showDetail['image']) ? "views/images/shows_image/" . $showDetail['image'] : "None") ?>"
-                alt="" class="w-[70%] rounded-xl"><br>
-            <button id="edit-show"
-                class=" bg-[#ff0000] py-3 px-3 text-white text-center hover:bg-white hover:text-black w-[45%] mr-[13%] rounded-xl font-bold uppercase text-xs">EDIT
-                SHOW</button>
+            <img id="right-card-container"src="<?=(file_exists("views/images/shows_image/" . $showDetail['image']) ? "views/images/shows_image/" . $showDetail['image'] : "None") ?>"alt="" class="w-[70%] rounded-xl"><br>
+            <button id="edit-show"class=" bg-[#ff0000] py-3 px-3 text-white text-center hover:bg-white hover:text-black w-[45%] mr-[13%] rounded-xl font-bold uppercase text-xs">EDITSHOW</button>
         </div>
     </div>
 </div>
@@ -113,14 +92,12 @@ require_once('views/partials/head.php');
         <div class="tab m-3 ">
             <div class="flex gap-2.5">
                 <div class="title w-full">
-                    <input placeholder="Title" id="title" name="name"
-                        class="<?php echo $titleValid ? '' : 'input-red' ?>">
+                    <input placeholder="Title" id="title" name="name" class="<?php echo $titleValid ? '' : 'input-red' ?>">
                     <small id="title-message" class="text-red-600 ml-2"></small>
                 </div>
 
                 <div class="author w-full">
-                    <input class="<?php echo $authorValid ? '' : 'input-red' ?>" placeholder="Author" id="author"
-                        name="author">
+                    <input class="<?php echo $authorValid ? '' : 'input-red' ?>" placeholder="Author" id="author" name="author">
                     <small id="author-message" class="text-red-600 ml-2">
 
                     </small>
@@ -157,10 +134,8 @@ require_once('views/partials/head.php');
             </div>
             <div class="duration w-full gap-2.5">
                 <div class="flex gap-2.5 mt-2.5">
-                    <input type="number" placeholder="Hours" id="hour" name="h"
-                        class="hour <?php echo $authorValid ? '' : 'input-red' ?> w-full p-2.5 rounded-[30px]">
-                    <input type="number" placeholder="Minutes" id="minute" name="m"
-                        class="minute <?php echo $authorValid ? '' : 'input-red' ?> w-full p-2.5 rounded-[30px]">
+                    <input type="number" placeholder="Hours" id="hour" name="h" class="hour <?php echo $validateHour ? '' : 'input-red' ?> w-full p-2.5 rounded-[30px] bg-transparent text-white">
+                    <input type="number" placeholder="Minutes" id="minute" name="m" class="minute <?php echo $validateHour ? '' : 'input-red' ?> w-full p-2.5 rounded-[30px] bg-transparent text-white">
                 </div>
                 <small id="duration-message" class="text-red-600 ml-2">
 
@@ -168,8 +143,7 @@ require_once('views/partials/head.php');
             </div>
             <div class="flex w-full justify-between gap-2.5 ">
                 <div class="category w-[49%] ">
-                    <select name="language" id="language"
-                        class="<?php echo $languageValid ? '' : 'input-red' ?> p-2.5 rounded-[30px] mt-[10px] bg-transparent border border-white w-full ">
+                    <select name="language" id="language" class="<?php echo $languageValid ? '' : 'input-red' ?> p-2.5 rounded-[30px] mt-[10px] bg-transparent border border-white w-full ">
                         <option value="" disabled selected>Movie language</option>
                         <option value="Khmer">Khmer</option>
                         <option value="English">English</option>
@@ -180,8 +154,7 @@ require_once('views/partials/head.php');
                     </small>
                 </div>
                 <div class="w-[49%] ">
-                    <div id="image"
-                        class="<?php echo $imageValid ? '' : 'input-red' ?> mt-[15px] text-center p-1.5 border border-white rounded-[30px] w-full">
+                    <div id="image" class="<?php echo $imageValid ? '' : 'input-red' ?> mt-[15px] text-center p-1.5 border border-white rounded-[30px] w-full">
                         <label class="" for="inputTag">Choose Image <br />
                             <input name="imageUpload" id="inputTag" type="file" />
                             <i class="fa fa-2x fa-camera text-white text-2xl ml-10"></i>
@@ -195,16 +168,14 @@ require_once('views/partials/head.php');
                 </div>
             </div>
             <div class="trailer">
-                <input class="<?php echo $trailerValid ? '' : 'input-red' ?>" placeholder="Trailler" id="trailler"
-                    name="trailer">
+                <input class="<?php echo $trailerValid ? '' : 'input-red' ?>" placeholder="Trailler" id="trailler" name="trailer">
                 <small id="trailler-message" class="text-red-600 ml-2">
 
                 </small>
 
             </div>
             <div class="description">
-                <textarea class="<?php echo $descriptionValid ? '' : 'input-red' ?>" name="descripton" id="description"
-                    cols="10" placeholder="Description"></textarea>
+                <textarea class="<?php echo $descriptionValid ? '' : 'input-red' ?>" name="descripton" id="description" cols="10" placeholder="Description"></textarea>
                 <small id="descripton-message" class="text-red-600 ml-2">
 
                 </small>

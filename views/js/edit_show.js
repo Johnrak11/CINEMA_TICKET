@@ -11,13 +11,13 @@ let editVenueBtn = document.querySelector('#edit');
 // ====================( input value ) =================
 let title = document.querySelector("#title");
 let author = document.querySelector("#author");
-let description = document.querySelector("#description");
-// strDate = durationEdit;
-// arr = strDate.split(':');
-// hourEdit = $.trim(arr[0]);
-// minEdit = $.trim(arr[1]);
+let descriptions = document.querySelector("#description");
 let hours = document.querySelector("#hour");
 let minutes = document.querySelector("#minute");
+let strDate = durationEdit.textContent;
+let arr = strDate.split(':');
+let hourEdit = $.trim(arr[0]);
+let minEdit = $.trim(arr[1]);
 
 // ---------------------display -----------------
 var currentTab = 0; // Current tab is set to be the first tab (0)
@@ -31,20 +31,23 @@ function showTab(n) {
 let domEditSow = document.querySelector("#venue-form")
 let domEditSowBtn = document.querySelector("#edit-show")
 domEditSowBtn.addEventListener('click', (e) => {
-    domEditSow.style.display = 'flex';
-    // domTitle.style.border = "green solid";
-    // domauthor.style.border = "green solid";
-    // domhour.style.border = "green solid";
-    // domMinute.style.border = "green solid";
-    // domDescription.style.border = "green solid";
-    // domScreen.style.border = "green solid";
-    // domScreen.style.border = "green solid";
-    // domTypeMovie.style.border = "green solid";
-    // domLanguageMovie.style.border = "green solid";
-    // domImage.style.border = "green solid";
-    // domTrailler.style.border = "green solid";
-    // domHall.style.border = "green solid";
     title.value = titleEdit.textContent;
+    author.value = authorEdit.textContent;
+    descriptions.value = descriptionEdit.textContent;
+    hours.value = hourEdit;
+    minutes.value = minEdit;
+    domEditSow.style.display = 'flex';
+    domTitle.style.border = "green solid";
+    domauthor.style.border = "green solid";
+    domhour.style.border = "green solid";
+    domMinute.style.border = "green solid";
+    domDescription.style.border = "green solid";
+    domScreen.style.border = "green solid";
+    domScreen.style.border = "green solid";
+    domTypeMovie.style.border = "green solid";
+    domLanguageMovie.style.border = "green solid";
+    domImage.style.border = "green solid";
+    domTrailler.style.border = "green solid";
 
 })
 let domEditCancelBtn = document.querySelector("#canBtn")
@@ -90,7 +93,7 @@ domLanguageMovie.addEventListener("click", (e) => {
 let domImage = document.querySelector('#image')
 domImage.addEventListener("click", (e) => {
     document.querySelector("#image-message").textContent = "";
-    domImage.className = 'input-green rounded-3xl p-2.5 mt-4 ';
+    domImage.className = 'input-green rounded-3xl p-2 mt-4 ';
 })
 let domTrailler = document.querySelector('#trailler')
 domTrailler.addEventListener('keyup', (e) => {
@@ -106,12 +109,12 @@ domDescription.addEventListener('keyup', (e) => {
 //     domDate.style.border = "green solid";
 
 // });
-// let domTime = document.querySelector('#time')
-// domTime.addEventListener('click', (e) => {
-//     document.querySelector("#time-message").textContent = "";
-//     domTime.style.border = "green solid";
+let domTime = document.querySelector('#time')
+domTime.addEventListener('click', (e) => {
+    document.querySelector("#time-message").textContent = "";
+    domTime.style.border = "green solid";
 
-// });
+});
 // let domHall = document.querySelector('#hall-show');
 // domHall.addEventListener('click', (e) => {
 //     document.querySelector("#hall-message").textContent = "";
