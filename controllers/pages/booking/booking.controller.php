@@ -1,5 +1,6 @@
 <?php
 require_once ('models/show_detail.model.php');
+require_once ('models/edit_show.model.php');
 $showDetail = [];
 $showHall = [];
 $date = [];
