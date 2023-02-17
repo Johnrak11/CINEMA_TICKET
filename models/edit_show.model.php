@@ -102,3 +102,18 @@ function getSeat(int $id): array
     ]);
     return $statement->fetchAll();
 }
+function uploadPayment(int $user_id, string $name, int $cvv, int $number, string $type, string $date_exp)
+{
+    global $connection;
+    $statement = $connection->prepare("INSERT INTO credit_card (user_id,name,cvv,number,type,date_exp) 
+                                        VALUES (:user_id,:name,:cvv,:number,:type,:date_exp);");
+    $statement->execute([
+        ":id" => $user_id,
+        ":name" => $name,
+        ":cvv" => $cvv,
+        ":number" => $number,
+        ":type" => $type,
+        ":date_exp" => $date_exp
+    ]);
+    return $statement -> rowCount() >0;
+}

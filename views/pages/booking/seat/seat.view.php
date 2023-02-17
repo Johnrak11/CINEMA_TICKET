@@ -100,12 +100,84 @@ require_once('views/partials/nav.php');
                     </div>
                 </div>
                 <div class="checkout-btn flex justify-between mt-4 mb-3">
-                    <a href="/booking?id=<?= $_GET['id'] ?>" class="w-[15%]" ><button class="bg-[#ff0000] w-full  p-[10px] rounded-[20px] hover:bg-white hover:text-black">Cancel</button></a>
-                    <button class="bg-[#ff0000] w-[15%] p-[10px] rounded-[20px] hover:bg-white hover:text-black" type="button">Checkout</button>
+                    <a href="/booking?id=<?= $_GET['id'] ?>" class="w-[15%]"><button class="bg-[#ff0000] w-full  p-[10px] rounded-[20px] hover:bg-white hover:text-black">Cancel</button></a>
+                    <button class="bg-[#ff0000] w-[15%] p-[10px] rounded-[20px] hover:bg-white hover:text-black" type="button" id="checkout">Checkout</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<!-- ------------------payment------------ -->
+
+<div id="payment-container" class="fixed top-0 left-0 right-0 z-50 bg-[#1f1e1ec3] hidden p-4 scrollbar-hide md:inset-0 h-modal md:h-full px-5 pb-5 pt-10">
+    <form id="payment-form" action="" method="post" class="w-full mx-auto rounded-lg bg-white shadow-lg p-5 text-gray-700 mt-2" style="max-width: 600px">
+        <div class="w-full pt-1 pb-5">
+            <div class="bg-black text-white overflow-hidden rounded-full w-20 h-20 -mt-16 mx-auto shadow-lg flex justify-center items-center">
+                <img src="views/images/components_image/tickhub.png" class="mdi mdi-credit-card-outline text-3xl rounded-full" />
+            </div>
+        </div>
+        <div class="mb-5">
+            <h1 class="text-center font-bold text-xl uppercase">TICKHUB payment </h1>
+        </div>
+        <div class="mb-5 flex -mx-2 justify-center">
+            <div class="px-2">
+                <label for="type1" class="flex items-center cursor-pointer">
+                    <img src="https://leadershipmemphis.org/wp-content/uploads/2020/08/780370.png" class="h-8">
+                </label>
+            </div>
+            <div class="">
+                <label for="type2" class="flex items-center cursor-pointer">
+                    <img src="https://www.sketchappsources.com/resources/source-image/PayPalCard.png" class="h-8">
+                </label>
+            </div>
+        </div>
+        <div class="mb-3 -mx-2 flex items-end">
+            <div class="px-2 w-1/2">
+                <label class="font-bold text-sm mb-2 ml-1">Card Name</label>
+                <div>
+                    <input name="card-name" id="card-name" type="text" class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" placeholder="John Smith" />
+                </div>
+            </div>
+            <div class="px-2 w-1/2">
+                <label class="font-bold text-sm mb-2 ml-1">Choose card</label>
+                <div>
+                    <select name="card-type" id='type-card' class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
+                        <option value="1" selected>Master Card</option>
+                        <option value="2">Visa Card</option>
+                        <option value="3">American Express Card</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 -mx-2 flex items-center">
+            <div class="px-2 w-[80%]">
+                <label class="font-bold text-sm mb-2 ml-1">Card Number</label>
+                <div>
+                    <input name="card-number" id="card-number" type="number" class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="5555555555554444" />
+                </div>
+            </div>
+            <div class="w-[20%] flex justify-end item-end">
+                <img id="card-icon" src="views/images/components_image/credit-card.png" class="w-full" alt="">
+            </div>
+        </div>
+        <div class="mb-5 -mx-2 flex items-end">
+            <div class="px-2 w-1/2">
+                <label class="font-bold text-sm mb-2 ml-1">Expiration date</label>
+                <div>
+                    <input name="card-date" id="card-date" type="month" class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" />
+                </div>
+            </div>
+            <div class="px-2 w-1/2">
+                <label class="font-bold text-sm mb-2 ml-1">CVV</label>
+                <div>
+                    <input name="card-cvv" id="card-cvv" type="number" class="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" placeholder="000" required maxlength="3" />
+                </div>
+            </div>
+        </div>
+        <div>
+            <button id="payment-submit" class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"><i class="mdi mdi-lock-outline mt-5 mr-1"></i> PAY NOW</button>
+        </div>
+    </form>
 </div>
 <script src="views/js/seat.js"></script>
 <?php
