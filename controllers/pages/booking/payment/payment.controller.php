@@ -3,7 +3,7 @@ require_once ('../../../../database/database.php');
 // require_once ('models/show_detail.model.php');
 require_once ('../../../../models/edit_show.model.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if (isset($_POST['card-name']) && isset($_POST['card-type']) && isset($_POST['card-number']) && isset($_POST['card-date']) && isset($_POST['card-cvv'])){
+    if (isset($_POST['card-name']) && isset($_POST['card-type']) && isset($_POST['card-number']) && isset($_POST['card-date']) && isset($_POST['card-cvv']) && isset($_POST['card-save'])){
         $CardName = 'American Express Card';
         if ($_POST['card-type'] === '1'){
             $CardName = 'Master Card';

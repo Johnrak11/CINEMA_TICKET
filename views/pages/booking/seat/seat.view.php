@@ -258,7 +258,7 @@ require_once('views/partials/nav.php');
         </div>
         <div class="mb-3 -mx-2 flex items-end">
             <div class="flex items-center px-2 w-1/2">
-                <input id="link-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <input id="link-checkbox" type="checkbox" name="card-save" value="save" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                 <label for="link-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-500">I agree to save the credit card</label>
             </div>
         </div>
