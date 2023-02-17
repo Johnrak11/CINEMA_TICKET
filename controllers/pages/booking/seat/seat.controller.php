@@ -5,6 +5,7 @@ $movieShow  = [];
 $detail = [];
 $venueName = [];
 $seat = [];
+$creditCard = [];
 if ($_SERVER['REQUEST_METHOD'] == 'GET'){
     if (isset($_GET['id'])){
         $id = $_GET['id'];
@@ -14,7 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         $detail = getShowDetail($_GET['detailId']); 
         $venueName = getVenueName($_GET['detailId']);
         $seat = getSeat($_GET['detailId']);
+        $creditCard = creditCard($_COOKIE['id']);
     }
 }
-require_once('views/pages/booking/seat/seat.view.php')
+require_once('views/pages/booking/seat/seat.view.php');
+// -----altert---
+if (isset($_GET['payment'])) {
+    if ($_GET['payment'] == 1) {
+?>
+        <script>
+            successfulAlert('success', 'Payment successfully',<?= $_GET['id'] ?>,<?= $_GET['detailId'] ?>);
+        </script>
+<?php
+    }
+}
 ?>

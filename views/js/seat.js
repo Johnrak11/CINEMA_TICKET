@@ -58,16 +58,48 @@ btnTSelectTimes.forEach(btn => {
         });
     });
 });
+let domCheckoutContainer = document.querySelector('#checkout-container')
 let checkoutBtn = document.querySelector('#checkout')
 checkoutBtn.addEventListener('click', (e) => {
-    paymentContainer.style.display = "block";
-    document.querySelector('#seat-information').style.filter = "blur(10px)";
+    let totatSeat = document.querySelector('#total-seat').textContent
+    if (totatSeat !== ""){
+        if (e.currentTarget.classList.contains('credit-none')) {
+            paymentContainer.style.display = "block";
+            document.querySelector('#seat-information').style.filter = "blur(10px)";
+        } else {
+            domCheckoutContainer.style.display = "block";
+        }
+    }else{
+        isConfirmed('error', "Places select the seat first")
+    }
 });
 paymentContainer.addEventListener('click', (e) => {
     if (e.target.id === 'payment-container') {
         paymentContainer.style.display = "none";
         document.querySelector('#seat-information').style.filter = "blur(0px)";
     }
+})
+domCheckoutContainer.addEventListener('click', (e) => {
+    if (e.target.id === 'checkout-container') {
+        domCheckoutContainer.style.display = "none";
+    }
+})
+let domCheckoutCancel = document.querySelector('#checkout-cancel')
+domCheckoutCancel.addEventListener('click', (e) => {
+    domCheckoutContainer.style.display = "none";
+})
+let domAddCreditcard = document.querySelector('#add-credit-card')
+domAddCreditcard.addEventListener('click', (e) => {
+    paymentContainer.style.display = "block";
+    domCheckoutContainer.style.display = "none";
+    document.querySelector('#seat-information').style.filter = "blur(10px)";
+})
+let confirmCheckoutSubmit = document.querySelector('#checkout-submit')
+let confirmCheckout = document.querySelector('#confirm-checkout')
+confirmCheckout.addEventListener('click', (e) => {
+    let totatSeat = document.querySelector('#total-seat').textContent
+    document.querySelector('#seat-value-checkout').value = totatSeat
+    confirmCheckoutSubmit.submit()
 })
 $(document).ready(function () {
     let btnHide = document.querySelector("#payment-container")
@@ -161,7 +193,9 @@ domPaymentSubmit.addEventListener("click", (e) => {
     }
     // --------------true-----
     console.log(isTrue)
-    if (isTrue){
+    if (isTrue) {
+        let totatSeat = document.querySelector('#total-seat').textContent
+        document.querySelector('#seat-value').value = totatSeat
         domFormSubmit.submit()
     }
 })
@@ -239,5 +273,28 @@ function checkcard() {
     }
     return false;
 }
+// ---------alert----
+function successfulAlert(icon, message, id, detailId) {
+    isConfirmed(icon, message)
+    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?id=' + id + '&detailId=' + detailId;
+    window.history.pushState({ path: newurl }, '', newurl);
+}
+function isConfirmed(icon, message) {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
 
+    Toast.fire({
+        icon: icon,
+        title: message,
+    })
+}
 

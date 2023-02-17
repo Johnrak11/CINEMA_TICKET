@@ -93,8 +93,7 @@ function getVenueName(int $id): array
 function getSeat(int $id): array
 {
     global $connection;
-    $statement = $connection->prepare("SELECT s.name FROM seats s 
-                                        INNER JOIN ticket_orders td ON td.seat_id = s.id 
+    $statement = $connection->prepare("SELECT td.seat as 'name' FROM ticket_orders td
                                         INNER JOIN show_details sd ON td.show_detail_id = sd.id 
                                         WHERE sd.id = :id ;");
     $statement->execute([
@@ -108,7 +107,7 @@ function uploadPayment(int $user_id, string $name, int $cvv, int $number, string
     $statement = $connection->prepare("INSERT INTO credit_card (user_id,name,cvv,number,type,date_exp) 
                                         VALUES (:user_id,:name,:cvv,:number,:type,:date_exp);");
     $statement->execute([
-        ":id" => $user_id,
+        ":user_id" => $user_id,
         ":name" => $name,
         ":cvv" => $cvv,
         ":number" => $number,
@@ -116,4 +115,28 @@ function uploadPayment(int $user_id, string $name, int $cvv, int $number, string
         ":date_exp" => $date_exp
     ]);
     return $statement -> rowCount() >0;
+}
+function ticketOrder(int $user_id, int $detailId, string $date, string $seat)
+{
+    global $connection;
+    $statement = $connection->prepare("INSERT INTO ticket_orders (user_id,show_detail_id,date,seat) 
+                                        VALUES (:user_id,:detailId,:date,:seat);");
+    $statement->execute([
+        ":user_id" => $user_id,
+        ":detailId" => $detailId,
+        ":date" => $date,
+        ":seat" => $seat
+    ]);
+    return $statement -> rowCount() >0;
+}
+function creditCard(int $id): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT cd.* FROM credit_card cd
+                                        INNER JOIN users u ON cd.user_id  = u.id 
+                                        WHERE u.id = :id ;");
+    $statement->execute([
+        ":id" => $id,
+    ]);
+    return $statement->fetchAll();
 }
