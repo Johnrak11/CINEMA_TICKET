@@ -1402,3 +1402,10 @@ textarea::placeholder {
 #regForm .input-red{
     border: 1px red solid;
 }
+.teckit-right{
+    border-left: 2px solid white;
+    height: 220px;
+ 
+  
+
+}
