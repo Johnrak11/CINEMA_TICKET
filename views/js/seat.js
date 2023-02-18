@@ -192,7 +192,6 @@ domPaymentSubmit.addEventListener("click", (e) => {
         }
     }
     // --------------true-----
-    console.log(isTrue)
     if (isTrue) {
         let totatSeat = document.querySelector('#total-seat').textContent
         document.querySelector('#seat-value').value = totatSeat
