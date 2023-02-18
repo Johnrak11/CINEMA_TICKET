@@ -15,7 +15,7 @@
   <!-- ------font---------- -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <link href="https://fonts.cdnfonts.com/css/avenir" rel="stylesheet">
-  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- -------ajax-------- -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <!-- <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script> -->

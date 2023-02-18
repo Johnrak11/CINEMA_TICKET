@@ -2,17 +2,12 @@
 require_once('views/partials/head.php');
 require_once('views/partials/nav.php');
 
-
-
 ?>
 <div class="container flex justify-center items-center flex-col ">
-    <div class="flex w-[85%] p-10 mt-[5%] ">
-        <input type="text" placeholder="search show..." class="p-2 mb-0 w-[40%] rounded-xl">
-    </div>
-    <div class="bg-gray-800  border-t-4 border-[#ff0000] rounded-2xl w-[80%] flex-col">
+    <div class="bg-gray-800  border-t-4 border-[#ff0000] rounded-2xl w-[80%] flex-col mt-[7%]">
         <h1 class="justify-center flex text-2xl mt-4 text-white">Your Order</h1>
         <div class="flex justify-end mr-[5%]">
-            <button class="p-2 mt-8 w-[10%] bg-red-600 border-b-6 text-white rounded-xl hover:bg-white hover:text-black">History</button>
+            <button class=" p-2 mt-8 w-[10%] bg-red-600 border-b-6 text-white rounded-xl hover:bg-white hover:text-black"  onclick="onClickHistory()">History</button>
         </div>
         <div class="ml-[5%] mb-[5%]">
             <div class="mr-[10%]">
@@ -20,19 +15,19 @@ require_once('views/partials/nav.php');
             </div>
             <h1 class="border w-[95%] border-red-600"></h1>
 
-            <div class="contain flex flex-wrap gap-4">
+            <div class="contain flex flex-wrap gap-7 ">
                 <?php
                     for( $i = 0; $i <6 ; $i++):{
                 ?>
-                <div class="card mt-5 ">
-                    <img src="image/avarta.png" alt="" class="rounded-xl ">
+                <div class="card mt-5 none ">
+                    <img src="views/images/shows_image/show13.jpg" alt="" class="rounded-xl ">
                     <div class="info text-white">
-                        <h1>Thana</h1>
+                        <h1>Nana</h1>
                         <p>Category</p>
                         <p>02/12/2023</p>
                         <p>05:30</p>
                         <p>3G</p>
-                        <button>Cancel</button>
+                        <button class= "cancel" onclick="onClickCancelCard()" >Cancel</button>
                     </div>
                 </div> 
                 <?php
@@ -41,10 +36,34 @@ require_once('views/partials/nav.php');
             </div>
         </div>  
     </div>
-
 </div>
-    
+
 <?php
 require_once('views/partials/footer.php');
 ?>
+<div class="history hidden" id="history">
+<div class=" justify-between  flex flex-col ml-[10%] dom-dialog bg-gray-800 mt-3  rounded-xl w-[80%]" style="margin-top:4%">
+    <div class="flex flex-col overflow-y-scroll justify-between mt-[-3%] text-white p-2 rounded-xl text-xl">
+    <?php for ($i = 0 ; $i <40 ; $i++){?>
+    <a href="#">
+        <div class="flex justify-between bg-gray-900 mt-[3%] p-1 text-white rounded-xl hover:bg-white hover:text-black " style="border-left:4px solid red">
+            <img class="w-[4%]" src="https://kbimages1-a.akamaihd.net/48543b74-fd9f-405a-a5c0-5f7d1e89a566/1200/1200/False/coco-movie-storybook.jpg" alt="">
+            <p class="flex items-center justify-center">nana</p>
+            <p class="flex items-center justify-center">20-02-2023</p>
+            <p class="flex items-center justify-center">07:06:00</p>
+            <p class="flex items-center justify-center">3D</p>
+        </div>
+    </a>
+    <?php 
+    }
+    ?>
+    </div>
+    <div class="flex  flex-row-reverse p-2">
+    <a class="px-7 rounded-xl bg-red-600 mb-[2%] mr-[1%] py-1 text-white hover:bg-white hover:text-black cursor-pointer" onclick="onClickCancel()">Cancel</a>
+
+</div>  
+
+<script src="views/js/printable.js"></script>
+
+
    
