@@ -18,7 +18,6 @@ let strDate = durationEdit.textContent;
 let arr = strDate.split(':');
 let hourEdit = $.trim(arr[0]);
 let minEdit = $.trim(arr[1]);
-
 // ---------------------display -----------------
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
@@ -48,6 +47,7 @@ domEditSowBtn.addEventListener('click', (e) => {
     domLanguageMovie.style.border = "green solid";
     domImage.style.border = "green solid";
     domTrailler.style.border = "green solid";
+    valueFill();
 
 })
 let domEditCancelBtn = document.querySelector("#canBtn")
@@ -60,6 +60,7 @@ let domTitle = document.querySelector('#title')
 domTitle.addEventListener('keyup', (e) => {
     validateText(domTitle, 2, 40, '#title-message', 'title must be more than 40 and less than 3 characters')
 });
+
 let domauthor = document.querySelector('#author')
 domauthor.addEventListener('keyup', (e) => {
     validateName(domauthor, '#author-message', "Name must be a text")
@@ -121,12 +122,12 @@ domDescription.addEventListener('keyup', (e) => {
 //     domDate.style.border = "green solid";
 
 // });
-let domTime = document.querySelector('#time')
-domTime.addEventListener('click', (e) => {
-    document.querySelector("#time-message").textContent = "";
-    domTime.style.border = "green solid";
+// let domTime = document.querySelector('#time')
+// domTime.addEventListener('click', (e) => {
+//     document.querySelector("#time-message").textContent = "";
+//     domTime.style.border = "green solid";
 
-});
+// });
 // let domHall = document.querySelector('#hall-show');
 // domHall.addEventListener('click', (e) => {
 //     document.querySelector("#hall-message").textContent = "";
@@ -212,11 +213,11 @@ function isValidUrl(string) {
 function validateHour(domNum, domMessage, message) {
     let number = parseInt(domNum.value);
     if (Number.isInteger(number) && number >= 0 && number <= 59) {
-        domNum.className = 'input-green'
+        domNum.className = 'input-green p-2.5 rounded-[30px] bg-transparent text-white w-full'
         document.querySelector(domMessage).textContent = '';
         return true
     } else {
-        domNum.className = 'input-red'
+        domNum.className = 'input-red p-2.5 rounded-[30px] bg-transparent text-white w-full'
         document.querySelector(domMessage).textContent = message;
         return false
     }
@@ -225,11 +226,11 @@ function validateHour(domNum, domMessage, message) {
 function validateNumber(domNum, domMessage, message) {
     let number = parseInt(domNum.value);
     if (Number.isInteger(number) && number >= 0 && number <= 10) {
-        domNum.className = 'input-green'
+        domNum.className = 'input-green p-2.5 rounded-[30px] bg-transparent text-white w-full'
         document.querySelector(domMessage).textContent = '';
         return true
     } else {
-        domNum.className = 'input-red'
+        domNum.className = 'input-red p-2.5 rounded-[30px] bg-transparent text-white w-full'
         document.querySelector(domMessage).textContent = message;
         return false
     }
@@ -237,7 +238,7 @@ function validateNumber(domNum, domMessage, message) {
 
 function validateText(domText, min, max, domMessage, message) {
     let text = domText.value
-    if (text.length > min && text.length < max && text !=="") {
+    if (text.length > min && text.length < max && text !== "") {
         domText.className = 'input-green'
         document.querySelector(domMessage).textContent = ''
         return true
@@ -277,7 +278,7 @@ function validateForm() {
     else if (!validateNumber(domhour, '#duration-message', "Hour must be less than 10 hours")) {
         valid = false;
     }
-    else if (!validateHour(domMinute, '#duration-message', "Minute must be less than 60 hours")) {
+    else if (!validateHour(domMinute, '#duration-message', "Minute must be less than 60 mintes")) {
         valid = false;
     }
     else if (!validateUrl(domTrailler, '#trailler-message', "Trailler must be a URL")) {
@@ -289,7 +290,39 @@ function validateForm() {
     // If the valid status is true, mark the step as finished and valid:
     if (valid) {
         document.getElementsByClassName("step")[currentTab].className += " finish";
-
     }
     return true; // return the valid status
+}
+function valueFill() {
+    let editShowSubmit = document.querySelector('#nextBtn')
+    editShowSubmit.addEventListener('click', (e) => {
+        let isTRue = true;
+        if (domauthor.value === '' || domDescription.value === '' || domTrailler.value === '' || domhour.value === '' || domMinute.value === '' || domScreen.value === '' || domTypeMovie.value === '' || domLanguageMovie === '' || domImage.value === '') {
+            isTRue = false;
+        } else {
+            isTRue = true;
+        }
+        if (isTRue) {
+            nameChecked(title.value);
+        }
+    })
+}
+function nameChecked(title) {
+    $(document).ready(function () {
+        $.ajax({
+            url: 'controllers/pages/components/is_same.controller.php',
+            method: 'get',
+            data: { name: title },
+            success: function (response) {
+                isFound = response
+                if (title === titleEdit.textContent) {
+                    location.href = "/";
+                } else {
+                    if (isFound === 'none') {
+                        console.log('ok')
+                    }
+                }
+            }
+        })
+    });
 }

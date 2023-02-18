@@ -24,7 +24,7 @@ require_once('views/partials/head.php');
         </div>
         <div class="flex justify-center flex-col items-end mr-[10%] " style="flex:1;">
             <img id="right-card-container"src="<?=(file_exists("views/images/shows_image/" . $showDetail['image']) ? "views/images/shows_image/" . $showDetail['image'] : "None") ?>"alt="" class="w-[70%] rounded-xl"><br>
-            <button id="edit-show"class=" bg-[#ff0000] py-3 px-3 text-white text-center hover:bg-white hover:text-black w-[45%] mr-[13%] rounded-xl font-bold uppercase text-xs">EDITSHOW</button>
+            <button id="edit-show"class=" bg-[#ff0000] px-3 py-3 text-white text-center hover:bg-white hover:text-black w-[50%] mr-[13%] rounded-[30px] font-bold uppercase text-xs">EDITSHOW</button>
         </div>
     </div>
 </div>
@@ -92,7 +92,7 @@ require_once('views/partials/head.php');
         <div class="tab m-3 ">
             <div class="flex gap-2.5">
                 <div class="title w-full">
-                    <input placeholder="Title" id="title" name="name" class="<?php echo $titleValid ? '' : 'input-red' ?>">
+                    <input placeholder="Title" id="title" name="name" class="">
                     <small id="title-message" class="text-red-600 ml-2"></small>
                 </div>
 
@@ -134,11 +134,10 @@ require_once('views/partials/head.php');
             </div>
             <div class="duration w-full gap-2.5">
                 <div class="flex gap-2.5 mt-2.5">
-                    <input type="number" placeholder="Hours" id="hour" name="h" class="hour <?php echo $validateHour ? '' : 'input-red' ?> w-full p-2.5 rounded-[30px] bg-transparent text-white">
+                    <input type="number" placeholder="Hours" id="hour" name="h" class="hour <?php echo $validateNumber ? '' : 'input-red' ?> w-full p-2.5 rounded-[30px] bg-transparent text-white">
                     <input type="number" placeholder="Minutes" id="minute" name="m" class="minute <?php echo $validateHour ? '' : 'input-red' ?> w-full p-2.5 rounded-[30px] bg-transparent text-white">
                 </div>
                 <small id="duration-message" class="text-red-600 ml-2">
-
                 </small>
             </div>
             <div class="flex w-full justify-between gap-2.5 ">
@@ -199,7 +198,7 @@ require_once('views/partials/head.php');
 
 
 <!-- ==========================================venue==form=============== -->
-<div class="venue-edit-container h-full w-full fixed " style="display:none;">
+<!-- <div class="venue-edit-container h-full w-full fixed " style="display:none;">
     <div id="venue-edit" class="justify-center flex item-center mt-[100px] ">
         <form id="form-venue" action="" method="post" enctype="multipart/form-data"
             class=" border-t-4 border-[#ff0000] shadow-2xl shadow-[#ff0000] w-[55%] p-[15px] rounded-[30px] bg-[#101827]">
@@ -220,12 +219,12 @@ require_once('views/partials/head.php');
                 <div class="time-venue flex mt-[15px] justify-between gap-2.5">
                     <input type="text" id="hour-venue " name="time"
                         class="p-2.5 rounded-[30px] w-full bg-[#101827] border border-white" placeholder="Hour">
-                    <!-- <small id="time-message" class="text-red-600">
-                </small> -->
+                    <small id="time-message" class="text-red-600">
+                </small>
                     <input type="text" id="min-venue" name="time"
                         class="p-2.5 rounded-[30px] w-full bg-[#101827] border border-white" placeholder="Minute">
-                    <!-- <small id="time-message" class="text-red-600">
-                </small> -->
+                    <small id="time-message" class="text-red-600">
+                </small>
                 </div>
                 <div class="date-venue mt-[15px]">
                     <input datepicker type="date" placeholder="Select date" id="date-venue" name="date"
@@ -234,8 +233,8 @@ require_once('views/partials/head.php');
                 </div>
                 <div class="price">
                     <input type="number" id="price" name="price" placeholder="Price">
-                    <!-- <small id="price-message" class="text-red-600">
-                    </small> -->
+                    <small id="price-message" class="text-red-600">
+                    </small>
                 </div>
             </div>
             <div class="h-[45px] mt-[15px]" style="overflow:auto;">
@@ -245,10 +244,10 @@ require_once('views/partials/head.php');
                         id="canBtn"><button type="button">Cancel</button></a>
                     <button type="submit"
                         class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]"
-                        name="showId" id="nextBtn">Edit</button>
+                        name="showId" id="">Edit</button>
                 </div>
             </div>
         </form>
     </div>
-</div>
+</div> -->
 <script src="views/js/edit_show.js"></script>
