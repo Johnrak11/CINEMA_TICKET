@@ -318,13 +318,37 @@ function nameChecked(title) {
             success: function (response) {
                 isFound = response
                 if (title === titleEdit.textContent) {
-                    location.href = "/";
+                    document.getElementById('regForm').submit();
                 } else {
                     if (isFound === 'none') {
-                        console.log('ok')
+                        document.getElementById('regForm').submit();
                     }
                 }
             }
         })
     });
+}
+// ---------alert----
+function successfulAlert(icon, message, id) {
+    isConfirmed(icon, message)
+    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?id=' + id;
+    window.history.pushState({ path: newurl }, '', newurl);
+}
+function isConfirmed(icon, message) {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    Toast.fire({
+        icon: icon,
+        title: message,
+    })
 }

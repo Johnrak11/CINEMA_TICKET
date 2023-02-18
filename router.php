@@ -19,8 +19,8 @@ if (isset($_COOKIE['id'])) {
         $router['/add-ticket'] = "controllers/pages/seller/create_ticket.controller.php";
         $router['/actionShow'] = "controllers/pages/seller/action_shwo.controller.php";
         $router['/edit-show'] = "controllers/pages/seller/action/edit_show.controller.php";
-        $router['/edit'] = "controllers/pages/seller/action/edit_new_show.controller.php";
-        $router['/edit-view'] = "views/pages/seller/action/edit_show.view.php";
+        // $router['/edit'] = "controllers/pages/seller/action/edit_new_show.controller.php";
+        // $router['/edit-view'] = "views/pages/seller/action/edit_show.view.php";
 
 
 

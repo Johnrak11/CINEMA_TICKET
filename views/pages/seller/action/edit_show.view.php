@@ -5,7 +5,7 @@ require_once('views/partials/head.php');
     <div class="flex justify-between flex-2 text-white">
         <div class="text-3xl ml-[10%] " style="flex:2;">
             <h1 class="text-2xl mt-3">
-                <span id="title-edit" class="text-2xl font-bold"><?=(!empty($showDetail && !empty($showDetail['name'])) ? htmlspecialchars($showDetail['name']) : 'None') ?></span>
+                <span id="title-edit" class="text-2xl font-bold"><?= (!empty($showDetail && !empty($showDetail['name'])) ? htmlspecialchars($showDetail['name']) : 'None') ?></span>
             </h1>
             <div class="star-container text-sm">
                 <span class="fa fa-star checked text-orange-600"></span>
@@ -14,17 +14,17 @@ require_once('views/partials/head.php');
                 <span class="fa fa-star checked text-orange-600"></span>
                 <span class="fa fa-star"></span>
             </div>
-            <h1 class="text-2xl mt-3"><i class="far fa-clock ml-2" style="font-size:18px"></i> <span id="duration-edit" class="ml-[3%]"><?=(!empty($showDetail && !empty($showDetail['duration'])) ? htmlspecialchars($showDetail['duration']) : 'None') ?></span></h1>
-            <h1 class="text-2xl mt-3"><i class='far fa-calendar-check ml-2' style='font-size:18px'></i> <span id="date-edit" class="ml-[3%]  <?=(empty($strikthrough)) ? "" : "line-through text-red-600" ?>"><?= htmlspecialchars($date['date']) ?></span></h1>
-            <h1 class="text-2xl mt-3"><i class='fas fa-book ml-2' style='font-size:18px'></i> <span id="author-edit"class="ml-[3%]"><?=(!empty($showDetail && !empty($showDetail['author'])) ? htmlspecialchars($showDetail['author']) : 'None') ?></span></h1>
-            <h1 class="text-2xl mt-3"><i class='fas fa-closed-captioning ml-2' style='font-size:20px'></i> <spanid="lenguage-edit" class="ml-[3%]"><?=(!empty($showDetail && !empty($showDetail['language'])) ? htmlspecialchars($showDetail['language']) : 'None') ?></span></h1>
-            <h1 class="text-2xl mt-3"><i class='fa fa-film ml-2' style='font-size:18px'></i> <span id="category-edit"class="ml-[3%]"><?=(!empty($showDetail && !empty($showDetail['category'])) ? htmlspecialchars($showDetail['category']) : 'None') ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class="far fa-clock ml-2" style="font-size:18px"></i> <span id="duration-edit" class="ml-[3%]"><?= (!empty($showDetail && !empty($showDetail['duration'])) ? htmlspecialchars($showDetail['duration']) : 'None') ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class='far fa-calendar-check ml-2' style='font-size:18px'></i> <span id="date-edit" class="ml-[3%]  <?= (empty($strikthrough)) ? "" : "line-through text-red-600" ?>"><?= htmlspecialchars($date['date']) ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class='fas fa-book ml-2' style='font-size:18px'></i> <span id="author-edit" class="ml-[3%]"><?= (!empty($showDetail && !empty($showDetail['author'])) ? htmlspecialchars($showDetail['author']) : 'None') ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class='fas fa-closed-captioning ml-2' style='font-size:20px'></i> <spanid="lenguage-edit" class="ml-[3%]"><?= (!empty($showDetail && !empty($showDetail['language'])) ? htmlspecialchars($showDetail['language']) : 'None') ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class='fa fa-film ml-2' style='font-size:18px'></i> <span id="category-edit" class="ml-[3%]"><?= (!empty($showDetail && !empty($showDetail['category'])) ? htmlspecialchars($showDetail['category']) : 'None') ?></span></h1>
             <h1 class="text-2xl mt-3 font-bold">Description </h1>
-            <p class="text-xl mt-2" id="description-edit"><?=(!empty($showDetail && !empty($showDetail['description'])) ? htmlspecialchars($showDetail['description']) : 'None') ?></p>
+            <p class="text-xl mt-2" id="description-edit"><?= (!empty($showDetail && !empty($showDetail['description'])) ? htmlspecialchars($showDetail['description']) : 'None') ?></p>
         </div>
         <div class="flex justify-center flex-col items-end mr-[10%] " style="flex:1;">
-            <img id="right-card-container"src="<?=(file_exists("views/images/shows_image/" . $showDetail['image']) ? "views/images/shows_image/" . $showDetail['image'] : "None") ?>"alt="" class="w-[70%] rounded-xl"><br>
-            <button id="edit-show"class=" bg-[#ff0000] px-3 py-3 text-white text-center hover:bg-white hover:text-black w-[50%] mr-[13%] rounded-[30px] font-bold uppercase text-xs">EDITSHOW</button>
+            <img id="right-card-container" src="<?= (file_exists("views/images/shows_image/" . $showDetail['image']) ? "views/images/shows_image/" . $showDetail['image'] : "None") ?>" alt="" class="w-[70%] rounded-xl"><br>
+            <button id="edit-show" class=" bg-[#ff0000] px-3 py-3 text-white text-center hover:bg-white hover:text-black w-[50%] mr-[13%] rounded-[30px] font-bold uppercase text-xs">EDITSHOW</button>
         </div>
     </div>
 </div>
@@ -36,7 +36,7 @@ require_once('views/partials/head.php');
         if ($_GET['id']) {
             $allVenues = getVenues($_GET['id']);
             foreach ($allVenues as $venue) {
-                ?>
+        ?>
                 <div class="mr-[10%]">
                     <button class="p-2 bg-red-600 border-b-6 text-white hover:bg-white hover:text-black">
                         <?= $venue['name'] ?>
@@ -47,11 +47,10 @@ require_once('views/partials/head.php');
                     <?php
                     $venueHall = getVenuesHall($_GET['id'], $venue['name']);
                     foreach ($venueHall as $hall) {
-                        ?>
+                    ?>
                         <a>
-                            <div class="flex justify-between bg-gray-400 mr-[10%] mt-[1%] p-4 text-black rounded-xl hover:bg-white hover:text-black "
-                                style="border-left:4px solid red">
-                             flex-col gap-2.5    <p class="flex items-center justify-center">
+                            <div class="flex justify-between bg-gray-400 mr-[10%] mt-[1%] p-4 text-black rounded-xl hover:bg-white hover:text-black " style="border-left:4px solid red">
+                                flex-col gap-2.5 <p class="flex items-center justify-center">
                                     <?= $hall['hall'] ?>
                                 </p>
                                 <p class="flex items-center justify-center">
@@ -64,16 +63,16 @@ require_once('views/partials/head.php');
                                     <?= $hall['price'] ?>
                                 </p>
                                 <div class="flex justify-center gap-3">
-                                    <button id="edit" class="flex items-center justify-center"data-index="<?= $hall['id']?>">Edit</button>
+                                    <button id="edit" class="flex items-center justify-center" data-index="<?= $hall['id'] ?>">Edit</button>
                                     <button id="delete" class="flex items-center justify-center">Delete</button>
                                 </div>
                             </div>
                         </a>
-                        <?php
+                    <?php
                     }
                     ?>
                 </div>
-                <?php
+        <?php
             }
         }
         ?>
@@ -83,10 +82,8 @@ require_once('views/partials/head.php');
 </div>
 </div>
 <!-- ==========================================show=form=============== -->
-<div id="venue-form" class="flex justify-center items-center h-full w-full bg-[#000000a5] "
-    style="position: fixed;display:none;">
-    <form id="regForm" action="" method="post" enctype="multipart/form-data"
-        class="border-t-4 border-[#ff0000] shadow-2xl shadow-[#ff0000] w-[60%] p-[10px] rounded-[30px]  bg-[#101827] mt-[3%] mb-5">
+<div id="venue-form" class="flex justify-center items-center h-full w-full bg-[#000000a5] " style="position: fixed;display:none;">
+    <form id="regForm" action="controllers/pages/seller/action/edit_new_show.controller.php" method="post" enctype="multipart/form-data" class="border-t-4 border-[#ff0000] shadow-2xl shadow-[#ff0000] w-[60%] p-[10px] rounded-[30px]  bg-[#101827] mt-[3%] mb-5">
         <h1 class="text-[30px] text-white font-bold text-center">EDIT SHOW</h1>
         <!-- One "tab" for each step in the form: -->
         <div class="tab m-3 ">
@@ -105,8 +102,7 @@ require_once('views/partials/head.php');
             </div>
             <div class="flex gap-2.5">
                 <div class="screen w-full">
-                    <select name="screen" id="screen"
-                        class="<?php echo $authorValid ? '' : 'input-red' ?> p-2.5 rounded-[30px] mt-[15px] bg-transparent border w-[100%] bg ">
+                    <select name="screen" id="screen" class="<?php echo $authorValid ? '' : 'input-red' ?> p-2.5 rounded-[30px] mt-[15px] bg-transparent border w-[100%] bg ">
                         <option value="" disabled selected>Screen</option>
                         <option value="2D">2D</option>
                         <option value="3D">3D</option>
@@ -117,8 +113,7 @@ require_once('views/partials/head.php');
                 </div>
 
                 <div class="category w-full ">
-                    <select name="category" id="type-movie"
-                        class="<?php echo $catetoryValid ? '' : 'input-red' ?> p-2.5 rounded-[30px] mt-[15px] bg-transparent border w-full ">
+                    <select name="category" id="type-movie" class="<?php echo $catetoryValid ? '' : 'input-red' ?> p-2.5 rounded-[30px] mt-[15px] bg-transparent border w-full ">
                         <option value="" disabled selected>Type Movie</option>
                         <option value="Action">Action</option>
                         <option value="Romance">Romance</option>
@@ -137,8 +132,7 @@ require_once('views/partials/head.php');
                     <input type="number" placeholder="Hours" id="hour" name="h" class="hour <?php echo $validateNumber ? '' : 'input-red' ?> w-full p-2.5 rounded-[30px] bg-transparent text-white">
                     <input type="number" placeholder="Minutes" id="minute" name="m" class="minute <?php echo $validateHour ? '' : 'input-red' ?> w-full p-2.5 rounded-[30px] bg-transparent text-white">
                 </div>
-                <small id="duration-message" class="text-red-600 ml-2">
-                </small>
+                <small id="duration-message" class="text-red-600 ml-2"></small>
             </div>
             <div class="flex w-full justify-between gap-2.5 ">
                 <div class="category w-[49%] ">
@@ -148,9 +142,7 @@ require_once('views/partials/head.php');
                         <option value="English">English</option>
                         <option value="China">China</option>
                     </select>
-                    <small id="language-message" class="text-red-600 ml-2">
-
-                    </small>
+                    <small id="language-message" class="text-red-600 ml-2"></small>
                 </div>
                 <div class="w-[49%] ">
                     <div id="image" class="<?php echo $imageValid ? '' : 'input-red' ?> mt-[15px] text-center p-1.5 border border-white rounded-[30px] w-full">
@@ -159,37 +151,27 @@ require_once('views/partials/head.php');
                             <i class="fa fa-2x fa-camera text-white text-2xl ml-10"></i>
                             <span id="imageName" class="text-green-600"></span>
                         </label>
-
                     </div>
-                    <small id="image-message" class="text-red-600 ml-2">
-
-                    </small>
+                    <small id="image-message" class="text-red-600 ml-2"></small>
                 </div>
             </div>
             <div class="trailer">
                 <input class="<?php echo $trailerValid ? '' : 'input-red' ?>" placeholder="Trailler" id="trailler" name="trailer">
-                <small id="trailler-message" class="text-red-600 ml-2">
-
-                </small>
+                <small id="trailler-message" class="text-red-600 ml-2"></small>
 
             </div>
             <div class="description">
                 <textarea class="<?php echo $descriptionValid ? '' : 'input-red' ?>" name="descripton" id="description" cols="10" placeholder="Description"></textarea>
-                <small id="descripton-message" class="text-red-600 ml-2">
-
-                </small>
+                <small id="descripton-message" class="text-red-600 ml-2"></small>
+                <input class='hidden' name='id' value="<?= $_GET['id'] ?>" type="text">
             </div>
 
 
         </div>
         <div class="mr-5 ml-5 h-[45px] mt-[15px]" style="overflow:auto;">
             <div class="flex w-full h-full justify-between">
-                <button type="button"
-                    class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]"
-                    id="canBtn">Cancel</button>
-                <button type="button"
-                    class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]"
-                    name="submit" id="edit"><a href="/edit">Edit</a></button>
+                <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="canBtn">Cancel</button>
+                <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="nextBtn"><a>Edit</a></button>
             </div>
         </div>
     </form>
