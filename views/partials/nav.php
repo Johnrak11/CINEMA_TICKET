@@ -1,7 +1,7 @@
 <?php
 require_once("models/user.model.php");
 ?>
-<nav id='navbar' class=" bg-white border-gray-200 rounded dark:bg-black">
+<nav id='navbar' class=" bg-white border-gray-200 rounded dark:bg-black none">
     <div class=" flex flex-wrap items-center justify-between">
         <a href="/" class="flex items-center ml-10 rounded-full">
             <img src="views/images/components_image/tickhub.png" class="w-16 mr-3 rounded-full" />
