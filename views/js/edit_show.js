@@ -54,6 +54,10 @@ let domEditCancelBtn = document.querySelector("#canBtn")
 domEditCancelBtn.addEventListener('click', (e) => {
     domEditSow.style.display = 'none';
 })
+let venueCancelBtn = document.querySelector("#venue-canBtn")
+venueCancelBtn.addEventListener('click', (e) => {
+    domVenueEditContainer.style.display = 'none';
+})
 // // ----------------teb 1 dom--------------------------
 
 let domTitle = document.querySelector('#title')
@@ -99,8 +103,6 @@ input.addEventListener("change", () => {
 
     imageName.innerText = inputImage.name;
 })
-
-
 let domImage = document.querySelector('#image')
 domImage.addEventListener("click", (e) => {
     document.querySelector("#image-message").textContent = "";
@@ -114,32 +116,6 @@ let domDescription = document.querySelector('#description')
 domDescription.addEventListener('keyup', (e) => {
     validateText(domDescription, 10, 250, "#descripton-message", "description must be at least 250 characters and more than 3")
 });
-// let domDate = document.querySelector('#date-venue')
-// domDate.addEventListener('click', (e) => {
-//     document.querySelector("#date-message").textContent = "";
-//     domDate.style.border = "green solid";
-
-// });
-// let domTime = document.querySelector('#time')
-// domTime.addEventListener('click', (e) => {
-//     document.querySelector("#time-message").textContent = "";
-//     domTime.style.border = "green solid";
-
-// });
-// let domHall = document.querySelector('#hall-show');
-// domHall.addEventListener('click', (e) => {
-//     document.querySelector("#hall-message").textContent = "";
-//     domHall.style.border = "green solid";
-
-
-// });
-// let domVenue = document.querySelector('#venue-name')
-// domVenue.addEventListener('click', (e) => {
-
-//     document.querySelector("#venue-name-message").textContent = "";
-//     domVenue.className = 'input-green';
-// });
-
 function validateFailedBorders(domInput, domMessage, message) {
     let valueInput = domInput.value;
     if (valueInput !== "") {
@@ -224,7 +200,7 @@ function validateHour(domNum, domMessage, message) {
 function validateNumber(domNum, domMessage, message) {
     let number = parseInt(domNum.value);
     if (Number.isInteger(number) && number >= 0 && number <= 10) {
-        domNum.className = 'input-green p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        domNum.cladomTextssName = 'input-green p-2.5 rounded-[30px] bg-transparent text-white w-full'
         document.querySelector(domMessage).textContent = '';
         return true
     } else {
@@ -352,3 +328,144 @@ function isConfirmed(icon, message) {
         title: message,
     })
 }
+
+
+let domH = document.querySelector('#hour-venue');
+domH.addEventListener('keyup', (e) => {
+    validatehours(domH, '#time-message', "Time must be fill and not more than 24")
+});
+let domM = document.querySelector('#min-venue')
+domM.addEventListener('keyup', (e) => {
+    validateMinutes(domM, '#timeM-message', "Must be fill")
+});
+let domP = document.querySelector('#price')
+domP.addEventListener('keyup', (e) => {
+    validatePrice(domP, '#price-message', "Price must be less than 100$")
+});
+let hallVenue = document.querySelector('#hall-venue-input');
+hallVenue.addEventListener('keyup', (e) => {
+    validatePrice(hallVenue, '#hall-message', "You must choose a hall")
+});
+
+
+
+function validateMinutes(domNum, domMessage, message) {
+    let number = parseInt(domNum.value);
+    if (Number.isInteger(number) && number >= 0 && number <= 59) {
+        domNum.className = 'input-green p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = '';
+        return true
+    } else {
+        domNum.className = 'input-red p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = message;
+        return false
+    }
+}
+function validatehours(domNum, domMessage, message) {
+    let number = parseInt(domNum.value);
+    if (Number.isInteger(number) && number >= 0 && number <= 24 ) {
+        domNum.className = 'input-green p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = '';
+        return true
+    } else {
+        domNum.className = 'input-red p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = message;
+        return false
+    }
+}
+function validatePrice(domNum, domMessage, message) {
+    let number = parseInt(domNum.value);
+    if (Number.isInteger(number) && number >= 0 && number <= 100) {
+        domNum.className = 'input-green p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = '';
+        return true
+    } else {
+        domNum.className = 'input-red p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = message;
+        return false
+    }
+}
+function validateHallVenue(domNum, domMessage, message) {
+    let number = parseInt(domNum.value);
+    if (Number.isInteger(number) && number >= 0 && number <= 100) {
+        domNum.className = 'input-green p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = '';
+        return true
+    } else {
+        domNum.className = 'input-red p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = message;
+        return false
+    }
+}
+
+
+
+let domVenueEditContainer = document.querySelector('.venue-edit-container');
+let domD = document.querySelector('#date-venue-input');
+let editVenueShow = document.querySelectorAll('#edit-venue-show');
+editVenueShow.forEach(venueShow => {
+    venueShow.addEventListener('click', (e) => {
+        let index = e.target.dataset.index;
+        console.log(e.target.dataset.venue)
+        console.log(e.target.dataset.index)
+        document.querySelector('#detailId').value = index;
+        document.querySelector('#venueId').value = e.target.dataset.venue;
+        if (index !== undefined) {
+            domVenueEditContainer.style.display = 'block';
+            editVenue(e);
+            hallVenue.style.border = "1px solid green";
+            domH.style.border = "1px solid green";
+            domM.style.border = "1px solid green";
+            domD.style.border = "1px solid green";
+            domP.style.border = "1px solid green";
+           
+        }
+    });
+});
+
+let formEditVenue = document.querySelector("#form-venue");
+let bntSubmit = document.getElementById("venue-edit-Btn");
+bntSubmit.addEventListener('click', (e) => {
+    let isFill = false;
+    let countTrue = 0;
+    
+    if (hallVenue.value !== "" && domH.value !== "" && domM !=="" && domD !== "" && domP !== "" ){
+        hallVenue.style.border = "1px solid green";
+        domH.style.border = "1px solid green";
+        domM.style.border = "1px solid green";
+        domD.style.border = "1px solid green";
+        domP.style.border = "1px solid green";
+        isFill = true;
+       
+    }else {
+        hallVenue.style.border = "1px solid red";
+        isFill = false;
+    }
+    if (isFill){
+        formEditVenue.submit();
+       
+    }   
+})
+function editVenue(e) {
+    let price = e.target.parentElement.previousElementSibling.textContent;
+    let date = e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
+    let timeGet = e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
+    let strTime = timeGet;
+    let arr = strTime.split(':');
+    let hourVenue = $.trim(arr[0]);
+    let minVenue = $.trim(arr[1]);
+    domH.value = hourVenue;
+    domM.value = minVenue;
+    domD.value = date;
+    domP.value = price.split("$", 1);
+}
+
+$(document).ready(function () {
+    $("#date-venue-input").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "d M yy",
+        maxDate: '30',
+        minDate: '0'
+    });
+});

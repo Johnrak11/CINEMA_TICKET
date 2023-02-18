@@ -44,3 +44,26 @@ function editShow(string $title, string $auhtor, string $screen, string $duratio
     return $statement->rowCount() > 0;
 }
 
+
+// --------------------------edit venue and price------------------------
+function editVenuePrice(string $hall, string $price, string $date, string $time, int $show_id, int $detail_id, int $venue_id ): bool
+{
+    global $connection;
+    $statement = $connection->prepare("UPDATE show_details SET hall = :hall,  price= :price, date = :date, time = :time,show_id = :show_id,venue_id = :venue_id
+    WHERE id = :id");
+    $statement->execute([
+        ':hall' => $hall,
+        ':price' =>$price,
+        ':date' =>$date,
+        ':time' =>$time,
+        ':id' => $detail_id,  
+        ':show_id' => $show_id,  
+        ':venue_id' => $venue_id   
+    ]);
+    return $statement->rowCount() > 0;
+
+    
+}
+    
+
+ 

@@ -48,26 +48,16 @@ require_once('views/partials/head.php');
                     $venueHall = getVenuesHall($_GET['id'], $venue['name']);
                     foreach ($venueHall as $hall) {
                     ?>
-                        <a>
-                            <div class="flex justify-between bg-gray-400 mr-[10%] mt-[1%] p-4 text-black rounded-xl hover:bg-white hover:text-black " style="border-left:4px solid red">
-                                flex-col gap-2.5 <p class="flex items-center justify-center">
-                                    <?= $hall['hall'] ?>
-                                </p>
-                                <p class="flex items-center justify-center">
-                                    <?= $hall['time'] ?>
-                                </p>
-                                <p class="flex items-center justify-center">
-                                    <?= $hall['date'] ?>
-                                </p>
-                                <p class="flex items-center justify-center">
-                                    <?= $hall['price'] ?>
-                                </p>
-                                <div class="flex justify-center gap-3">
-                                    <button id="edit" class="flex items-center justify-center" data-index="<?= $hall['id'] ?>">Edit</button>
-                                    <button id="delete" class="flex items-center justify-center">Delete</button>
-                                </div>
+                        <div id="edit-venue-show" class="flex justify-between bg-gray-400 mr-[10%] mt-[1%] p-4 text-black rounded-xl hover:bg-white hover:text-black " style="border-left:4px solid red">
+                            <p id="hall-venue" class="flex items-center justify-center"><?= $hall['hall'] ?></p>
+                            <p id="time-venue" class="flex items-center justify-center"><?= $hall['time'] ?></p>
+                            <p id="date-venue" class="flex items-center justify-center"><?= $hall['date'] ?></p>
+                            <p id="price-venue" class="flex items-center justify-center"><?= $hall['price'] ?></p>
+                            <div class="flex justify-center gap-3">
+                                <button id="edit" class="flex items-center justify-center" data-index="<?= $hall['id'] ?>" data-venue="<?= $hall['venue_id'] ?>">Edit</button>
+                                <button id="delete" class="flex items-center justify-center">Delete</button>
                             </div>
-                        </a>
+                        </div>
                     <?php
                     }
                     ?>
@@ -176,19 +166,14 @@ require_once('views/partials/head.php');
         </div>
     </form>
 </div>
-
-
-
 <!-- ==========================================venue==form=============== -->
-<!-- <div class="venue-edit-container h-full w-full fixed " style="display:none;">
+<div class="venue-edit-container h-full w-full fixed " style="display:none;">
     <div id="venue-edit" class="justify-center flex item-center mt-[100px] ">
-        <form id="form-venue" action="" method="post" enctype="multipart/form-data"
-            class=" border-t-4 border-[#ff0000] shadow-2xl shadow-[#ff0000] w-[55%] p-[15px] rounded-[30px] bg-[#101827]">
+        <form id="form-venue" action="controllers/pages/seller/action/edit_venue_price.controller.php" method="post" enctype="multipart/form-data" class=" border-t-4 border-[#ff0000] shadow-2xl shadow-[#ff0000] w-[55%] p-[15px] rounded-[30px] bg-[#101827]">
             <h1 class="text-[30px] text-white font-bold text-center">EDIT VENUE</h1>
             <div class="">
                 <div class="hall-venue">
-                    <select name="hall" id="hall-venue"
-                        class="p-2.5 rounded-[30px] text-white mt-[15px] bg-[#101827] border  border-white w-full ">
+                    <select name="hall" id="hall-venue-input" class="p-2.5 rounded-[30px] text-white mt-[15px] bg-[#101827] border  border-white w-full ">
                         <option value="" disabled selected>Choose Hall</option>
                         <option value="Hall 1">Hall 1</option>
                         <option value="Hall 2">Hall 2</option>
@@ -199,37 +184,35 @@ require_once('views/partials/head.php');
                     </small>
                 </div>
                 <div class="time-venue flex mt-[15px] justify-between gap-2.5">
-                    <input type="text" id="hour-venue " name="time"
-                        class="p-2.5 rounded-[30px] w-full bg-[#101827] border border-white" placeholder="Hour">
-                    <small id="time-message" class="text-red-600">
-                </small>
-                    <input type="text" id="min-venue" name="time"
-                        class="p-2.5 rounded-[30px] w-full bg-[#101827] border border-white" placeholder="Minute">
-                    <small id="time-message" class="text-red-600">
-                </small>
+                    <div class="w-full">
+                        <input type="text" id="hour-venue" name="h" class="p-2.5 rounded-[30px] w-full bg-[#101827] text-white border border-white" placeholder="Hour">
+                        <small id="time-message" class="text-red-600"></small>
+                    </div>
+                    <div class="w-full">
+                        <input type="text" id="min-venue" name="m" class="p-2.5 rounded-[30px] w-full bg-[#101827] text-white border border-white" placeholder="Minute">
+                        <small id="timeM-message" class="text-red-600"></small>
+                    </div>
                 </div>
-                <div class="date-venue mt-[15px]">
-                    <input datepicker type="date" placeholder="Select date" id="date-venue" name="date"
-                        class="bg-[#101827] p-2.5 rounded-[30px] w-full border text-white border-white">
+                <div class="mt-[15px]">
+                    <input type="text" id="date-venue-input" name="date" class="bg-[#101827] p-2.5 rounded-[30px] w-full border text-white border-white">
                     </small>
                 </div>
                 <div class="price">
                     <input type="number" id="price" name="price" placeholder="Price">
                     <small id="price-message" class="text-red-600">
                     </small>
+                    <input type="text" name="show" class="hidden" value="<?= $_GET['id']?>">
+                    <input type="text" id="detailId" name="detail" class="hidden" value="">
+                    <input type="text" id="venueId" name="venue" class="hidden" value="">
                 </div>
             </div>
-            <div class="h-[45px] mt-[15px]" style="overflow:auto;">
+            <div class=" h-[45px] mt-[15px]" style="overflow:auto;">
                 <div class="flex w-full h-full justify-between">
-                    <a href="/seller"
-                        class=" flex w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] text-center justify-center rounded-[20px]"
-                        id="canBtn"><button type="button">Cancel</button></a>
-                    <button type="submit"
-                        class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]"
-                        name="showId" id="">Edit</button>
+                    <button type="button" class=" flex w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] items-center justify-center rounded-[20px]" id="venue-canBtn">Cancel</button>
+                    <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="venue-edit-Btn">Edit</button>
                 </div>
             </div>
         </form>
     </div>
-</div> -->
+</div>
 <script src="views/js/edit_show.js"></script>
