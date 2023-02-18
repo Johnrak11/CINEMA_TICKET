@@ -21,3 +21,4 @@ function getVenuesHall(int $id, string $name): array
     ]);
     return $statement->fetchAll();
 }
+
