@@ -23,6 +23,11 @@ if (isset($_COOKIE['id'])) {
         $router['/actionShow'] = "controllers/pages/seller/action_shwo.controller.php";
         $router['/edit-show'] = "controllers/pages/seller/action/edit_show.controller.php";
         $router['/select-seat'] = "controllers/pages/booking/seat/seat.controller.php";
+        // $router['/edit'] = "controllers/pages/seller/action/edit_new_show.controller.php";
+        // $router['/edit-view'] = "views/pages/seller/action/edit_show.view.php";
+
+
+
     } elseif ($roleUser['role'] === 'admin') {
         $router['/seller'] = "controllers/pages/seller/seller.controller.php";
         $router['/createShow'] = "controllers/pages/seller/create_show.controller.php";
