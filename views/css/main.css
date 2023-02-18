@@ -1411,6 +1411,14 @@ textarea::placeholder {
 #regForm .input-red {
     border: 1px red solid;
 }
+<<<<<<< HEAD
+.teckit-right{
+    border-left: 2px solid white;
+    height: 220px;
+ 
+  
+
+=======
 .pay-red{
     outline: 2px green solid;
 }
@@ -1551,4 +1559,5 @@ print and (-ms-high-contrast: none) {
     .form-select {
         padding-right: 0.75rem;
     }
+>>>>>>> b289905f13459166f1680cac9ffb70ca475cdcc6
 }

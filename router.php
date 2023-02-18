@@ -4,6 +4,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $router = [
     "/" => "controllers/pages/home/index.controller.php",
     "/contact" => "controllers/pages/contact/contact.controller.php",
+    "/about" => "controllers/pages/about/about.controller.php",
     "/register" => "controllers/pages/forms/register.controller.php",
     "/show" => "controllers/pages/show/show.controller.php",
     "/detail" => "controllers/pages/detail/detail.controller.php",
