@@ -54,6 +54,10 @@ let domEditCancelBtn = document.querySelector("#canBtn")
 domEditCancelBtn.addEventListener('click', (e) => {
     domEditSow.style.display = 'none';
 })
+let venueCancelBtn = document.querySelector("#venue-canBtn")
+venueCancelBtn.addEventListener('click', (e) => {
+    domVenueEditContainer.style.display = 'none';
+})
 // // ----------------teb 1 dom--------------------------
 
 let domTitle = document.querySelector('#title')
@@ -318,3 +322,126 @@ function nameChecked(title) {
         })
     });
 }
+
+
+let domH = document.querySelector('#hour-venue');
+domH.addEventListener('keyup', (e) => {
+    validatehours(domH, '#time-message', "Hour must be less than 10 hours")
+});
+let domM = document.querySelector('#min-venue')
+domM.addEventListener('keyup', (e) => {
+    validateMinutes(domM, '#timeM-message', "Minute must be less than 60 Minutes")
+});
+let domP = document.querySelector('#price')
+domP.addEventListener('keyup', (e) => {
+    validatePrice(domP, '#price-message', "Price must be less than 100$")
+});
+let hallVenue = document.querySelector('#hall-venue-input');
+hallVenue.addEventListener('keyup', (e) => {
+    validatePrice(hallVenue, '#hall-message', "You must choose a hall")
+});
+
+
+
+function validateMinutes(domNum, domMessage, message) {
+    let number = parseInt(domNum.value);
+    if (Number.isInteger(number) && number >= 0 && number <= 59) {
+        domNum.className = 'input-green p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = '';
+        return true
+    } else {
+        domNum.className = 'input-red p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = message;
+        return false
+    }
+}
+function validatehours(domNum, domMessage, message) {
+    let number = parseInt(domNum.value);
+    if (Number.isInteger(number) && number >= 0 && number <= 10) {
+        domNum.className = 'input-green p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = '';
+        return true
+    } else {
+        domNum.className = 'input-red p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = message;
+        return false
+    }
+}
+function validatePrice(domNum, domMessage, message) {
+    let number = parseInt(domNum.value);
+    if (Number.isInteger(number) && number >= 0 && number <= 100) {
+        domNum.className = 'input-green p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = '';
+        return true
+    } else {
+        domNum.className = 'input-red p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = message;
+        return false
+    }
+}
+function validateHallVenue(domNum, domMessage, message) {
+    let number = parseInt(domNum.value);
+    if (Number.isInteger(number) && number >= 0 && number <= 100) {
+        domNum.className = 'input-green p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = '';
+        return true
+    } else {
+        domNum.className = 'input-red p-2.5 rounded-[30px] bg-transparent text-white w-full'
+        document.querySelector(domMessage).textContent = message;
+        return false
+    }
+}
+
+
+
+let domVenueEditContainer = document.querySelector('.venue-edit-container');
+let domD = document.querySelector('#date-venue-input');
+let editVenueShow = document.querySelectorAll('#edit-venue-show');
+editVenueShow.forEach(venueShow => {
+    venueShow.addEventListener('click', (e) => {
+        let index = e.target.dataset.index;
+        if (index !== undefined) {
+            domVenueEditContainer.style.display = 'block';
+            editVenue(e);
+            if (hallVenue.value !== "" || domH.value !== "" || domM !=="" || domD !== "" || domP !== "" ){
+                hallVenue.style.border = "1px solid green";
+                domH.style.border = "1px solid green";
+                domM.style.border = "1px solid green";
+                domD.style.border = "1px solid green";
+                domP.style.border = "1px solid green";
+            }else {
+                hallVenue.style.border = "1px solid red";
+                domH.style.border = "1px solid red";
+                domM.style.border = "1px solid red";
+                domD.style.border = "1px solid red";
+                domP.style.border = "1px solid red";
+            }
+        }
+    });
+});
+
+
+
+function editVenue(e) {
+    let price = e.target.parentElement.previousElementSibling.textContent;
+    let date = e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
+    let timeGet = e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
+    let strTime = timeGet;
+    let arr = strTime.split(':');
+    let hourVenue = $.trim(arr[0]);
+    let minVenue = $.trim(arr[1]);
+    domH.value = hourVenue;
+    domM.value = minVenue;
+    domD.value = date;
+    domP.value = price.split("$", 1);
+}
+
+$(document).ready(function () {
+    $("#date-venue-input").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "d M yy",
+        maxDate: '30',
+        minDate: '0'
+    });
+});
