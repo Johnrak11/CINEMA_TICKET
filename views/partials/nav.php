@@ -1,7 +1,7 @@
 <?php
 require_once("models/user.model.php");
 ?>
-<nav id='navbar' class=" bg-white border-gray-200 rounded dark:bg-black">
+<nav id='navbar' class=" bg-white border-gray-200 rounded dark:bg-black none">
     <div class=" flex flex-wrap items-center justify-between">
         <a href="/" class="flex items-center ml-10 rounded-full">
             <img src="views/images/components_image/tickhub.png" class="w-16 mr-3 rounded-full" />
@@ -59,7 +59,7 @@ require_once("models/user.model.php");
                         }
                         ?>
                         <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-white dark:text-gray-200 dark:hover:text-black">Purchese</a>
+                            <a href="/purchese" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-white dark:text-gray-200 dark:hover:text-black">Purchese</a>
                         </li>
                         <li>
                             <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-white dark:text-gray-200 dark:hover:text-black">Sign out</a>
