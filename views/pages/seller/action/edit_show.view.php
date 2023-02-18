@@ -92,7 +92,7 @@ require_once('views/partials/head.php');
         <div class="tab m-3 ">
             <div class="flex gap-2.5">
                 <div class="title w-full">
-                    <input placeholder="Title" id="title" name="name" class="">
+                    <input placeholder="Title" id="title" name="name" class="<?php echo $titleValid ? '' : 'input-red' ?>">
                     <small id="title-message" class="text-red-600 ml-2"></small>
                 </div>
 
@@ -148,7 +148,7 @@ require_once('views/partials/head.php');
                         <option value="English">English</option>
                         <option value="China">China</option>
                     </select>
-                    <small id="language-message" class="text-red-600">
+                    <small id="language-message" class="text-red-600 ml-2">
 
                     </small>
                 </div>

@@ -287,6 +287,10 @@ function valueFill() {
         let isTRue = true;
         if (domauthor.value === '' || domDescription.value === '' || domTrailler.value === '' || domhour.value === '' || domMinute.value === '' || domScreen.value === '' || domTypeMovie.value === '' || domLanguageMovie === '' || domImage.value === '') {
             isTRue = false;
+            validateForm();
+            document.querySelector("#language-message").textContent = "Language must be select";
+            domImage.className = 'input-green rounded-3xl p-2 mt-4 ';
+            document.querySelector("#image-message").textContent = "Image must be choose";
         } else {
             isTRue = true;
         }
