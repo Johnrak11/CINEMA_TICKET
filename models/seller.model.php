@@ -11,6 +11,15 @@ function getProduct(int $id, int $active): array
     ]);
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
+function getPublichProduct(int $active): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT s.* FROM shows s WHERE s.is_confirm = :active");
+    $statement->execute([
+        ":active" => $active
+    ]);
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
 function deleteShow(int $id): bool
 {
     global $connection;

@@ -51,11 +51,8 @@ require_once('views/partials/head.php');
           leading-tight
           focus:border-transparent
           " id="tabs-messages-tabVertical" data-bs-toggle="pill" data-bs-target="#tabs-admin-user">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
-                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-                    </svg>
-                    <span class="">user</span>
+                    <i class='fas fa-user-circle' style='font-size:24px'></i>
+                    <span class="ml-2">User</span>
                 </a>
             </li>
             <li class="nav-item flex-grow text-center sidebar-list-item " role="presentation">
@@ -66,12 +63,12 @@ require_once('views/partials/head.php');
           font-medium
           leading-tight
           focus:border-transparent
-          " id="tabs-messages-tabVertical" data-bs-toggle="pill" data-bs-target="#tabs-messagesVertical" role="tab" aria-controls="tabs-messagesVertical" aria-selected="false">
+          " id="tabs-product-tabVertical" data-bs-toggle="pill" data-bs-target="#tabs-admin-show">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
                         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
                         <path d="M13.73 21a2 2 0 0 1-3.46 0" />
                     </svg>
-                    <span class="">Booking</span>
+                    <span class="">Product</span>
                 </a>
             </li>
         </ul>
@@ -93,6 +90,7 @@ require_once('views/partials/head.php');
     <div class="tab-content w-full" id="tabs-tabContentVertical">
         <?php require_once('views/pages/admin/venue/admin_venue.view.php'); ?>
         <?php require_once('views/pages/admin/venue/admin_user.view.php'); ?>
+        <?php require_once('views/pages/admin/venue/admin_show.view.php'); ?>
     </div>
 </div>
 
