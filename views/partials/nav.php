@@ -1,7 +1,7 @@
 <?php
 require_once("models/user.model.php");
 ?>
-<nav id='navbar' class=" bg-white border-gray-200 rounded dark:bg-black">
+<nav id='navbar' class=" bg-white border-gray-200 rounded dark:bg-black none">
     <div class=" flex flex-wrap items-center justify-between">
         <a href="/" class="flex items-center ml-10 rounded-full">
             <img src="views/images/components_image/tickhub.png" class="w-16 mr-3 rounded-full" />
@@ -35,7 +35,7 @@ require_once("models/user.model.php");
                 <div id="dropdown-menu" class="z-50  my-10 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-[#ff0000] dark:divide-[#ff0000]">
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-white dark:text-gray-200 dark:hover:text-black">Profile Detail</a>
+                            <a href="/user-profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-white dark:text-gray-200 dark:hover:text-black">Profile Detail</a>
                         </li>
                         <?php
                         if (isset($_COOKIE['email']) and isset($_COOKIE['id'])) {
@@ -78,7 +78,7 @@ require_once("models/user.model.php");
         </div>
 
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
-            <ul class="flex flex-col border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-black md:dark:bg-black dark:border-black">
+            <ul id="nav-container" class="flex flex-col border border-gray-100 rounded-lg bg-black md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-black md:dark:bg-black dark:border-black">
                 <li>
                     <a href="/" class="block bg-black py-2 pl-3 pr-4 text-white rounded hover:text-[#ff0000] text-lg <?php echo urlIs('/') ? "md:text-[#ff0000] text-2xl " : "text-white" ?>">Home</a>
                 </li>

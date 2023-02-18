@@ -1,8 +1,6 @@
 // ---------------------------history----------------
 let domHistory = document.querySelector('#history');
-let domCancel = document.querySelector('.cancel');
-let domCard = document.querySelector('.card');
-
+let domNavbar = document.querySelector('#navbar');
 
 
 domHistory.addEventListener('click', function (e) {
@@ -20,11 +18,14 @@ function show(element) {
 }
 function onClickHistory(e) {
     show(domDialog);
-}
-function onClickCancel(e) {
-    hide(domDialog);
+    hide(domNavbar);
+
 }
 
-function onClickCancelCard(e) {
-    hide(domCard);
+function onClickCancel(e) {
+    hide(domDialog);
+    show(domNavbar);
+
 }
+
+
