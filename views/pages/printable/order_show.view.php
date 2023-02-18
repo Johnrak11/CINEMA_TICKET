@@ -17,23 +17,27 @@ require_once('views/partials/nav.php');
 
             <div class="contain flex flex-wrap gap-7 ">
                 <?php
-                for ($i = 0; $i < 6; $i++) : {
+                foreach ($activeTicket as $ticket) : {
+                        date_default_timezone_set("Asia/Phnom_Penh");
+                        $time = $ticket['time'];
+                        $isDateNow = $ticket['date'] . ' ' . $ticket['time'];
+                        $formatTime = date('h:i A', strtotime($time));
                 ?>
                         <div class="card mt-5 none ">
                             <img src="views/images/shows_image/show13.jpg" alt="" class="rounded-xl ">
                             <div class="info text-white">
-                                <h1>Nana</h1>
-                                <p>Horror</p>
-                                <p>Sen Sok</p>
-                                <p>02/12/2023</p>
-                                <p>05:30</p>
-                                <p>3G</p>
-                                <button>Cancel</button>
+                                <h1><?= $ticket['name'] ?></h1>
+                                <p><?= $ticket['venue'] ?></p>
+                                <p><?= $ticket['hall'] ?></p>
+                                <p><?= $ticket['date'] ?></p>
+                                <p><?= $formatTime?></p>
+                                <p> Seat: <?= $ticket['seat'] ?></p>
+                                <button>View ticket</button>
                             </div>
                         </div>
                 <?php
                     }
-                endfor ?>
+                endforeach ?>
             </div>
         </div>
     </div>

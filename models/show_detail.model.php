@@ -51,4 +51,19 @@ function getVenue(): array
     $statement->execute([]);
     return $statement->fetchAll();
 }
-
+function getActiveTicket(int $id, string $date): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT td.id,s.name,v.name as 'venue',sd.hall,sd.date,sd.time,td.seat
+                                        FROM ticket_orders td 
+                                        INNER JOIN users u ON u.id = td.user_id 
+                                        INNER JOIN show_details sd ON sd.id = td.show_detail_id 
+                                        INNER JOIN shows s ON s.id = sd.show_id 
+                                        INNER JOIN venues v ON v.id = sd.venue_id  
+                                        WHERE u.id = :id AND sd.date >= :date");
+    $statement->execute([
+        ":id" => $id,
+        ":date" => $date
+    ]);
+    return $statement->fetchAll();
+}
