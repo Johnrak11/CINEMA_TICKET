@@ -12,7 +12,7 @@
         <div class="info">
           <h1><?= $listShows[$i]['name'] ?></h1>
           <a id="more-detail-btn" href="<?= "/detail?id=" . $listShows[$i]['id']  ?>">More detail</a>
-          <a id="more-detail-btn" href="<?= (isset($_COOKIE['email']) and isset($_COOKIE['id'])) ? "#": "/login" ?>">Get ticket</a>
+          <a id="more-detail-btn" href="<?= (isset($_COOKIE['email']) and isset($_COOKIE['id'])) ? "/booking?id=".$listShows[$i]['id'] : "/login" ?>">Get ticket</a>
         </div>
       </div>
   <?php

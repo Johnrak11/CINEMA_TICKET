@@ -120,10 +120,10 @@ require_once("views/partials/head.php");
             <div class="hall">
                 <select name="hall" id = "hall-show" class="<?php echo $hallValid? '': 'input-red'?> p-3 rounded-[30px] text-white mt-[15px] bg-[#101827] border border-white w-full  ">
                     <option value="" disabled selected>Choose Hall</option>
-                    <option value="Hall-1">Hall 1</option>
-                    <option value="Hall-2">Hall 2</option>
-                    <option value="Hall-3">Hall 3</option>
-                    <option value="Hall-4">Hall 4</option>
+                    <option value="Hall 1">Hall 1</option>
+                    <option value="Hall 2">Hall 2</option>
+                    <option value="Hall 3">Hall 3</option>
+                    <option value="Hall 4">Hall 4</option>
                 </select>
                 <small id = "hall-message"class = "text-red-600 ml-2">
                         <?= $hallError?>

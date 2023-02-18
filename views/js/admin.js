@@ -186,7 +186,6 @@ domChangePositionFormEdit.addEventListener('click', (e) => {
 let domDeleteUser = document.querySelectorAll('#user-delete')
 domDeleteUser.forEach(deleteBtn => {
     deleteBtn.addEventListener('click', (e) => {
-        console.log('hello')
         delete_alert(e.currentTarget.dataset.index,"/userEdit?deleteId=")
     });
 })
