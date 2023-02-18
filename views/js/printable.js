@@ -1,7 +1,7 @@
 // ---------------------------history----------------
 let domHistory = document.querySelector('#history');
 let domNavbar = document.querySelector('#navbar');
-
+let domViewTicket = document.querySelector('#view-ticket')
 
 domHistory.addEventListener('click', function (e) {
     if (e.target.id === 'backlog') {

@@ -13,6 +13,7 @@ $router = [
     "/logout" => "controllers/pages/forms/logout.controller.php",
     "/purchese" => "controllers/pages/printable/printable.controller.php",
     "/select-seat" => "controllers/pages/booking/seat/seat.controller.php",
+    "/view-ticket" => "controllers/pages/printable/printable_detail.controller.php",
 ];
 $roleUser =[];
 if (isset($_COOKIE['id'])) {
