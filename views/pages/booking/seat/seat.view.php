@@ -116,8 +116,8 @@ require_once('views/partials/nav.php');
                         <path d="M8.445 12.6675A.9.9 0 0 0 7.1424 13.91l2.5726 2.7448c.3679.3856.9884.3689 1.335-.036l5.591-7.0366a.9.9 0 0 0-1.3674-1.1705l-4.6548 5.9132a.4.4 0 0 1-.607.0252l-1.567-1.6826zM1.9995 12c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10z"></path>
                     </svg> </div>
                 <div>
-                    <h4 class="text-md leading-6 font-medium"> Your message - make it short & clear. </h4>
-                    <p class="text-sm"> Description - make it as clear as possible. </p>
+                    <h4 class="text-md leading-6 font-medium"> Please click comfrim to pay</h4>
+                    <p class="text-sm"> Node - Your payment will be pay to Tickhub</p>
                     <form id="checkout-submit" action="controllers/pages/booking/payment/payment.controller.php" method="get" class="flex mt-3 item-center">
                         <div class="flex items-center mb-2">
                             <button type="button" id="confirm-checkout" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-700 text-base font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:w-auto sm:text-sm">Comfirm pay </button>

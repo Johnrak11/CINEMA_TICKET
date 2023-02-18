@@ -62,14 +62,20 @@ let domCheckoutContainer = document.querySelector('#checkout-container')
 let checkoutBtn = document.querySelector('#checkout')
 checkoutBtn.addEventListener('click', (e) => {
     let totatSeat = document.querySelector('#total-seat').textContent
-    if (totatSeat !== ""){
+    if (totatSeat !== "") {
         if (e.currentTarget.classList.contains('credit-none')) {
             paymentContainer.style.display = "block";
             document.querySelector('#seat-information').style.filter = "blur(10px)";
         } else {
             domCheckoutContainer.style.display = "block";
+            let domAddCreditcard = document.querySelector('#add-credit-card')
+            domAddCreditcard.addEventListener('click', (e) => {
+                paymentContainer.style.display = "block";
+                domCheckoutContainer.style.display = "none";
+                document.querySelector('#seat-information').style.filter = "blur(10px)";
+            })
         }
-    }else{
+    } else {
         isConfirmed('error', "Places select the seat first")
     }
 });
@@ -88,12 +94,7 @@ let domCheckoutCancel = document.querySelector('#checkout-cancel')
 domCheckoutCancel.addEventListener('click', (e) => {
     domCheckoutContainer.style.display = "none";
 })
-let domAddCreditcard = document.querySelector('#add-credit-card')
-domAddCreditcard.addEventListener('click', (e) => {
-    paymentContainer.style.display = "block";
-    domCheckoutContainer.style.display = "none";
-    document.querySelector('#seat-information').style.filter = "blur(10px)";
-})
+
 let confirmCheckoutSubmit = document.querySelector('#checkout-submit')
 let confirmCheckout = document.querySelector('#confirm-checkout')
 confirmCheckout.addEventListener('click', (e) => {
