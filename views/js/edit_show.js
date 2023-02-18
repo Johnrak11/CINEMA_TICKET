@@ -91,7 +91,6 @@ domLanguageMovie.addEventListener("click", (e) => {
     document.querySelector("#language-message").textContent = "";
     domLanguageMovie.className = 'input-green';
 })
-<<<<<<< HEAD
 let input = document.getElementById("inputTag");
 let imageName = document.getElementById("imageName")
 
@@ -101,8 +100,7 @@ input.addEventListener("change", () => {
     imageName.innerText = inputImage.name;
 })
 
-=======
->>>>>>> 876e7ca135655e74eb691e5879b1ac73f6a558a8
+
 let domImage = document.querySelector('#image')
 domImage.addEventListener("click", (e) => {
     document.querySelector("#image-message").textContent = "";
