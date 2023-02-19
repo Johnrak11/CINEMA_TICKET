@@ -32,7 +32,7 @@ function getUser(int $id) : array
 function getUsersLimit(): array
 {
     global $connection;
-    $statement = $connection->prepare("SELECT name,email,role,id FROM users ORDER BY name ASC LIMIT 20");
+    $statement = $connection->prepare("SELECT name,email,role,id FROM users ORDER BY id ASC");
     $statement->execute();
     return $statement->fetchAll();
 }

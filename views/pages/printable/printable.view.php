@@ -2,7 +2,7 @@
 require_once('views/partials/head.php');
 ?>
 <div class="container max-w-full flex fixed top-0 bottom-0 right-0 left-0 items-center justify-center">
-    <div class="card-teckit dark:text-white flex w-[65%] h-[60%] p-7  bg-white border rounded-xl border-gray-500 shadow hover:bg-red-100 dark:bg-red-800 dark:border-red-700 dark:hover:bg-red-700 ">
+    <div id="image-print" class="card-teckit dark:text-white flex w-[65%] h-[60%] p-7  bg-white border rounded-xl border-gray-500 shadow hover:bg-red-100 dark:bg-red-800 dark:border-red-700 dark:hover:bg-red-700 ">
         <div class="teckit-left flex flex-col justify-center mr-[15%]">
             <h2 class="font-normal text-center text-yellow-300 text-2xl ml-5 mb-5">TICK HUB</h2>
             <img src="views/images/components_image/qr_Cod.png" alt="" class="w-[100%] mb-[10%]">

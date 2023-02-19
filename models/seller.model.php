@@ -29,6 +29,15 @@ function deleteShow(int $id): bool
     ]);
     return $statement->rowCount() > 0;
 }
+function deleteTicket(int $id): bool
+{
+    global $connection;
+    $statement = $connection->prepare("DELETE FROM show_details WHERE id = :id");
+    $statement->execute([
+        ":id" => $id,
+    ]);
+    return $statement->rowCount() > 0;
+}
 function publicShow(int $id):bool
 {
     global $connection;

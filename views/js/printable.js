@@ -25,7 +25,6 @@ function onClickHistory(e) {
 function onClickCancel(e) {
     hide(domDialog);
     show(domNavbar);
-
 }
 
 

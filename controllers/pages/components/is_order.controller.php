@@ -9,5 +9,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
         }
         echo $isOrder;
     }
+    else if(isset($_GET['detailId'])){
+        $isTicket = 'exist';
+        if (empty(isOrderTicket($_GET['detailId']))){
+            $isTicket = 'none';
+        }
+        echo $isTicket;
+    }
 }
 ?>

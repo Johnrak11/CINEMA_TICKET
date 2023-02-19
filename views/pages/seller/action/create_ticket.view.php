@@ -52,7 +52,7 @@ require_once("views/partials/head.php");
         </div>
         <div class="h-[45px] mt-[15px]" style="overflow:auto;">
             <div class="flex w-full h-full justify-between">
-                <a href="/seller" class=" flex w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] text-center justify-center rounded-[20px]" id="canBtn"><button type="button">Cancel</button></a>
+                <a href="<?= ($_GET['role'] === 'admin') ? "/admin" : "/seller" ?>" class=" flex w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] text-center justify-center rounded-[20px]" id="canBtn"><button type="button">Cancel</button></a>
                 <button type="submit" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" name = "showId" value="<?= $_GET['showId'] ?>" id="nextBtn">Create</button>
             </div>
         </div>

@@ -363,7 +363,7 @@ function validateMinutes(domNum, domMessage, message) {
 }
 function validatehours(domNum, domMessage, message) {
     let number = parseInt(domNum.value);
-    if (Number.isInteger(number) && number >= 0 && number <= 24 ) {
+    if (Number.isInteger(number) && number >= 0 && number <= 24) {
         domNum.className = 'input-green p-2.5 rounded-[30px] bg-transparent text-white w-full'
         document.querySelector(domMessage).textContent = '';
         return true
@@ -406,21 +406,36 @@ let editVenueShow = document.querySelectorAll('#edit-venue-show');
 editVenueShow.forEach(venueShow => {
     venueShow.addEventListener('click', (e) => {
         let index = e.target.dataset.index;
-        console.log(e.target.dataset.venue)
-        console.log(e.target.dataset.index)
         document.querySelector('#detailId').value = index;
         document.querySelector('#venueId').value = e.target.dataset.venue;
         if (index !== undefined) {
-            domVenueEditContainer.style.display = 'block';
-            editVenue(e);
-            hallVenue.style.border = "1px solid green";
-            domH.style.border = "1px solid green";
-            domM.style.border = "1px solid green";
-            domD.style.border = "1px solid green";
-            domP.style.border = "1px solid green";
-           
+            if (e.target.classList.contains("show-ordered")) {
+                isConfirmed('error', "This show has been booked");
+            } else {
+                domVenueEditContainer.style.display = 'block';
+                editVenue(e);
+                hallVenue.style.border = "1px solid green";
+                domH.style.border = "1px solid green";
+                domM.style.border = "1px solid green";
+                domD.style.border = "1px solid green";
+                domP.style.border = "1px solid green";
+            }
         }
+
     });
+});
+function sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+}
+let deleteBtns = document.querySelectorAll('#delete')
+deleteBtns.forEach(deleteBtn => {
+    deleteBtn.addEventListener('click', (e) => {
+        if (e.currentTarget.classList.contains("delete-ordered")) {
+            isConfirmed('error', "This show has been booked");
+        } else {
+            deleteShowAlert(e)
+        }
+    })
 });
 
 let formEditVenue = document.querySelector("#form-venue");
@@ -428,23 +443,23 @@ let bntSubmit = document.getElementById("venue-edit-Btn");
 bntSubmit.addEventListener('click', (e) => {
     let isFill = false;
     let countTrue = 0;
-    
-    if (hallVenue.value !== "" && domH.value !== "" && domM !=="" && domD !== "" && domP !== "" ){
+
+    if (hallVenue.value !== "" && domH.value !== "" && domM !== "" && domD !== "" && domP !== "") {
         hallVenue.style.border = "1px solid green";
         domH.style.border = "1px solid green";
         domM.style.border = "1px solid green";
         domD.style.border = "1px solid green";
         domP.style.border = "1px solid green";
         isFill = true;
-       
-    }else {
+
+    } else {
         hallVenue.style.border = "1px solid red";
         isFill = false;
     }
-    if (isFill){
+    if (isFill) {
         formEditVenue.submit();
-       
-    }   
+
+    }
 })
 function editVenue(e) {
     let price = e.target.parentElement.previousElementSibling.textContent;
@@ -460,6 +475,26 @@ function editVenue(e) {
     domP.value = price.split("$", 1);
 }
 
+function deleteShowAlert(e) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        let detailId = e.target.dataset.delete;
+        let showId = e.target.dataset.show;
+        if (result.isConfirmed) {
+            isConfirmed('success', "Your show has been deleted successfully")
+            sleep(1000).then(() => {
+                location.href = "/actionShow?ticketDelete=" + detailId + "&showId=" + showId;
+            })
+        }
+    })
+}
 $(document).ready(function () {
     $("#date-venue-input").datepicker({
         changeMonth: true,

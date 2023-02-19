@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
     }
     if (isset($_GET['deleteId'])){
         deleteUser($_GET['deleteId']);
+        header('location:/admin');
     }
 }
 ?>

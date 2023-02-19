@@ -67,4 +67,15 @@ function isOrderShow(int $sellerId)
     ]);
     return $statement ->fetch();
 }
+function isOrderTicket(int $sellerId)
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT t.* FROM ticket_orders t 
+                                        INNER JOIN show_details sd ON t.show_detail_id = sd.id
+                                        WHERE sd.id = :id ;");
+    $statement->execute([
+        ":id" => $sellerId,
+    ]);
+    return $statement ->fetch();
+}
 ?>

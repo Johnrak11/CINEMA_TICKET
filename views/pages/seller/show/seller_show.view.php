@@ -82,6 +82,7 @@
             <h1 class="text-center text-white text-2xl mt-[20%]">Wellcome to seller page</h1>
             <?php
         } else {
+            $rolePermession = getRole($_COOKIE['id']);
             foreach ($allShow as $show) {
                 $dateTime = getTime($show['id'], date("Y-m-d"));
                 if (file_exists("views/images/shows_image/" . $show['image'])) {
@@ -107,7 +108,7 @@
                         <div class="product-cell image items-center text-center gap-5">
                             <span data-index="<?= $show['id']?>" class="mr-1 cursor-pointer hover:text-red-600 text-blue-700" id="show-edit">Edit</span>
                             <span id="show-venue-add" class="text-blue-500 cursor-pointer hover:text-red-600" data-index="<?= htmlspecialchars($show['id']) ?>">Add</span>
-                            <span class="ml-1 cursor-pointer hover:text-red-600 <?= (empty(isOrderShow($show['id'])) ? 'text-blue-500' : 'line-through text-red-600 show-ordered') ?>" id="show-delete" data-index="<?= htmlspecialchars($show['id']) ?>">Delete</span>
+                            <span class="ml-1 cursor-pointer hover:text-red-600 <?= (empty(isOrderShow($show['id'])) || $rolePermession['role'] === "admin" ? 'text-blue-500' : 'line-through text-red-600 show-ordered') ?>" id="show-delete" data-index="<?= htmlspecialchars($show['id']) ?>">Delete</span>
                         </div>
                     </div>
         <?php

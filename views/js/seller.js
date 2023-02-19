@@ -162,7 +162,7 @@ domProductRows.forEach(domProductRow => {
 let domShowVenueAdds = document.querySelectorAll('#show-venue-add')
 domShowVenueAdds.forEach(domShowVenueAdd => {
     domShowVenueAdd.addEventListener('click', (e) => {
-        location.href = "/add-ticket?showId=" + e.currentTarget.dataset.index;
+        location.href = "/add-ticket?showId=" + e.currentTarget.dataset.index + "&role=seller";
     });
 })
 let domShowDeletes = document.querySelectorAll('#show-delete')

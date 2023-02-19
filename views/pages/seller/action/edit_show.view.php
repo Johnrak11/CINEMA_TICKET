@@ -45,6 +45,7 @@ require_once('views/partials/head.php');
                 </div>
                 <div>
                     <?php
+                    $rolePermession = getRole($_COOKIE['id']);
                     $venueHall = getVenuesHall($_GET['id'], $venue['name']);
                     foreach ($venueHall as $hall) {
                     ?>
@@ -54,8 +55,8 @@ require_once('views/partials/head.php');
                             <p id="date-venue" class="flex items-center justify-center"><?= $hall['date'] ?></p>
                             <p id="price-venue" class="flex items-center justify-center"><?= $hall['price'] ?></p>
                             <div class="flex justify-center gap-3">
-                                <button id="edit" class="flex items-center justify-center" data-index="<?= $hall['id'] ?>" data-venue="<?= $hall['venue_id'] ?>">Edit</button>
-                                <button id="delete" class="flex items-center justify-center">Delete</button>
+                                <button id="edit" class="flex items-center justify-center <?= (empty(isOrderTicket($hall['id'])) || $rolePermession['role'] === "admin" ? 'text-blue-500' : 'line-through text-red-600 show-ordered') ?>" data-index="<?= $hall['id'] ?>" data-venue="<?= $hall['venue_id'] ?>">Edit</button>
+                                <button id="delete" class="flex items-center justify-center <?= (empty(isOrderTicket($hall['id']))|| $rolePermession['role'] === "admin" ? 'text-blue-500' : 'line-through text-red-600 delete-ordered') ?>" data-delete="<?= $hall['id'] ?>" data-show="<?= $_GET['id'] ?>">Delete</button>
                             </div>
                         </div>
                     <?php
@@ -201,7 +202,7 @@ require_once('views/partials/head.php');
                     <input type="number" id="price" name="price" placeholder="Price">
                     <small id="price-message" class="text-red-600">
                     </small>
-                    <input type="text" name="show" class="hidden" value="<?= $_GET['id']?>">
+                    <input type="text" name="show" class="hidden" value="<?= $_GET['id'] ?>">
                     <input type="text" id="detailId" name="detail" class="hidden" value="">
                     <input type="text" id="venueId" name="venue" class="hidden" value="">
                 </div>

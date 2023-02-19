@@ -177,17 +177,61 @@ domChangePositionFormCancel.addEventListener('click', (e) => {
 domChangePositionFormEdit.addEventListener('click', (e) => {
     let inputValue = domInputPosition.value
     console.log(userId)
-    if (inputValue !== 'Position' ) {
+    if (inputValue !== 'Position') {
         location.href = "/userEdit?id=" + userId + "&role=" + inputValue;
-    }else{
-        
+    } else {
+
     }
 });
 let domDeleteUser = document.querySelectorAll('#user-delete')
 domDeleteUser.forEach(deleteBtn => {
     deleteBtn.addEventListener('click', (e) => {
-        delete_alert(e.currentTarget.dataset.index,"/userEdit?deleteId=")
+        delete_alert(e.currentTarget.dataset.index, "/userEdit?deleteId=")
     });
 })
 
+// ---------------------show delete------------
+let deleteBtn = document.querySelectorAll('#delete-show')
+deleteBtn.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        deleteShowAlert(e)
+    })
+})
+function deleteShowAlert(e) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        let showId = e.target.dataset.index;
+        if (result.isConfirmed) {
+            isConfirmed('success', "Your show has been deleted successfully")
+            sleep(1000).then(() => {
+                location.href = "/actionShow?delete=" + showId + "&admin=1";
+            });
+        }
+    })
+}
+function isConfirmed(icon, message) {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        timer: 1800,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    Toast.fire({
+        icon: icon,
+        title: message,
+    })
+}
 

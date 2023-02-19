@@ -1,4 +1,4 @@
-<div class="tab-pane fade show app-content active" id="tabs-admin-show">
+<div class="tab-pane fade show app-content " id="tabs-admin-show">
     <div class="app-content-header">
         <h1 class="app-content-headerText">Product</h1>
     </div>
@@ -79,9 +79,9 @@
                         <div class="product-cell stock"><span class="cell-label">Duration:</span><?= htmlspecialchars($show['duration'])  ?></div>
                         <div class="product-cell price"><span class="cell-label">Screen:</span><?= htmlspecialchars($show['screen'])  ?></div>
                         <div class="product-cell image items-center text-center gap-5">
-                            <span data-index="<?= $show['id'] ?>" class="mr-1 cursor-pointer hover:text-red-600 text-blue-700" id="show-edit">Edit</span>
-                            <span id="show-venue-add" class="text-blue-500 cursor-pointer hover:text-red-600" data-index="<?= htmlspecialchars($show['id']) ?>">Add</span>
-                            <span class="ml-1 cursor-pointer hover:text-red-600 text-blue-700" data-index="<?= htmlspecialchars($show['id']) ?>">Delete</span>
+                            <a href="/edit-show?id=<?= $show['id'] . "&role=admin" ?>"><span class="mr-1 cursor-pointer hover:text-red-600 text-blue-700" id="show-edit">Edit</span></a>
+                            <a href="/add-ticket?showId=<?= ($show['id']) . "&role=admin" ?>"><span id="show-venue-add" class="text-blue-500 cursor-pointer hover:text-red-600">Add</span></a>
+                            <span id="delete-show" class="ml-1 cursor-pointer hover:text-red-600 text-blue-700" data-index="<?= htmlspecialchars($show['id']) ?>">Delete</span>
                         </div>
                     </div>
         <?php

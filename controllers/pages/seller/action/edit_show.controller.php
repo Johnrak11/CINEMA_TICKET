@@ -1,6 +1,7 @@
 <?php
 require_once('models/show_detail.model.php');
 require_once('models/edit_show.model.php');
+require_once('models/create_newShow.model.php');
 $showDetail = [];
 $date = [];
 $strikthrough = "";
