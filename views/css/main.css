@@ -47,7 +47,21 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+/* ============================profile======================================= */
+.upload{
+    width: 100px;
+    position: relative;
+    margin: auto;
+}
+.upload img{
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    border: 5px solid white;
+}
+.upload .round input[type="file"]{
+    position: absolute;
+}
 /* ================================banner================================== */
 #banner-container {
     position: relative;
@@ -108,6 +122,16 @@ body {
     z-index: 29;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.edit-profile input{
+    border-radius: 10px;
+    background-color: #101827;
+    border: 1px solid white;
+    color: white;
+    padding: 5px;
+    width: 50%;
+
+}
+
 
 /* ---------------------------------------show-------------------------------- */
 .card {
@@ -404,6 +428,11 @@ img:hover {
 .menu-open {
     display: block;
     opacity: 1;
+}
+.upload-profile img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
 }
 
 @media screen and (max-width: 1024px) {
