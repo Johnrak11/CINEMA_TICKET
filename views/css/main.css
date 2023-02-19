@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"); */
 
 * {
     box-sizing: border-box;
@@ -122,12 +122,14 @@ body {
 }
 .edit-profile input{
     border-radius: 10px;
-    /* background-color: rgb(171, 44, 44); */
-    color: black;
+    background-color: #101827;
+    border: 1px solid white;
+    color: white;
+    padding: 5px;
+    width: 50%;
+
 }
-.edit-profile input[type="date"]{
-    width: 45%;
-}
+
 
 /* ---------------------------------------show-------------------------------- */
 .card {
@@ -424,6 +426,11 @@ img:hover {
 .menu-open {
     display: block;
     opacity: 1;
+}
+.upload-profile img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
 }
 
 @media screen and (max-width: 1024px) {

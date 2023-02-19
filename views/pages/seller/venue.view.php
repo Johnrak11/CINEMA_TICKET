@@ -147,7 +147,7 @@ require_once('views/partials/head.php');
         </div>
     </div>
 </div>
-<!-- -----------------------------------from------------------ -->
+<!-------------------------------------from-------------------->
 
 <div id="venue-form" class="flex justify-center items-center h-full w-full bg-[#000000a5] " style="position: fixed;display:none;">
     <form id="venue-submit" class="border-t-4 border-[#ff0000] shadow-2xl shadow-[#0c0c0c] w-[35%] p-[15px] rounded-[30px] bg-[#101827]" >

@@ -117,7 +117,6 @@ domEditBtn.forEach(bntEdit => {
         domSubmit.textContent = 'Update';
     })
 })
-
 function delete_alert(btn) {
     Swal.fire({
         title: 'Are you sure?',
