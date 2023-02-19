@@ -19,19 +19,17 @@ require_once('views/partials/nav.php');
             <h1 class="text-2xl mt-3"><i class='far fa-calendar-check ml-2' style='font-size:18px'></i> <span class="ml-[3%]  <?= (empty($strikthrough)) ? "" : "line-through text-red-600" ?>"> <?= htmlspecialchars($date['date']) ?></span></h1>
             <h1 class="text-2xl mt-3"><i class='fas fa-book ml-2' style='font-size:18px'></i> <span class="ml-[3%]"> <?= (!empty($showDetail && !empty($showDetail['author'])) ? htmlspecialchars($showDetail['author']) : 'None') ?></span></h1>
             <h1 class="text-2xl mt-3"><i class='fas fa-closed-captioning ml-2' style='font-size:20px'></i> <span class="ml-[3%]"> <?= (!empty($showDetail && !empty($showDetail['language'])) ? htmlspecialchars($showDetail['language']) : 'None') ?></span></h1>
+            <h1 class="text-2xl mt-3"><i class='fas fa-desktop ml-2' style='font-size:20px'></i> <span class="ml-[3%]"> <?= (!empty($showDetail && !empty($showDetail['screen'])) ? htmlspecialchars($showDetail['screen']) : 'None') ?></span></h1>
             <h1 class="text-2xl mt-3"><i class='fa fa-film ml-2' style='font-size:18px'></i> <span class="ml-[3%]"> <?= (!empty($showDetail && !empty($showDetail['category'])) ? htmlspecialchars($showDetail['category']) : 'None') ?></span></h1>
             <h1 class="text-2xl mt-3 font-bold">Description </h1>
             <p class="text-xl mt-2"><?= (!empty($showDetail && !empty($showDetail['description'])) ? htmlspecialchars($showDetail['description']) : 'None') ?> </p>
         </div>
-        <?php
-            // $show_lists = showList();
-        ?>
         <div class="flex justify-center flex-col items-end mr-[10%] " style="flex:1;">
             <img id="right-card-container" src="<?= (file_exists("views/images/shows_image/" . $showDetail['image']) ? "views/images/shows_image/" . $showDetail['image'] : "None") ?>" alt="" class="w-[70%] rounded-xl"><br>
             <a href="<?= (isset($_COOKIE['email']) and isset($_COOKIE['id'])) ? "/booking?id=". $showDetail['id'] : "/login" ?>" class=" bg-[#ff0000] py-3 px-3 text-white text-center hover:bg-white hover:text-black w-[45%] mr-[13%] rounded-xl"><button class="font-bold uppercase text-xs">Book Now</button></a>
         </div>
     </div>
-    <h1 class="flex-1 text-3xl ml-[10%] mt-[5%] text-white">Trailler</h1>
+    <h1 class="flex-1 text-3xl ml-[10%] mt-[9%] text-white">Trailler</h1>
     <div class="trailler-container flex-3  py-5 flex justify-center align-center flex-1">
         <?php
         if (!empty($showDetail) && !empty($showDetail['trailer'])) {

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
-@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
+@import url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css');
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"); */
 
 * {
@@ -536,12 +536,12 @@ img:hover {
 }
 
 .app-content-headerButton {
-    background-color: var(--action-color);
+    background-color: #ff0000;
     color: #fff;
     font-size: 14px;
     line-height: 24px;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
     height: 32px;
     padding: 0 16px;
     transition: 0.2s;
@@ -549,7 +549,8 @@ img:hover {
 }
 
 .app-content-headerButton:hover {
-    background-color: var(--action-color-hover);
+    background-color: white;
+    color: black;
 }
 
 .app-content-actions {
@@ -1500,11 +1501,6 @@ textarea::placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.screen {
-    transform: rotateX(-45deg);
-    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
 }
 
 /* ------------payment------------ */

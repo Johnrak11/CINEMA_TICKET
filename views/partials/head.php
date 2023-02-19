@@ -19,7 +19,7 @@
   <!-- -------ajax-------- -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <!-- <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
   <!-- --------switch----alert---- -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

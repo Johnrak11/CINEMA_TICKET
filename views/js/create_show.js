@@ -56,7 +56,6 @@ let imageName = document.getElementById("imageName")
 
 input.addEventListener("change", () => {
     let inputImage = document.querySelector("input[type=file]").files[0];
-
     imageName.innerText = inputImage.name;
 })
 // ---------------------------------dom message -------------------
@@ -161,6 +160,19 @@ function validateFailedBorders(domInput, domMessage, message) {
         return false;
     }
 }
+function validateImageBorders(domInput, domMessage, message) {
+    let valueInput = domInput.value;
+    if (valueInput !== "") {
+        domInput.className = 'mt-[15px] text-center p-1.5 border border-white rounded-[30px] w-full input-red'
+        document.querySelector(domMessage).textContent = '';
+        return true;
+    }
+    else {
+        domInput.className = 'mt-[15px] text-center p-1.5 border border-white rounded-[30px] w-full input-green';
+        document.querySelector(domMessage).textContent = message;
+        return false;
+    }
+}
 
 function validateFailed() {
 
@@ -183,7 +195,7 @@ function validateFailed() {
     if (validateFailedBorders(domTypeMovie, "#category-message", "Category must be select")) {
         isFill = false;
     }
-    if (validateFailedBorders(domImage, "#image-message", "Image must be chooes")) {
+    if (validateImageBorders(domImage, "#image-message", "Image must be chooes")) {
         isFill = false;
     }
     if (validateFailedBorders(domTrailler, "#trailler-message", "Trailler must be input")) {
@@ -258,7 +270,7 @@ function validateText(domText, min, max, domMessage, message) {
 
 function validateName(inputValue, domMessage, message) {
     var name = inputValue.value
-    if (/^[A-Za-z\s]+$/.test(name) && name.length > 2 && name.length < 40) {
+    if (name.length > 2 && name.length < 40) {
         inputValue.className = 'input-green'
         document.querySelector(domMessage).textContent = '';
         return true

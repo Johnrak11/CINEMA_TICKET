@@ -23,7 +23,7 @@ require_once("views/partials/head.php");
             </div>
             <div class="flex gap-2.5">
                 <div class="screen w-full">
-                    <select name="screen" id="screen" class="<?php echo $authorValid ? '': 'input-red'?> p-2.5 rounded-[30px] mt-[15px] bg-transparent border w-[100%] bg ">
+                    <select name="screen" id="screen" class="<?php echo $authorValid ? '': 'input-red'?> p-2.5 rounded-[30px] mt-[15px] bg-transparent border w-[100%]">
                         <option value="" disabled selected>Screen</option>
                         <option value="2D">2D</option>
                         <option value="3D">3D</option>
@@ -152,7 +152,7 @@ require_once("views/partials/head.php");
         </div>
         <div class="mr-5 ml-5 h-[45px] mt-[15px]" style="overflow:auto;">
             <div class="flex w-full h-full justify-between">
-                <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="canBtn" onclick=""> <a href="/cancel">Cancel</a></button>
+                <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="canBtn" onclick=""><a href="/seller" class="flex item-center justify-center">Cancel</a></button>
                 <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" id="prevBtn" onclick="nextPrev(-1)">Back</button>
                 <button type="button" class="w-[15%] border-white hover:bg-white hover:text-black bg-[#ff0000] text-white text-[18px] rounded-[20px]" name = "submit" id="nextBtn" onclick="nextPrev(1)">Next</button>
             </div>

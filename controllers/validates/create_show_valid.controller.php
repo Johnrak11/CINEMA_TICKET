@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      if (isset($_POST["author"])) {
           if (empty($_POST["author"])) {
                $authorError = "Must be a text";
-          } else if (authorOfShow($_POST["author"])) {
+          } else if (titleShow($_POST["author"])) {
                $authorValid = true;
           } else {
                $authorError = "Author must be string and don't have sign";

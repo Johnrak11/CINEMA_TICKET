@@ -150,13 +150,13 @@
                                 </div>
                                 <div class="dropdown flex justify-center items-center">
                                     <div class="select">
-                                        <button id="btn" class="mr-[5%] py-1 px-10 bg-slate-600 hover:bg-gray-400 w-24 rounded-xl"><i class="material-icons flex items-center justify-center selected">more_horiz</i></button>
+                                        <button id="btn" class="mr-[5%] py-1 px-10 bg-slate-600 hover:bg-gray-400 w-24 rounded-xl"><i class="material-icons flex items-center justify-center border-none selected">more_horiz</i></button>
                                     </div>
                                     <ul class="menu container" id="list">
-                                        <a href="/add-ticket?showId=<?= $preview['id'] ?>">
+                                        <a href="/add-ticket?showId=<?= $preview['id'] . "&role=seller"?>">
                                             <li class="hover:bg-red-600 w-[10%] hover:text-white">Add</li>
                                         </a>
-                                        <a href="/edit-show?id=<?= $preview['id'] ?>">
+                                        <a href="/edit-show?id=<?= $preview['id']?>">
                                             <li class="hover:bg-red-600 w-[10%] hover:text-white">Edit</li>
                                         </a>
                                         <li class="hover:bg-red-600 w-[10%] hover:text-white"><a href="/detail?id=<?= $preview['id'] ?>">Detail</a></li>
