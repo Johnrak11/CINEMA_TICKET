@@ -14,15 +14,12 @@ domDropdown.addEventListener("click", (e) => {
 let domSearchBtn = document.querySelector("#btn-search");
 let domSearContainer = document.querySelector("#search-container");
 domSearchBtn.addEventListener("click", (e) => {
-    console.log(e.target)
     domSearContainer.style.display = "block";
 
 });
 let domClearBtn = document.querySelector("#clare-search");
 domClearBtn.addEventListener("click", (e) => {
     domSearContainer.style.display = "none";
-    console.log(e.target)
-
 });
 // --------------------searchText------------------------
 $(document).ready(function () {

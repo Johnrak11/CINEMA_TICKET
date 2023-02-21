@@ -23,7 +23,6 @@ function btnEditProfile(e) {
     show(btnSave);
     hide(btnEdit);
     hide(nameUser)
-    // console.log("Yes");
 }
 function validateName(inputValue) {
     // var name = inputValue.value
@@ -44,14 +43,7 @@ domSaveBtn.addEventListener('click',(e) => {
 function saveProfile(e)
 {
     if (validateName(inputName.value) && inputImage)  {
-        console.log("yes");
         document.querySelector("#form-edit-submit").submit()
-        // hide(getEdit);
-        // show(getInfo)
-        // show(btnEdit);
-        // hide(btnSave);
-        // hide(changeImage);
-        // show(nameUser);
     }
 }
 

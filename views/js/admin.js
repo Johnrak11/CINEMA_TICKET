@@ -128,7 +128,6 @@ domEditBtn.forEach(bntEdit => {
         domId.value = e.currentTarget.dataset.index
         domSubmit.textContent = 'Update';
         currentName = domInputName.value
-        console.log(currentName)
     })
 })
 
@@ -176,7 +175,6 @@ domChangePositionFormCancel.addEventListener('click', (e) => {
 })
 domChangePositionFormEdit.addEventListener('click', (e) => {
     let inputValue = domInputPosition.value
-    console.log(userId)
     if (inputValue !== 'Position') {
         location.href = "/userEdit?id=" + userId + "&role=" + inputValue;
     } else {
